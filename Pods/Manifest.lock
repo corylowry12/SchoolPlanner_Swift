@@ -1,0 +1,20 @@
+PODS:
+  - MultiSelectSegmentedControl (2.3.6):
+    - SweeterSwift
+  - SweeterSwift (1.1.4)
+
+DEPENDENCIES:
+  - MultiSelectSegmentedControl
+
+SPEC REPOS:
+  trunk:
+    - MultiSelectSegmentedControl
+    - SweeterSwift
+
+SPEC CHECKSUMS:
+  MultiSelectSegmentedControl: 37fcb70250c2e6ec0aff942c15c294161dc7c11b
+  SweeterSwift: 8a90cf3156f5a1b6f39785c479369a16633b5ea9
+
+PODFILE CHECKSUM: 9ef28c54e143ad97ad5d10eb96278129e0dd9eaf
+
+COCOAPODS: 1.8.4

@@ -1,0 +1,853 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04983CA599A9CA23733BDF2339497069 /* Pods-SchoolPlanner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E9661A86905A4A47477CB80862C47E /* Pods-SchoolPlanner-dummy.m */; };
+		088C24BA63205A94335CCF504EE82980 /* NSAttributedString+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C42BC1B01DA9467682A7F5E1835D751 /* NSAttributedString+Sweeter.swift */; };
+		1A4A534F9D9BB0F57B51BC9581A7B58E /* TimeInterval+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855E1C3D437D9ED569AB6E55AB7A044F /* TimeInterval+Sweeter.swift */; };
+		1C877F8CD49B3EE5871C940C0A88DA15 /* MultiSegmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8B54A4163C81456D980937F6F62B9 /* MultiSegmentPicker.swift */; };
+		2B72FA38155D07104B27B88A87AFEC9B /* NSObject+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A700C83CEBBA257E589452494DFBEC /* NSObject+Sweeter.swift */; };
+		2B79EAB802CE9D0A0B9FC2F596A8C75F /* UIApplication+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29801C330FFC212477153F49AB2F694E /* UIApplication+Sweeter.swift */; };
+		2D79D7BE350F455EB8C7A4C336C3BB2B /* Swift+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249154FECBAA023C01B9E5090C906140 /* Swift+Sweeter.swift */; };
+		3297F2B5ACF562231DC5D92DDC14DFD9 /* SweeterSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C0A5590195FEA5C460F2CB16D3DED3 /* SweeterSwift.framework */; };
+		409C3B58D9848BDACC38CBD86CCB31E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FDBD9A4C236AD692E0B433AA67AAB3 /* Foundation.framework */; };
+		4E4DC2D11BFB3F2975657B2818B9D9BF /* Codable+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB66DCB81FC87D9C1208F910B8552156 /* Codable+Sweeter.swift */; };
+		5745E6C13C5DF770E7A2AA7D03164477 /* NSManagedObjectContext+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DE70DAB01F86F672D490E2AAA69CB1 /* NSManagedObjectContext+Sweeter.swift */; };
+		5E729D2803DF91A2FB22484B8363C705 /* UITextView+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DC924076BFD207BBCC2C731A47D46 /* UITextView+Sweeter.swift */; };
+		5FF4B859F9A40C8763FDFB0D5C1A969F /* DateFormatter+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476C5EE526613750323D4A0C40F1AD1 /* DateFormatter+Sweeter.swift */; };
+		65231AB77270AD1D6971768BA37EC89A /* SweeterSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D8E7658F6F72C307FCDB77612039EEC /* SweeterSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		731A8D983B4738B83274FFF04ADF9DF4 /* String+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCACA4E51853483465A70BC663A3E1CE /* String+Sweeter.swift */; };
+		784BE872571E0577B9516B3FCDCB6276 /* Pods-SchoolPlanner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 40322BAF709DFB0CE06F67187AFCA4ED /* Pods-SchoolPlanner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7FEE059BC270D603572EDE10654A672A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FDBD9A4C236AD692E0B433AA67AAB3 /* Foundation.framework */; };
+		80E91FB532E00D7A6F0F7E948E3714AB /* UIView+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D625648E624DD93540614AFA6F34F0C /* UIView+Sweeter.swift */; };
+		8D0419017EAB1A2DBA01E7F4288437EE /* MultiSelectSegmentedControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B2BE14A04D7C444F7ADEC53C2DFC4698 /* MultiSelectSegmentedControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BB8F8483A5B066650242C942D7E981A /* SweeterSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C9650D459AA59DA6EFEAEFD7F78295 /* SweeterSwift-dummy.m */; };
+		A202C7C6547629EED59284B90B6B235D /* MultiSelectSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1025DA5E49CCAD5E97700DBBF429CC /* MultiSelectSegment.swift */; };
+		A348CEAA5AEBE500E85BFE36DF8E41E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FDBD9A4C236AD692E0B433AA67AAB3 /* Foundation.framework */; };
+		B24A3A14066190858077DB0BDE565678 /* UIStackView+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A33050094F15C381DA107D0C387EF9F /* UIStackView+Sweeter.swift */; };
+		CB97F890E02243F9976912694D947115 /* MultiSelectSegmentedControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D20129CCCD3145098306C17EEC0428F6 /* MultiSelectSegmentedControl-dummy.m */; };
+		DA69BDB8E71848160159F7BDCE8D787B /* UIViewController+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB592007FFAF5B56F1F6865EF94C92 /* UIViewController+Sweeter.swift */; };
+		DCE6A9F1E454EE57E536E083D6C969CA /* MultiSelectSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7EBA490303E9381F95A7759487835 /* MultiSelectSegmentedControl.swift */; };
+		F284493BB289E0C411C3880CAF04A111 /* Bundle+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D26FD72318021529AA84382FB4EACC /* Bundle+Sweeter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9BAFF3675B49C44DA796F46959CE8C11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6819F499159C87193DDD7D51504DD6C1;
+			remoteInfo = SweeterSwift;
+		};
+		DDD828F554F8CA7C46E175E30508D13C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6819F499159C87193DDD7D51504DD6C1;
+			remoteInfo = SweeterSwift;
+		};
+		DF6ED7F043059B248853538D25EB7482 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C07B7AE734D89C24DB2D55FFF6D96DA3;
+			remoteInfo = MultiSelectSegmentedControl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		029DC924076BFD207BBCC2C731A47D46 /* UITextView+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextView+Sweeter.swift"; path = "Source/UITextView+Sweeter.swift"; sourceTree = "<group>"; };
+		0CD4925DD1CCDD7D147B16CEFD472BBE /* Pods-SchoolPlanner-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SchoolPlanner-acknowledgements.plist"; sourceTree = "<group>"; };
+		0D8E7658F6F72C307FCDB77612039EEC /* SweeterSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SweeterSwift-umbrella.h"; sourceTree = "<group>"; };
+		12D7EBA490303E9381F95A7759487835 /* MultiSelectSegmentedControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiSelectSegmentedControl.swift; path = Sources/MultiSelectSegmentedControl.swift; sourceTree = "<group>"; };
+		13E9661A86905A4A47477CB80862C47E /* Pods-SchoolPlanner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SchoolPlanner-dummy.m"; sourceTree = "<group>"; };
+		2053CAB6528453907957BD29F869F9C4 /* Pods-SchoolPlanner-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SchoolPlanner-frameworks.sh"; sourceTree = "<group>"; };
+		249154FECBAA023C01B9E5090C906140 /* Swift+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Swift+Sweeter.swift"; path = "Source/Swift+Sweeter.swift"; sourceTree = "<group>"; };
+		29801C330FFC212477153F49AB2F694E /* UIApplication+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIApplication+Sweeter.swift"; path = "Source/UIApplication+Sweeter.swift"; sourceTree = "<group>"; };
+		2C16DFF20D2BD34E3B55190A8E1D58F9 /* SweeterSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SweeterSwift-Info.plist"; sourceTree = "<group>"; };
+		32B7B566A527BF0B40636008661F7AC4 /* MultiSelectSegmentedControl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MultiSelectSegmentedControl.xcconfig; sourceTree = "<group>"; };
+		33C9650D459AA59DA6EFEAEFD7F78295 /* SweeterSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SweeterSwift-dummy.m"; sourceTree = "<group>"; };
+		3C42BC1B01DA9467682A7F5E1835D751 /* NSAttributedString+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Sweeter.swift"; path = "Source/NSAttributedString+Sweeter.swift"; sourceTree = "<group>"; };
+		40322BAF709DFB0CE06F67187AFCA4ED /* Pods-SchoolPlanner-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SchoolPlanner-umbrella.h"; sourceTree = "<group>"; };
+		51C0A5590195FEA5C460F2CB16D3DED3 /* SweeterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SweeterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D625648E624DD93540614AFA6F34F0C /* UIView+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Sweeter.swift"; path = "Source/UIView+Sweeter.swift"; sourceTree = "<group>"; };
+		5F869E7BC79F844C42F5B45C6A1E2961 /* Pods-SchoolPlanner-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SchoolPlanner-Info.plist"; sourceTree = "<group>"; };
+		6ADA0D2C073A49E1CB922358C3954124 /* Pods-SchoolPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SchoolPlanner.release.xcconfig"; sourceTree = "<group>"; };
+		7A33050094F15C381DA107D0C387EF9F /* UIStackView+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIStackView+Sweeter.swift"; path = "Source/UIStackView+Sweeter.swift"; sourceTree = "<group>"; };
+		7E2642DE0DE5B0ED4F67BECD90908D8E /* SweeterSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SweeterSwift.xcconfig; sourceTree = "<group>"; };
+		80DE70DAB01F86F672D490E2AAA69CB1 /* NSManagedObjectContext+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSManagedObjectContext+Sweeter.swift"; path = "Source/NSManagedObjectContext+Sweeter.swift"; sourceTree = "<group>"; };
+		83450E2F7887C7697A49FC0D1852C566 /* Pods-SchoolPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SchoolPlanner.debug.xcconfig"; sourceTree = "<group>"; };
+		855E1C3D437D9ED569AB6E55AB7A044F /* TimeInterval+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TimeInterval+Sweeter.swift"; path = "Source/TimeInterval+Sweeter.swift"; sourceTree = "<group>"; };
+		86A8B54A4163C81456D980937F6F62B9 /* MultiSegmentPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiSegmentPicker.swift; path = Sources/MultiSegmentPicker.swift; sourceTree = "<group>"; };
+		9476C5EE526613750323D4A0C40F1AD1 /* DateFormatter+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateFormatter+Sweeter.swift"; path = "Source/DateFormatter+Sweeter.swift"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A1FDBD9A4C236AD692E0B433AA67AAB3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		AEAB592007FFAF5B56F1F6865EF94C92 /* UIViewController+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Sweeter.swift"; path = "Source/UIViewController+Sweeter.swift"; sourceTree = "<group>"; };
+		B11623F14301B14186F9C193F0207F8F /* MultiSelectSegmentedControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MultiSelectSegmentedControl.modulemap; sourceTree = "<group>"; };
+		B2BE14A04D7C444F7ADEC53C2DFC4698 /* MultiSelectSegmentedControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiSelectSegmentedControl-umbrella.h"; sourceTree = "<group>"; };
+		B3A700C83CEBBA257E589452494DFBEC /* NSObject+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject+Sweeter.swift"; path = "Source/NSObject+Sweeter.swift"; sourceTree = "<group>"; };
+		B76CD9F952582A6A4387D799501B3950 /* SweeterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SweeterSwift.framework; path = SweeterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDB8950F1D22AE2426821F2A23F05E16 /* Pods_SchoolPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SchoolPlanner.framework; path = "Pods-SchoolPlanner.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C868F32658ABC33463F96EF3E6DD6A28 /* MultiSelectSegmentedControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiSelectSegmentedControl-prefix.pch"; sourceTree = "<group>"; };
+		D20129CCCD3145098306C17EEC0428F6 /* MultiSelectSegmentedControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MultiSelectSegmentedControl-dummy.m"; sourceTree = "<group>"; };
+		D95ADB760E90D43FC83C227F8CA7EBD7 /* MultiSelectSegmentedControl-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MultiSelectSegmentedControl-Info.plist"; sourceTree = "<group>"; };
+		E4D26FD72318021529AA84382FB4EACC /* Bundle+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Bundle+Sweeter.swift"; path = "Source/Bundle+Sweeter.swift"; sourceTree = "<group>"; };
+		E519C9EFFCB82316CD8CBA2AF954CEB8 /* SweeterSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SweeterSwift.modulemap; sourceTree = "<group>"; };
+		E51A74094C672CEE121F92081834EE3F /* SweeterSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SweeterSwift-prefix.pch"; sourceTree = "<group>"; };
+		EB66DCB81FC87D9C1208F910B8552156 /* Codable+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Codable+Sweeter.swift"; path = "Source/Codable+Sweeter.swift"; sourceTree = "<group>"; };
+		EE1025DA5E49CCAD5E97700DBBF429CC /* MultiSelectSegment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiSelectSegment.swift; path = Sources/MultiSelectSegment.swift; sourceTree = "<group>"; };
+		F0C46BE5204224DB17692275FEF00105 /* Pods-SchoolPlanner-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SchoolPlanner-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F26167A0AC9EB9E7C68FEE96E452015E /* Pods-SchoolPlanner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SchoolPlanner.modulemap"; sourceTree = "<group>"; };
+		F75AA00BE79A85F485A628B9C0D5263F /* MultiSelectSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MultiSelectSegmentedControl.framework; path = MultiSelectSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCACA4E51853483465A70BC663A3E1CE /* String+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Sweeter.swift"; path = "Source/String+Sweeter.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		162A7D9A309049B9A48289321BC2EE94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				409C3B58D9848BDACC38CBD86CCB31E8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FCFD5A69D05844D80C640AEDA6A2022 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FEE059BC270D603572EDE10654A672A /* Foundation.framework in Frameworks */,
+				3297F2B5ACF562231DC5D92DDC14DFD9 /* SweeterSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98C5C02DFE170BC8F234E5AE29D0FBCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A348CEAA5AEBE500E85BFE36DF8E41E1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		327BDEBA2A3628D1C05BF851A7B44743 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3C9C09AE2F587235DA72364ED522D9CF /* Pods-SchoolPlanner */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		3314BD98F7A1CDA4529B273AA5485DDE /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A1FDBD9A4C236AD692E0B433AA67AAB3 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		3C9C09AE2F587235DA72364ED522D9CF /* Pods-SchoolPlanner */ = {
+			isa = PBXGroup;
+			children = (
+				F26167A0AC9EB9E7C68FEE96E452015E /* Pods-SchoolPlanner.modulemap */,
+				F0C46BE5204224DB17692275FEF00105 /* Pods-SchoolPlanner-acknowledgements.markdown */,
+				0CD4925DD1CCDD7D147B16CEFD472BBE /* Pods-SchoolPlanner-acknowledgements.plist */,
+				13E9661A86905A4A47477CB80862C47E /* Pods-SchoolPlanner-dummy.m */,
+				2053CAB6528453907957BD29F869F9C4 /* Pods-SchoolPlanner-frameworks.sh */,
+				5F869E7BC79F844C42F5B45C6A1E2961 /* Pods-SchoolPlanner-Info.plist */,
+				40322BAF709DFB0CE06F67187AFCA4ED /* Pods-SchoolPlanner-umbrella.h */,
+				83450E2F7887C7697A49FC0D1852C566 /* Pods-SchoolPlanner.debug.xcconfig */,
+				6ADA0D2C073A49E1CB922358C3954124 /* Pods-SchoolPlanner.release.xcconfig */,
+			);
+			name = "Pods-SchoolPlanner";
+			path = "Target Support Files/Pods-SchoolPlanner";
+			sourceTree = "<group>";
+		};
+		4510E6F1627576783D3702FB9354B938 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E519C9EFFCB82316CD8CBA2AF954CEB8 /* SweeterSwift.modulemap */,
+				7E2642DE0DE5B0ED4F67BECD90908D8E /* SweeterSwift.xcconfig */,
+				33C9650D459AA59DA6EFEAEFD7F78295 /* SweeterSwift-dummy.m */,
+				2C16DFF20D2BD34E3B55190A8E1D58F9 /* SweeterSwift-Info.plist */,
+				E51A74094C672CEE121F92081834EE3F /* SweeterSwift-prefix.pch */,
+				0D8E7658F6F72C307FCDB77612039EEC /* SweeterSwift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SweeterSwift";
+			sourceTree = "<group>";
+		};
+		505111AB8C232530F65E07374157783E /* MultiSelectSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				86A8B54A4163C81456D980937F6F62B9 /* MultiSegmentPicker.swift */,
+				EE1025DA5E49CCAD5E97700DBBF429CC /* MultiSelectSegment.swift */,
+				12D7EBA490303E9381F95A7759487835 /* MultiSelectSegmentedControl.swift */,
+				E9695803234D9873049E15F8F52B3219 /* Support Files */,
+			);
+			name = MultiSelectSegmentedControl;
+			path = MultiSelectSegmentedControl;
+			sourceTree = "<group>";
+		};
+		CA6E78F3EDA6605CA40565BBCDBFCBF4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F75AA00BE79A85F485A628B9C0D5263F /* MultiSelectSegmentedControl.framework */,
+				BDB8950F1D22AE2426821F2A23F05E16 /* Pods_SchoolPlanner.framework */,
+				B76CD9F952582A6A4387D799501B3950 /* SweeterSwift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D2A4E4C2B9AB233C330C04365A549B28 /* Frameworks */,
+				D3A90AE3F3DA98B88D28A96A772E750E /* Pods */,
+				CA6E78F3EDA6605CA40565BBCDBFCBF4 /* Products */,
+				327BDEBA2A3628D1C05BF851A7B44743 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D2A4E4C2B9AB233C330C04365A549B28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				51C0A5590195FEA5C460F2CB16D3DED3 /* SweeterSwift.framework */,
+				3314BD98F7A1CDA4529B273AA5485DDE /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D3A90AE3F3DA98B88D28A96A772E750E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				505111AB8C232530F65E07374157783E /* MultiSelectSegmentedControl */,
+				E48DA57F0A6DBBCB5906999E87647ECD /* SweeterSwift */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E48DA57F0A6DBBCB5906999E87647ECD /* SweeterSwift */ = {
+			isa = PBXGroup;
+			children = (
+				E4D26FD72318021529AA84382FB4EACC /* Bundle+Sweeter.swift */,
+				EB66DCB81FC87D9C1208F910B8552156 /* Codable+Sweeter.swift */,
+				9476C5EE526613750323D4A0C40F1AD1 /* DateFormatter+Sweeter.swift */,
+				3C42BC1B01DA9467682A7F5E1835D751 /* NSAttributedString+Sweeter.swift */,
+				80DE70DAB01F86F672D490E2AAA69CB1 /* NSManagedObjectContext+Sweeter.swift */,
+				B3A700C83CEBBA257E589452494DFBEC /* NSObject+Sweeter.swift */,
+				FCACA4E51853483465A70BC663A3E1CE /* String+Sweeter.swift */,
+				249154FECBAA023C01B9E5090C906140 /* Swift+Sweeter.swift */,
+				855E1C3D437D9ED569AB6E55AB7A044F /* TimeInterval+Sweeter.swift */,
+				29801C330FFC212477153F49AB2F694E /* UIApplication+Sweeter.swift */,
+				7A33050094F15C381DA107D0C387EF9F /* UIStackView+Sweeter.swift */,
+				029DC924076BFD207BBCC2C731A47D46 /* UITextView+Sweeter.swift */,
+				5D625648E624DD93540614AFA6F34F0C /* UIView+Sweeter.swift */,
+				AEAB592007FFAF5B56F1F6865EF94C92 /* UIViewController+Sweeter.swift */,
+				4510E6F1627576783D3702FB9354B938 /* Support Files */,
+			);
+			name = SweeterSwift;
+			path = SweeterSwift;
+			sourceTree = "<group>";
+		};
+		E9695803234D9873049E15F8F52B3219 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B11623F14301B14186F9C193F0207F8F /* MultiSelectSegmentedControl.modulemap */,
+				32B7B566A527BF0B40636008661F7AC4 /* MultiSelectSegmentedControl.xcconfig */,
+				D20129CCCD3145098306C17EEC0428F6 /* MultiSelectSegmentedControl-dummy.m */,
+				D95ADB760E90D43FC83C227F8CA7EBD7 /* MultiSelectSegmentedControl-Info.plist */,
+				C868F32658ABC33463F96EF3E6DD6A28 /* MultiSelectSegmentedControl-prefix.pch */,
+				B2BE14A04D7C444F7ADEC53C2DFC4698 /* MultiSelectSegmentedControl-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MultiSelectSegmentedControl";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		056635C892A33C2FEE47FCB405FAEE7C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D0419017EAB1A2DBA01E7F4288437EE /* MultiSelectSegmentedControl-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87313AEFD56B84B7C550BF834BCE2A8F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65231AB77270AD1D6971768BA37EC89A /* SweeterSwift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4D79F453C8BB26B7BE7333212C30583 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				784BE872571E0577B9516B3FCDCB6276 /* Pods-SchoolPlanner-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		38A2709624A9EB44333182D00319D668 /* Pods-SchoolPlanner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3751133B9CDAFA7AE2AAF9A92411F05 /* Build configuration list for PBXNativeTarget "Pods-SchoolPlanner" */;
+			buildPhases = (
+				B4D79F453C8BB26B7BE7333212C30583 /* Headers */,
+				C79D60A7BB0D75EB804AC42CA47BE633 /* Sources */,
+				98C5C02DFE170BC8F234E5AE29D0FBCC /* Frameworks */,
+				3E597257F6A37DA37899D62E9A8F65BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9D6E898CB1AA479C885CE4A8CE6DB994 /* PBXTargetDependency */,
+				8A91A7431BE0812ACD3B73E5C6CE1015 /* PBXTargetDependency */,
+			);
+			name = "Pods-SchoolPlanner";
+			productName = "Pods-SchoolPlanner";
+			productReference = BDB8950F1D22AE2426821F2A23F05E16 /* Pods_SchoolPlanner.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6819F499159C87193DDD7D51504DD6C1 /* SweeterSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7913A41B08A0FC62A1BB1221D8211D52 /* Build configuration list for PBXNativeTarget "SweeterSwift" */;
+			buildPhases = (
+				87313AEFD56B84B7C550BF834BCE2A8F /* Headers */,
+				E4E73D65CED06CDDA909A0D17AA2EE55 /* Sources */,
+				162A7D9A309049B9A48289321BC2EE94 /* Frameworks */,
+				B1AD7C7C893A253BBFC1AC37C4CCE5A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SweeterSwift;
+			productName = SweeterSwift;
+			productReference = B76CD9F952582A6A4387D799501B3950 /* SweeterSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C07B7AE734D89C24DB2D55FFF6D96DA3 /* MultiSelectSegmentedControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 769312A751CCAFA2C11176E9C687C70A /* Build configuration list for PBXNativeTarget "MultiSelectSegmentedControl" */;
+			buildPhases = (
+				056635C892A33C2FEE47FCB405FAEE7C /* Headers */,
+				ACF92F352297C60348A00933C8619175 /* Sources */,
+				1FCFD5A69D05844D80C640AEDA6A2022 /* Frameworks */,
+				AD27BA73344A53B0CA239153E0FD8587 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8C23A437BF7F47466BE5DB64F894811D /* PBXTargetDependency */,
+			);
+			name = MultiSelectSegmentedControl;
+			productName = MultiSelectSegmentedControl;
+			productReference = F75AA00BE79A85F485A628B9C0D5263F /* MultiSelectSegmentedControl.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = CA6E78F3EDA6605CA40565BBCDBFCBF4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C07B7AE734D89C24DB2D55FFF6D96DA3 /* MultiSelectSegmentedControl */,
+				38A2709624A9EB44333182D00319D668 /* Pods-SchoolPlanner */,
+				6819F499159C87193DDD7D51504DD6C1 /* SweeterSwift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3E597257F6A37DA37899D62E9A8F65BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD27BA73344A53B0CA239153E0FD8587 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1AD7C7C893A253BBFC1AC37C4CCE5A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ACF92F352297C60348A00933C8619175 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C877F8CD49B3EE5871C940C0A88DA15 /* MultiSegmentPicker.swift in Sources */,
+				A202C7C6547629EED59284B90B6B235D /* MultiSelectSegment.swift in Sources */,
+				CB97F890E02243F9976912694D947115 /* MultiSelectSegmentedControl-dummy.m in Sources */,
+				DCE6A9F1E454EE57E536E083D6C969CA /* MultiSelectSegmentedControl.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C79D60A7BB0D75EB804AC42CA47BE633 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04983CA599A9CA23733BDF2339497069 /* Pods-SchoolPlanner-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4E73D65CED06CDDA909A0D17AA2EE55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F284493BB289E0C411C3880CAF04A111 /* Bundle+Sweeter.swift in Sources */,
+				4E4DC2D11BFB3F2975657B2818B9D9BF /* Codable+Sweeter.swift in Sources */,
+				5FF4B859F9A40C8763FDFB0D5C1A969F /* DateFormatter+Sweeter.swift in Sources */,
+				088C24BA63205A94335CCF504EE82980 /* NSAttributedString+Sweeter.swift in Sources */,
+				5745E6C13C5DF770E7A2AA7D03164477 /* NSManagedObjectContext+Sweeter.swift in Sources */,
+				2B72FA38155D07104B27B88A87AFEC9B /* NSObject+Sweeter.swift in Sources */,
+				731A8D983B4738B83274FFF04ADF9DF4 /* String+Sweeter.swift in Sources */,
+				9BB8F8483A5B066650242C942D7E981A /* SweeterSwift-dummy.m in Sources */,
+				2D79D7BE350F455EB8C7A4C336C3BB2B /* Swift+Sweeter.swift in Sources */,
+				1A4A534F9D9BB0F57B51BC9581A7B58E /* TimeInterval+Sweeter.swift in Sources */,
+				2B79EAB802CE9D0A0B9FC2F596A8C75F /* UIApplication+Sweeter.swift in Sources */,
+				B24A3A14066190858077DB0BDE565678 /* UIStackView+Sweeter.swift in Sources */,
+				5E729D2803DF91A2FB22484B8363C705 /* UITextView+Sweeter.swift in Sources */,
+				80E91FB532E00D7A6F0F7E948E3714AB /* UIView+Sweeter.swift in Sources */,
+				DA69BDB8E71848160159F7BDCE8D787B /* UIViewController+Sweeter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8A91A7431BE0812ACD3B73E5C6CE1015 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SweeterSwift;
+			target = 6819F499159C87193DDD7D51504DD6C1 /* SweeterSwift */;
+			targetProxy = 9BAFF3675B49C44DA796F46959CE8C11 /* PBXContainerItemProxy */;
+		};
+		8C23A437BF7F47466BE5DB64F894811D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SweeterSwift;
+			target = 6819F499159C87193DDD7D51504DD6C1 /* SweeterSwift */;
+			targetProxy = DDD828F554F8CA7C46E175E30508D13C /* PBXContainerItemProxy */;
+		};
+		9D6E898CB1AA479C885CE4A8CE6DB994 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MultiSelectSegmentedControl;
+			target = C07B7AE734D89C24DB2D55FFF6D96DA3 /* MultiSelectSegmentedControl */;
+			targetProxy = DF6ED7F043059B248853538D25EB7482 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		10BFF53DDDD3747DF7DC97C8E282A5B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		4B3CCB5833029E01DCE1B9AE55E90184 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E2642DE0DE5B0ED4F67BECD90908D8E /* SweeterSwift.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SweeterSwift/SweeterSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SweeterSwift/SweeterSwift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SweeterSwift/SweeterSwift.modulemap";
+				PRODUCT_MODULE_NAME = SweeterSwift;
+				PRODUCT_NAME = SweeterSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		600629F21E550D023F516F4C586E1ACC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E2642DE0DE5B0ED4F67BECD90908D8E /* SweeterSwift.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SweeterSwift/SweeterSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SweeterSwift/SweeterSwift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SweeterSwift/SweeterSwift.modulemap";
+				PRODUCT_MODULE_NAME = SweeterSwift;
+				PRODUCT_NAME = SweeterSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		65EF4115B27ADC2F34A435960CC474DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83450E2F7887C7697A49FC0D1852C566 /* Pods-SchoolPlanner.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SchoolPlanner/Pods-SchoolPlanner-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SchoolPlanner/Pods-SchoolPlanner.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		82310F1636B2842775A9A1FB8356BC60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		97FD8E51A89DFE7BCCD587535779B50B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6ADA0D2C073A49E1CB922358C3954124 /* Pods-SchoolPlanner.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SchoolPlanner/Pods-SchoolPlanner-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SchoolPlanner/Pods-SchoolPlanner.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A8AD9A8BE9D8732007B763A089B1BCAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32B7B566A527BF0B40636008661F7AC4 /* MultiSelectSegmentedControl.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MultiSelectSegmentedControl/MultiSelectSegmentedControl-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MultiSelectSegmentedControl/MultiSelectSegmentedControl-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MODULEMAP_FILE = "Target Support Files/MultiSelectSegmentedControl/MultiSelectSegmentedControl.modulemap";
+				PRODUCT_MODULE_NAME = MultiSelectSegmentedControl;
+				PRODUCT_NAME = MultiSelectSegmentedControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B73281D84E4569E9EF1F140D28C289A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32B7B566A527BF0B40636008661F7AC4 /* MultiSelectSegmentedControl.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MultiSelectSegmentedControl/MultiSelectSegmentedControl-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MultiSelectSegmentedControl/MultiSelectSegmentedControl-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MODULEMAP_FILE = "Target Support Files/MultiSelectSegmentedControl/MultiSelectSegmentedControl.modulemap";
+				PRODUCT_MODULE_NAME = MultiSelectSegmentedControl;
+				PRODUCT_NAME = MultiSelectSegmentedControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10BFF53DDDD3747DF7DC97C8E282A5B6 /* Debug */,
+				82310F1636B2842775A9A1FB8356BC60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		769312A751CCAFA2C11176E9C687C70A /* Build configuration list for PBXNativeTarget "MultiSelectSegmentedControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8AD9A8BE9D8732007B763A089B1BCAF /* Debug */,
+				B73281D84E4569E9EF1F140D28C289A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7913A41B08A0FC62A1BB1221D8211D52 /* Build configuration list for PBXNativeTarget "SweeterSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B3CCB5833029E01DCE1B9AE55E90184 /* Debug */,
+				600629F21E550D023F516F4C586E1ACC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3751133B9CDAFA7AE2AAF9A92411F05 /* Build configuration list for PBXNativeTarget "Pods-SchoolPlanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65EF4115B27ADC2F34A435960CC474DB /* Debug */,
+				97FD8E51A89DFE7BCCD587535779B50B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
