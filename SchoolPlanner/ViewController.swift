@@ -7,8 +7,9 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UNUserNotificationCenterDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,6 +30,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return [Classes]()
         
     }
+    var predicate: Int32!
+    var grades: [Grades] {
+        
+        do {
+            
+            let fetchrequest = NSFetchRequest<Grades>(entityName: "Grades")
+            fetchrequest.predicate = NSPredicate(format: "id == %d", predicate as CVarArg)
+            let sort = NSSortDescriptor(key: #keyPath(Grades.date), ascending: false)
+            fetchrequest.sortDescriptors = [sort]
+            return try context.fetch(fetchrequest)
+            
+        } catch {
+            
+            print("Couldn't fetch data")
+            
+        }
+        
+        return [Grades]()
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +59,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        noClassesStoredBackground()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,9 +70,54 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return classes.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let id = classes[indexPath.row].id
+        
+        let userDefaults = UserDefaults.standard
+        userDefaults.setValue(id, forKey: "id")
+        performSegue(withIdentifier: "grades", sender: nil)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal,
+                                        title: "Delete") { (action, view, completionHandler) in
+            let alert = UIAlertController(title: "Warning", message: "Would you like to delete this class? It can not be undone!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] _ in
+                
+                predicate = classes[indexPath.row].id
+                if grades.count > 0 {
+                for i in 0...grades.count - 1 {
+                    let gradeToDelete = grades[i]
+                    self.context.delete(gradeToDelete)
+                }
+                }
+                
+                let classToDelete = self.classes[indexPath.row]
+                self.context.delete(classToDelete)
+                
+                self.tableView.deleteRows(at: [indexPath], with: .left)
+                
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                
+                noClassesStoredBackground()
+                
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: {_ in
+                tableView.setEditing(false, animated: true)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        action.backgroundColor = .systemRed
+        return UISwipeActionsConfiguration(actions: [action])
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if classes.count > 0 {
             let className = classes[indexPath.row]
+            
+            print("id is \(className.id)")
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "classNameCell") as! ClassCell
             cell.classNameLabel.text = "Name: \(className.name ?? "")"
             if className.time == nil || className.time == "" {
@@ -113,21 +180,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.isHidden = true
         return cell
     }
-    /*@IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-     
-     let alert = UIAlertController(title: "Class", message: "Enter Class Details", preferredStyle: .alert)
-     alert.addTextField(configurationHandler: { (textField) in
-     textField.placeholder = "Place holder"
-     
-     })
-     alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [self] _ in
-     let textField = alert.textFields![0] as UITextField
-     let classToBeStored = Classes(context: context)
-     classToBeStored.name = textField.text
-     tableView.reloadData()
-     }))
-     alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-     present(alert, animated: true, completion: nil)
-     }*/
+    
+    func noClassesStoredBackground() {
+        if classes.count == 0 {
+            
+            let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.accessibilityFrame.size.width, height: self.accessibilityFrame.size.height))
+            messageLabel.text = "There are currently no classes stored. Hit the + to add one."
+            messageLabel.numberOfLines = 0;
+            messageLabel.textAlignment = .center;
+            messageLabel.font = UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight.medium)
+            messageLabel.sizeToFit()
+            self.tableView.backgroundView = messageLabel;
+            
+            tableView.separatorStyle = .none;
+        }
+        else {
+            tableView.backgroundView = nil
+        }
+    }
 }
 
