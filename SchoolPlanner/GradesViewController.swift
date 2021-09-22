@@ -46,6 +46,8 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         print("count is \(grades.count)")
+        
+        noGradesStoredBackground()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,6 +56,10 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -68,7 +74,7 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
                 (UIApplication.shared.delegate as! AppDelegate).saveContext()
                 
-               // self.noGradesStoredBackground()
+                self.noGradesStoredBackground()
                 
                 if self.grades.count == 0 {
                     tableView.cellForRow(at: [0, 0])?.isHidden = true
@@ -160,6 +166,7 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
                 (UIApplication.shared.delegate as! AppDelegate).saveContext()
                 gradeTableView.reloadData()
+                noGradesStoredBackground()
             }
             else {
                 print("hello world")
@@ -168,5 +175,23 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func noGradesStoredBackground() {
+        if grades.count == 0 {
+            
+            let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.accessibilityFrame.size.width, height: self.accessibilityFrame.size.height))
+            messageLabel.text = "There are currently no grades stored. Hit the + to add one."
+            messageLabel.numberOfLines = 0;
+            messageLabel.textAlignment = .center;
+            messageLabel.font = UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight.medium)
+            messageLabel.sizeToFit()
+            self.gradeTableView.backgroundView = messageLabel;
+            
+            gradeTableView.separatorStyle = .none;
+        }
+        else {
+            gradeTableView.backgroundView = nil
+        }
     }
 }

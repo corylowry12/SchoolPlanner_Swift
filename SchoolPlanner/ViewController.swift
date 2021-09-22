@@ -13,6 +13,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
+    var index: Int!
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var classes: [Classes] {
@@ -55,6 +57,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        let userDefaults = UserDefaults.standard
+        
+        if userDefaults.value(forKey: "appVersion") == nil || userDefaults.value(forKey: "appVersion") as? String != appVersion {
+            tabBarController?.tabBar.items?[2].badgeValue = "1"
+        }
+        
+        if UserDefaults.standard.value(forKey: "theme") == nil {
+            UserDefaults.standard.set(2, forKey: "theme")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,6 +124,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return UISwipeActionsConfiguration(actions: [action])
     }
     
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal,
+                                        title: "Edit") { [self] (action, view, completionHandler) in
+           
+            index = Int(classes[indexPath.row].id)
+            performSegue(withIdentifier: "editClass", sender: nil)
+        }
+            
+        action.backgroundColor = .systemOrange
+        return UISwipeActionsConfiguration(actions: [action])
+            
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if classes.count > 0 {
             let className = classes[indexPath.row]
@@ -159,6 +184,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             else if text == "E" || text == "e" {
                 lblNameInitialize.backgroundColor = UIColor.systemRed
             }
+            else if text == "A" || text == "A" {
+                lblNameInitialize.backgroundColor = UIColor.green
+            }
+            else if text == "B" || text == "B" {
+                lblNameInitialize.backgroundColor = UIColor.cyan
+            }
             else {
                 lblNameInitialize.backgroundColor = UIColor.systemOrange
             }
@@ -196,6 +227,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         else {
             tableView.backgroundView = nil
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editClass" {
+            let dvc = segue.destination as! AddClassViewContrller
+            dvc.editClass = 1
+            dvc.selectedIndex = index
         }
     }
 }

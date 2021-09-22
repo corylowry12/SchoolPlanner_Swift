@@ -103,6 +103,7 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                 alert.dismiss(animated: true, completion: nil)
             }
         }
+    
         else {
         let assignments = Assignments(context: context)
         

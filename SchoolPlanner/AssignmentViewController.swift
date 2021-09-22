@@ -38,7 +38,43 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             
             let fetchrequest = NSFetchRequest<Assignments>(entityName: "Assignments")
             let predicate = 0
-            fetchrequest.predicate = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
+            
+            let now: Date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            let date = dateFormatter.string(from: now)
+            let predicate2: NSPredicate = NSPredicate(format: "dueDate <= %@", date)
+            let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
+            let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicate2])
+            fetchrequest.predicate = andPredicate
+            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: false)
+            fetchrequest.sortDescriptors = [sort]
+            return try context.fetch(fetchrequest)
+            
+        } catch {
+            
+            print("Couldn't fetch data")
+            
+        }
+        
+        return [Assignments]()
+        
+    }
+    
+    var pastDue: [Assignments] {
+        
+        do {
+            let fetchrequest = NSFetchRequest<Assignments>(entityName: "Assignments")
+            let predicate = 0
+            
+            let now: Date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            let date = dateFormatter.string(from: now)
+            let predicate2: NSPredicate = NSPredicate(format: "dueDate > %@", date)
+            let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
+            let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicate2])
+            fetchrequest.predicate = andPredicate
             let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: false)
             fetchrequest.sortDescriptors = [sort]
             return try context.fetch(fetchrequest)
@@ -85,6 +121,8 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
         assignmentTableView.reloadData()
         print("count is \(assignments.count)")
         
+        noAssignmentStoredBackground()
+        
         if classes.count == 0 {
             addButton.isEnabled = false
         }
@@ -97,22 +135,31 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
         if section == 0 {
             return assignments.count
         }
-        else {
+        else if section == 2 {
             return doneAssignments.count
+        }
+        else {
+            return pastDue.count
         }
         return 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        
+        return 3
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "Assigments"
-        }
-        else {
-            return "Done"
+        if assignments.count != 0 || doneAssignments.count != 0 || pastDue.count != 0 {
+            if section == 0 {
+                return "Assigments: \(assignments.count)"
+            }
+            else if section == 2 {
+                return "Done: \(doneAssignments.count)"
+            }
+            else {
+                return "Past Due: \(pastDue.count)"
+            }
         }
         return ""
     }
@@ -122,12 +169,21 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             let userDefaults = UserDefaults.standard
             userDefaults.setValue(indexPath.row, forKey: "assignment")
             userDefaults.setValue(0, forKey: "doneStatus")
+            userDefaults.setValue(0, forKey: "pastDue")
             performSegue(withIdentifier: "viewAssignment", sender: nil)
         }
-        else {
+        else if indexPath.section == 2 {
             let userDefaults = UserDefaults.standard
             userDefaults.setValue(indexPath.row, forKey: "assignment")
             userDefaults.setValue(1, forKey: "doneStatus")
+            userDefaults.setValue(0, forKey: "pastDue")
+            performSegue(withIdentifier: "viewAssignment", sender: nil)
+        }
+        else if indexPath.section == 1 {
+            let userDefaults = UserDefaults.standard
+            userDefaults.setValue(indexPath.row, forKey: "assignment")
+            userDefaults.setValue(0, forKey: "doneStatus")
+            userDefaults.setValue(1, forKey: "pastDue")
             performSegue(withIdentifier: "viewAssignment", sender: nil)
         }
     }
@@ -144,15 +200,36 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
                     self.assignmentTableView.deleteRows(at: [indexPath], with: .left)
                     
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    
+                    if assignments.count == 0 && doneAssignments.count == 0 && pastDue.count == 0 {
+                        self.assignmentTableView.reloadData()
+                    }
                 }
-                else {
+                else if indexPath.section == 2 {
                     let assignmentToDelete = self.doneAssignments[indexPath.row]
                     self.context.delete(assignmentToDelete)
                     
                     self.assignmentTableView.deleteRows(at: [indexPath], with: .left)
                     
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    
+                    if assignments.count == 0 && doneAssignments.count == 0 && pastDue.count == 0 {
+                        self.assignmentTableView.reloadData()
+                    }
                 }
+                else if indexPath.section == 1 {
+                    let assignmentToDelete = self.pastDue[indexPath.row]
+                    self.context.delete(assignmentToDelete)
+                    
+                    self.assignmentTableView.deleteRows(at: [indexPath], with: .left)
+                    
+                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    
+                    if assignments.count == 0 && doneAssignments.count == 0 && pastDue.count == 0 {
+                        self.assignmentTableView.reloadData()
+                    }
+                }
+                noAssignmentStoredBackground()
             }))
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: {_ in
                 tableView.setEditing(false, animated: true)
@@ -160,14 +237,22 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             self.present(alert, animated: true, completion: nil)
         }
         var doneTitle : String!
+        var doneMessage : String!
         if indexPath.section == 0 {
             doneTitle = "Done"
+            doneMessage = "You are fixing to mark item as done. Would you like to continue?"
+        }
+        else if indexPath.section == 1 {
+            doneTitle = "Done"
+            doneMessage = "You are fixing to mark item as done. Would you like to continue?"
         }
         else {
             doneTitle = "Undone"
+            doneMessage = "You are fixing to mark item as undone. Would you like to continue?"
         }
+        
         let exportAction = UIContextualAction(style: .normal, title: doneTitle) { (action, view, completionHandler) in
-            let alert = UIAlertController(title: "Warning", message: "You are fixing to mark item as done. Would you like to continue?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Warning", message: doneMessage, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
                 if indexPath.section == 0 {
                     
@@ -178,7 +263,7 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
                         assignmentTableView.reloadData()
                     }, completion: nil)
                 }
-                else {
+                else if indexPath.section == 2 {
                     self.doneAssignments[indexPath.row].doneStatus = 0
                     
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
@@ -186,6 +271,14 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
                         assignmentTableView.reloadData()
                     }, completion: nil)
                     
+                }
+                else {
+                    self.pastDue[indexPath.row].doneStatus = 1
+                    
+                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    UIView.transition(with: assignmentTableView, duration: 0.5, options: .transitionCrossDissolve, animations: { [self] in
+                        assignmentTableView.reloadData()
+                    }, completion: nil)
                 }
             }))
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: {_ in
@@ -204,8 +297,13 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = assignmentTableView.dequeueReusableCell(withIdentifier: "assignmentCell") as! AssignmentTableViewCell
         if indexPath.section == 0 {
             let assignments = assignments[indexPath.row]
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            let date = dateFormatter.date(from: assignments.dueDate!)
+            //if date! > Date() {
             cell.nameLabel.text = "Name: \(assignments.name ?? "Unknown")"
             cell.classLabel.text = "Class: \(assignments.assignmentClass ?? "Unknown")"
+            
             cell.dueDateLabel.text = "Due Date: \(assignments.dueDate ?? "Unknown")"
             
             if (assignments.notes?.count)! >= 35 {
@@ -217,8 +315,9 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             else {
                 cell.notesLabel.text = "Notes: \(assignments.notes ?? "Unknown")"
             }
+            //}
         }
-        else {
+        else if indexPath.section == 2 {
             let doneAssignments = doneAssignments[indexPath.row]
             cell.nameLabel.text = "Name: \(doneAssignments.name ?? "Unknown")"
             cell.classLabel.text = "Class: \(doneAssignments.assignmentClass ?? "Unknown")"
@@ -234,7 +333,46 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
                 cell.notesLabel.text = "Notes: \(doneAssignments.notes ?? "Unknown")"
             }
         }
+        else if indexPath.section == 1 {
+            let assignments = pastDue[indexPath.row]
+            //let dateFormatter = DateFormatter()
+            //dateFormatter.dateFormat = "MM/dd/yyyy"
+            //let date = dateFormatter.date(from: assignments.dueDate!)
+            //if date! > Date() {
+            cell.nameLabel.text = "Name: \(assignments.name ?? "Unknown")"
+            cell.classLabel.text = "Class: \(assignments.assignmentClass ?? "Unknown")"
+            
+            cell.dueDateLabel.text = "Due Date: \(assignments.dueDate ?? "Unknown")"
+            
+            if (assignments.notes?.count)! >= 35 {
+                
+                let index = assignments.notes?.index((assignments.notes?.startIndex)!, offsetBy: 25)
+                cell.notesLabel.text = "Notes: \(assignments.notes?.substring(to: index!) ?? "Unknown")"
+                cell.notesLabel.text = cell.notesLabel.text?.appending("...")
+            }
+            else {
+                cell.notesLabel.text = "Notes: \(assignments.notes ?? "Unknown")"
+            }
+            //}
+        }
         return cell
     }
-    
+    func noAssignmentStoredBackground() {
+        if assignments.count == 0 && doneAssignments.count == 0 && pastDue.count == 0 {
+            
+            let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.accessibilityFrame.size.width, height: self.accessibilityFrame.size.height))
+            messageLabel.text = "There are currently no assignments stored. Hit the + to add one. (+ Button will be disabled if there is no classes stored.)"
+            messageLabel.numberOfLines = 0;
+            messageLabel.textAlignment = .center;
+            messageLabel.font = UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight.medium)
+            messageLabel.sizeToFit()
+            
+            self.assignmentTableView.backgroundView = messageLabel;
+            
+            assignmentTableView.separatorStyle = .none;
+        }
+        else {
+            assignmentTableView.backgroundView = nil
+        }
+    }
 }

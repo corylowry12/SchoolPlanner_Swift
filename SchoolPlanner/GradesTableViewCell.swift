@@ -15,7 +15,4 @@ class GradesTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-    }
 }
