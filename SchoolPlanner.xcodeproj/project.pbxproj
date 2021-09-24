@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,13 @@
 		326C391C26F944C500EF01C3 /* GradesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326C391B26F944C500EF01C3 /* GradesTableViewCell.swift */; };
 		3297611326F82BDB002E897E /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3297611226F82BDB002E897E /* AddClassViewController.swift */; };
 		32B3B21A26FAF376009A0F66 /* PatchNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B3B21926FAF376009A0F66 /* PatchNotesViewController.swift */; };
+		32B3B21C26FBE2A8009A0F66 /* HowToTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B3B21B26FBE2A8009A0F66 /* HowToTableViewController.swift */; };
+		32B3B22326FC12F2009A0F66 /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B3B21D26FC12F1009A0F66 /* PromisesObjC.xcframework */; };
+		32B3B22526FC12F2009A0F66 /* UserMessagingPlatform.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B3B21E26FC12F2009A0F66 /* UserMessagingPlatform.xcframework */; };
+		32B3B22726FC12F2009A0F66 /* nanopb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B3B21F26FC12F2009A0F66 /* nanopb.xcframework */; };
+		32B3B22926FC12F2009A0F66 /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B3B22026FC12F2009A0F66 /* GoogleMobileAds.xcframework */; };
+		32B3B22B26FC12F2009A0F66 /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B3B22126FC12F2009A0F66 /* GoogleAppMeasurement.xcframework */; };
+		32B3B22D26FC12F2009A0F66 /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B3B22226FC12F2009A0F66 /* GoogleUtilities.xcframework */; };
 		32B7FFA426F952DC00858101 /* AverageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7FFA326F952DC00858101 /* AverageCell.swift */; };
 		32B7FFA626F9616700858101 /* AssignmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7FFA526F9616700858101 /* AssignmentTableViewCell.swift */; };
 		32B7FFA826F9618500858101 /* AssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7FFA726F9618500858101 /* AssignmentViewController.swift */; };
@@ -47,6 +54,13 @@
 		329022709D58F38191CB1DE1 /* Pods-SchoolPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolPlanner.debug.xcconfig"; path = "Target Support Files/Pods-SchoolPlanner/Pods-SchoolPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 		3297611226F82BDB002E897E /* AddClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
 		32B3B21926FAF376009A0F66 /* PatchNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchNotesViewController.swift; sourceTree = "<group>"; };
+		32B3B21B26FBE2A8009A0F66 /* HowToTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToTableViewController.swift; sourceTree = "<group>"; };
+		32B3B21D26FC12F1009A0F66 /* PromisesObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PromisesObjC.xcframework; path = "../../../Downloads/GoogleMobileAdsSdkiOS-8.7.0/PromisesObjC.xcframework"; sourceTree = "<group>"; };
+		32B3B21E26FC12F2009A0F66 /* UserMessagingPlatform.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = UserMessagingPlatform.xcframework; path = "../../../Downloads/GoogleMobileAdsSdkiOS-8.7.0/UserMessagingPlatform.xcframework"; sourceTree = "<group>"; };
+		32B3B21F26FC12F2009A0F66 /* nanopb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = nanopb.xcframework; path = "../../../Downloads/GoogleMobileAdsSdkiOS-8.7.0/nanopb.xcframework"; sourceTree = "<group>"; };
+		32B3B22026FC12F2009A0F66 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "../../../Downloads/GoogleMobileAdsSdkiOS-8.7.0/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
+		32B3B22126FC12F2009A0F66 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = "../../../Downloads/GoogleMobileAdsSdkiOS-8.7.0/GoogleAppMeasurement.xcframework"; sourceTree = "<group>"; };
+		32B3B22226FC12F2009A0F66 /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleUtilities.xcframework; path = "../../../Downloads/GoogleMobileAdsSdkiOS-8.7.0/GoogleUtilities.xcframework"; sourceTree = "<group>"; };
 		32B7FFA326F952DC00858101 /* AverageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageCell.swift; sourceTree = "<group>"; };
 		32B7FFA526F9616700858101 /* AssignmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentTableViewCell.swift; sourceTree = "<group>"; };
 		32B7FFA726F9618500858101 /* AssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +76,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B8C80E695B6BC506F62D877 /* Pods_SchoolPlanner.framework in Frameworks */,
+				32B3B22926FC12F2009A0F66 /* GoogleMobileAds.xcframework in Frameworks */,
+				32B3B22D26FC12F2009A0F66 /* GoogleUtilities.xcframework in Frameworks */,
+				32B3B22526FC12F2009A0F66 /* UserMessagingPlatform.xcframework in Frameworks */,
+				32B3B22326FC12F2009A0F66 /* PromisesObjC.xcframework in Frameworks */,
+				32B3B22B26FC12F2009A0F66 /* GoogleAppMeasurement.xcframework in Frameworks */,
+				32B3B22726FC12F2009A0F66 /* nanopb.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +129,7 @@
 				320F702D26FABB38001E0F34 /* ViewAssignmentViewController.swift */,
 				320F702F26FAD2B2001E0F34 /* AppearanceViewController.swift */,
 				32B3B21926FAF376009A0F66 /* PatchNotesViewController.swift */,
+				32B3B21B26FBE2A8009A0F66 /* HowToTableViewController.swift */,
 			);
 			path = SchoolPlanner;
 			sourceTree = "<group>";
@@ -116,6 +137,12 @@
 		400212659338818936F81CD6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				32B3B22126FC12F2009A0F66 /* GoogleAppMeasurement.xcframework */,
+				32B3B22026FC12F2009A0F66 /* GoogleMobileAds.xcframework */,
+				32B3B22226FC12F2009A0F66 /* GoogleUtilities.xcframework */,
+				32B3B21F26FC12F2009A0F66 /* nanopb.xcframework */,
+				32B3B21D26FC12F1009A0F66 /* PromisesObjC.xcframework */,
+				32B3B21E26FC12F2009A0F66 /* UserMessagingPlatform.xcframework */,
 				5F6DFEF5B889BC9F7D011B71 /* Pods_SchoolPlanner.framework */,
 			);
 			name = Frameworks;
@@ -257,6 +284,7 @@
 				3249145A26F81F3700A90C6D /* SchoolPlanner.xcdatamodeld in Sources */,
 				32B7FFAA26F965D400858101 /* AddAssignmentViewController.swift in Sources */,
 				32B7FFA426F952DC00858101 /* AverageCell.swift in Sources */,
+				32B3B21C26FBE2A8009A0F66 /* HowToTableViewController.swift in Sources */,
 				326C391C26F944C500EF01C3 /* GradesTableViewCell.swift in Sources */,
 				3249145226F81F3700A90C6D /* SceneDelegate.swift in Sources */,
 				3249146726F8241F00A90C6D /* ClassCell.swift in Sources */,
@@ -340,6 +368,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -394,6 +423,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";

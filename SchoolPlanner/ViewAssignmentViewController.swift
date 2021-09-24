@@ -27,7 +27,9 @@ class ViewAssignmentViewController: UIViewController {
             let predicate = 0
             
             let now: Date = Date()
-            let date = DateFormatter().string(from: now)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            let date = dateFormatter.string(from: now)
             let predicate2: NSPredicate = NSPredicate(format: "dueDate <= %@", date)
             let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
             let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicate2])
@@ -53,7 +55,9 @@ class ViewAssignmentViewController: UIViewController {
             let predicate = 0
             
             let now: Date = Date()
-            let date = DateFormatter().string(from: now)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            let date = dateFormatter.string(from: now)
             let predicate2: NSPredicate = NSPredicate(format: "dueDate > %@", date)
             let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
             let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicate2])
