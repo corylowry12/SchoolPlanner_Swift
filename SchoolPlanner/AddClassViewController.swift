@@ -108,7 +108,26 @@ class AddClassViewContrller: ViewController {
     }
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         if editClass == 0 {
-            if inTimePicker.date >= outTimePicker.date {
+            if className.text == "" {
+                let alert = UIAlertController(title: "Class must have a name to update", message: nil, preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+                let when = DispatchTime.now() + 1
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    alert.dismiss(animated: true, completion: nil)
+                    
+                }
+                print("index is: \(multiSelect.selectedSegmentTitles)")
+            }
+            else if multiSelect.selectedSegmentTitles == [] {
+                let alert = UIAlertController(title: "You must have a class day selected to update", message: nil, preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+                let when = DispatchTime.now() + 1
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    alert.dismiss(animated: true, completion: nil)
+                    
+                }
+            }
+            else if inTimePicker.date >= outTimePicker.date {
                 let alert = UIAlertController(title: "Class start time can not be later or the same as class end time", message: nil, preferredStyle: .alert)
                 self.present(alert, animated: true, completion: nil)
                 let when = DispatchTime.now() + 1
@@ -117,7 +136,18 @@ class AddClassViewContrller: ViewController {
                     
                 }
             }
-        else if className.text != "" && classLocation.text != "" && multiSelect.selectedSegmentIndexes != [] {
+            else if classLocation.text == "" {
+                if inTimePicker.date >= outTimePicker.date {
+                    let alert = UIAlertController(title: "Class must have a location to update", message: nil, preferredStyle: .alert)
+                    self.present(alert, animated: true, completion: nil)
+                    let when = DispatchTime.now() + 1
+                    DispatchQueue.main.asyncAfter(deadline: when) {
+                        alert.dismiss(animated: true, completion: nil)
+                        
+                    }
+                }
+            }
+        else {
             let classToStore = Classes(context: context)
             var random : Int32!
             do {
@@ -182,17 +212,47 @@ class AddClassViewContrller: ViewController {
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             self.navigationController?.popViewController(animated: true)
         }
+        }
         else {
-            let alert = UIAlertController(title: "Do not leave anything blank", message: nil, preferredStyle: .alert)
-            self.present(alert, animated: true, completion: nil)
-            let when = DispatchTime.now() + 1
-            DispatchQueue.main.asyncAfter(deadline: when) {
-                alert.dismiss(animated: true, completion: nil)
-                
+            if className.text == "" {
+                let alert = UIAlertController(title: "Class must have a name to update", message: nil, preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+                let when = DispatchTime.now() + 1
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    alert.dismiss(animated: true, completion: nil)
+                    
+                }
+                print("index is: \(multiSelect.selectedSegmentTitles)")
             }
-        }
-        }
-        else {
+            else if multiSelect.selectedSegmentTitles == [] {
+                let alert = UIAlertController(title: "You must have a class day selected to update", message: nil, preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+                let when = DispatchTime.now() + 1
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    alert.dismiss(animated: true, completion: nil)
+                    
+                }
+            }
+            else if inTimePicker.date >= outTimePicker.date {
+                let alert = UIAlertController(title: "Class start time can not be later or the same as class end time", message: nil, preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+                let when = DispatchTime.now() + 1
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    alert.dismiss(animated: true, completion: nil)
+                    
+                }
+            }
+            else if classLocation.text == "" {
+               
+                    let alert = UIAlertController(title: "Class must have a location to update", message: nil, preferredStyle: .alert)
+                    self.present(alert, animated: true, completion: nil)
+                    let when = DispatchTime.now() + 1
+                    DispatchQueue.main.asyncAfter(deadline: when) {
+                        alert.dismiss(animated: true, completion: nil)
+                        
+                    }
+            }
+            else {
             let classToUpdate = classes[0]
             classToUpdate.name = className.text
             classToUpdate.id = Int32(selectedIndex)
@@ -225,6 +285,7 @@ class AddClassViewContrller: ViewController {
             
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             self.navigationController?.popViewController(animated: true)
+        }
         }
     }
 }

@@ -8,8 +8,11 @@
 import Foundation
 import UIKit
 import CoreData
+import GoogleMobileAds
 
 class AssignmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    lazy var bannerView: GADBannerView! = GADBannerView(adSize: kGADAdSizeBanner)
     
     @IBOutlet weak var assignmentTableView: UITableView!
     @IBOutlet weak var addButton: UIBarButtonItem!
@@ -43,11 +46,11 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/yyyy"
             let date = dateFormatter.string(from: now)
-            let predicate2: NSPredicate = NSPredicate(format: "dueDate <= %@", date)
+            let predicate2: NSPredicate = NSPredicate(format: "dueDate >= %@", date)
             let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
             let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicate2])
             fetchrequest.predicate = andPredicate
-            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: false)
+            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: true)
             fetchrequest.sortDescriptors = [sort]
             return try context.fetch(fetchrequest)
             
@@ -71,11 +74,11 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/yyyy"
             let date = dateFormatter.string(from: now)
-            let predicate2: NSPredicate = NSPredicate(format: "dueDate > %@", date)
+            let predicate2: NSPredicate = NSPredicate(format: "dueDate < %@", date)
             let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
             let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicate2])
             fetchrequest.predicate = andPredicate
-            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: false)
+            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: true)
             fetchrequest.sortDescriptors = [sort]
             return try context.fetch(fetchrequest)
             
@@ -113,13 +116,20 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addBannerViewToView(bannerView)
+        
+        bannerView.adUnitID = "ca-app-pub-4546055219731501/4458073112"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        
         assignmentTableView.delegate = self
         assignmentTableView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         assignmentTableView.reloadData()
-        print("count is \(assignments.count)")
+        
+        view.backgroundColor = assignmentTableView.backgroundColor
         
         noAssignmentStoredBackground()
         
@@ -361,7 +371,7 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
         if assignments.count == 0 && doneAssignments.count == 0 && pastDue.count == 0 {
             
             let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.accessibilityFrame.size.width, height: self.accessibilityFrame.size.height))
-            messageLabel.text = "There are currently no assignments stored. Hit the + to add one. (+ Button will be disabled if there is no classes stored.)"
+            messageLabel.text = "There are no assignments stored. Hit the + to add one. (+ Button will be disabled if there is no classes stored.)"
             messageLabel.numberOfLines = 0;
             messageLabel.textAlignment = .center;
             messageLabel.font = UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight.medium)
@@ -374,5 +384,35 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
         else {
             assignmentTableView.backgroundView = nil
         }
+    }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: view.safeAreaLayoutGuide,
+                                attribute: .bottom,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
+    }
+    
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        addBannerViewToView(bannerView)
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 1, animations: {
+            bannerView.alpha = 1
+        })
     }
 }

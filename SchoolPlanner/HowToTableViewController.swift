@@ -31,9 +31,7 @@ class HowToTableViewController: UITableViewController {
         tableView.cellForRow(at: [1, 0])?.accessoryView = UIImageView(image: downArrow)
         tableView.cellForRow(at: [2, 0])?.accessoryView = UIImageView(image: downArrow)
         tableView.cellForRow(at: [3, 0])?.accessoryView = UIImageView(image: downArrow)
-        tableView.cellForRow(at: [4, 0])?.accessoryView = UIImageView(image: downArrow)
-        tableView.cellForRow(at: [5, 0])?.accessoryView = UIImageView(image: downArrow)
-        tableView.cellForRow(at: [6, 0])?.accessoryView = UIImageView(image: downArrow)
+        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -95,67 +93,6 @@ class HowToTableViewController: UITableViewController {
                 if indexPath.row == 1 {
                     tableView.cellForRow(at: [3, 1])?.backgroundColor = UIColor.systemGray2
                     return 106
-                }
-            }
-        }
-        if indexPath.section == 4 {
-            if section5IsSelected == false {
-                
-                if indexPath.row == 1 {
-                    return 0
-                }
-            }
-            else {
-                if indexPath.row == 1 {
-                    //tableView.cellForRow(at: [4, 1])?.backgroundColor = setTableViewCellColor()
-                    return 145
-                }
-            }
-        }
-        if indexPath.section == 5 {
-            if section6IsSelected == false {
-                
-                if indexPath.row == 0 {
-                    return 91
-                }
-                if indexPath.row == 1 {
-                    return 0
-                }
-                if indexPath.row == 2 {
-                    return 0
-                }
-            }
-            else {
-                if indexPath.row == 0 {
-                    return 91
-                }
-                if indexPath.row == 1 {
-                    //tableView.cellForRow(at: [5, 1])?.backgroundColor = setTableViewCellColor()
-                    return 141
-                }
-                if indexPath.row == 2 {
-                    //tableView.cellForRow(at: [5, 2])?.backgroundColor = setTableViewCellColor()
-                    return 114
-                }
-            }
-        }
-        if indexPath.section == 6 {
-            if section7IsSelected == false {
-                
-                if indexPath.row == 0 {
-                    return 71
-                }
-                if indexPath.row == 1 {
-                    return 0
-                }
-            }
-            else {
-                if indexPath.row == 0 {
-                    return 71
-                }
-                if indexPath.row == 1 {
-                    //tableView.cellForRow(at: [6, 1])?.backgroundColor = setTableViewCellColor()
-                    return 154
                 }
             }
         }
@@ -234,63 +171,6 @@ class HowToTableViewController: UITableViewController {
             }
             else {
                 section4IsSelected = false
-                tableView.cellForRow(at: indexPath)?.accessoryView = UIImageView(image: downArrow)
-                tableView.beginUpdates()
-                tableView.endUpdates()
-            }
-        }
-        else if indexPath == [4, 0] {
-            if section5IsSelected == false {
-                section5IsSelected = true
-                tableView.cellForRow(at: indexPath)?.accessoryView = UIImageView(image: upArrow)
-                tableView.beginUpdates()
-                tableView.endUpdates()
-                let completelyVisible = tableView.bounds.contains(tableView.rectForRow(at: [4, 1]))
-                
-                if completelyVisible == false {
-                    tableView.scrollToRow(at: [4, 1], at: .bottom, animated: true)
-                }
-            }
-            else {
-                section5IsSelected = false
-                tableView.cellForRow(at: indexPath)?.accessoryView = UIImageView(image: downArrow)
-                tableView.beginUpdates()
-                tableView.endUpdates()
-            }
-        }
-        else if indexPath == [5, 0] {
-            if section6IsSelected == false {
-                section6IsSelected = true
-                tableView.cellForRow(at: indexPath)?.accessoryView = UIImageView(image: upArrow)
-                tableView.beginUpdates()
-                tableView.endUpdates()
-                let completelyVisible = tableView.bounds.contains(tableView.rectForRow(at: [5, 2]))
-                
-                if completelyVisible == false {
-                    tableView.scrollToRow(at: [5, 2], at: .bottom, animated: true)
-                }
-            }
-            else {
-                section6IsSelected = false
-                tableView.cellForRow(at: indexPath)?.accessoryView = UIImageView(image: downArrow)
-                tableView.beginUpdates()
-                tableView.endUpdates()
-            }
-        }
-        else if indexPath == [6, 0] {
-            
-            if section7IsSelected == false {
-                section7IsSelected = true
-                tableView.cellForRow(at: indexPath)?.accessoryView = UIImageView(image: upArrow)
-                tableView.beginUpdates()
-                tableView.endUpdates()
-                let completelyVisible = tableView.bounds.contains(tableView.rectForRow(at: [6, 1]))
-                if completelyVisible == false {
-                    tableView.scrollToRow(at: [6, 1], at: .bottom, animated: true)
-                }
-            }
-            else {
-                section7IsSelected = false
                 tableView.cellForRow(at: indexPath)?.accessoryView = UIImageView(image: downArrow)
                 tableView.beginUpdates()
                 tableView.endUpdates()

@@ -30,11 +30,11 @@ class ViewAssignmentViewController: UIViewController {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/yyyy"
             let date = dateFormatter.string(from: now)
-            let predicate2: NSPredicate = NSPredicate(format: "dueDate <= %@", date)
+            let predicate2: NSPredicate = NSPredicate(format: "dueDate >= %@", date)
             let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
             let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicate2])
             fetchrequest.predicate = andPredicate
-            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: false)
+            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: true)
             fetchrequest.sortDescriptors = [sort]
             return try context.fetch(fetchrequest)
             
@@ -58,11 +58,11 @@ class ViewAssignmentViewController: UIViewController {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/yyyy"
             let date = dateFormatter.string(from: now)
-            let predicate2: NSPredicate = NSPredicate(format: "dueDate > %@", date)
+            let predicate2: NSPredicate = NSPredicate(format: "dueDate < %@", date)
             let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
             let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicate2])
             fetchrequest.predicate = andPredicate
-            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: false)
+            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: true)
             fetchrequest.sortDescriptors = [sort]
             return try context.fetch(fetchrequest)
             

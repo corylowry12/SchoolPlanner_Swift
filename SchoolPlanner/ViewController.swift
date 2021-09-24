@@ -7,10 +7,9 @@
 
 import UIKit
 import CoreData
-import UserNotifications
 import GoogleMobileAds
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UNUserNotificationCenterDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     lazy var bannerView: GADBannerView! = GADBannerView(adSize: kGADAdSizeBanner)
     
@@ -76,11 +75,37 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if UserDefaults.standard.value(forKey: "theme") == nil {
             UserDefaults.standard.set(2, forKey: "theme")
         }
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let userDefaults = UserDefaults.standard
+        if userDefaults.integer(forKey: "theme") == 0 {
+            view.window?.overrideUserInterfaceStyle = .light
+        }
+        else if userDefaults.integer(forKey: "theme") == 1 {
+            view.window?.overrideUserInterfaceStyle = .dark
+        }
+        else if userDefaults.integer(forKey: "theme") == 2 {
+            view.window?.overrideUserInterfaceStyle = .unspecified
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
         noClassesStoredBackground()
+        
+        view.backgroundColor = tableView.backgroundColor
+        let userDefaults = UserDefaults.standard
+        if userDefaults.integer(forKey: "theme") == 0 {
+            view.window?.overrideUserInterfaceStyle = .light
+        }
+        else if userDefaults.integer(forKey: "theme") == 1 {
+            view.window?.overrideUserInterfaceStyle = .dark
+        }
+        else if userDefaults.integer(forKey: "theme") == 2 {
+            view.window?.overrideUserInterfaceStyle = .unspecified
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

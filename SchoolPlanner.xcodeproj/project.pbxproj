@@ -28,6 +28,7 @@
 		32B3B22926FC12F2009A0F66 /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B3B22026FC12F2009A0F66 /* GoogleMobileAds.xcframework */; };
 		32B3B22B26FC12F2009A0F66 /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B3B22126FC12F2009A0F66 /* GoogleAppMeasurement.xcframework */; };
 		32B3B22D26FC12F2009A0F66 /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B3B22226FC12F2009A0F66 /* GoogleUtilities.xcframework */; };
+		32B3B23126FD6F31009A0F66 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B3B23026FD6F31009A0F66 /* SettingsTableViewController.swift */; };
 		32B7FFA426F952DC00858101 /* AverageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7FFA326F952DC00858101 /* AverageCell.swift */; };
 		32B7FFA626F9616700858101 /* AssignmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7FFA526F9616700858101 /* AssignmentTableViewCell.swift */; };
 		32B7FFA826F9618500858101 /* AssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7FFA726F9618500858101 /* AssignmentViewController.swift */; };
@@ -61,6 +62,7 @@
 		32B3B22026FC12F2009A0F66 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "../../../Downloads/GoogleMobileAdsSdkiOS-8.7.0/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
 		32B3B22126FC12F2009A0F66 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = "../../../Downloads/GoogleMobileAdsSdkiOS-8.7.0/GoogleAppMeasurement.xcframework"; sourceTree = "<group>"; };
 		32B3B22226FC12F2009A0F66 /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleUtilities.xcframework; path = "../../../Downloads/GoogleMobileAdsSdkiOS-8.7.0/GoogleUtilities.xcframework"; sourceTree = "<group>"; };
+		32B3B23026FD6F31009A0F66 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		32B7FFA326F952DC00858101 /* AverageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageCell.swift; sourceTree = "<group>"; };
 		32B7FFA526F9616700858101 /* AssignmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentTableViewCell.swift; sourceTree = "<group>"; };
 		32B7FFA726F9618500858101 /* AssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				320F702F26FAD2B2001E0F34 /* AppearanceViewController.swift */,
 				32B3B21926FAF376009A0F66 /* PatchNotesViewController.swift */,
 				32B3B21B26FBE2A8009A0F66 /* HowToTableViewController.swift */,
+				32B3B23026FD6F31009A0F66 /* SettingsTableViewController.swift */,
 			);
 			path = SchoolPlanner;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				32B7FFA626F9616700858101 /* AssignmentTableViewCell.swift in Sources */,
 				326C391A26F8ECAA00EF01C3 /* GradesViewController.swift in Sources */,
 				32B7FFAC26F9664000858101 /* AddAssignmentTableViewCell.swift in Sources */,
+				32B3B23126FD6F31009A0F66 /* SettingsTableViewController.swift in Sources */,
 				320F703026FAD2B2001E0F34 /* AppearanceViewController.swift in Sources */,
 				3249145026F81F3700A90C6D /* AppDelegate.swift in Sources */,
 				3249145A26F81F3700A90C6D /* SchoolPlanner.xcdatamodeld in Sources */,
@@ -364,7 +368,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +424,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = "-ObjC";

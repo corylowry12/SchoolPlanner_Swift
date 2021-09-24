@@ -218,7 +218,7 @@
         <!--Settings-->
         <scene sceneID="I4i-XI-aMU">
             <objects>
-                <tableViewController id="bIP-uv-mfI" sceneMemberID="viewController">
+                <tableViewController id="bIP-uv-mfI" customClass="SettingsTableViewController" customModule="SchoolPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="10" sectionFooterHeight="10" id="nfu-Dg-ubk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -358,8 +358,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Build: Alpha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fde-l6-JhW">
-                                                    <rect key="frame" x="20" y="11" width="90.5" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Build: Stable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fde-l6-JhW">
+                                                    <rect key="frame" x="20" y="11" width="95.5" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -381,6 +381,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="qtc-v6-ChE"/>
+                    <connections>
+                        <outlet property="patchNotesCell" destination="fLz-du-D6r" id="a4J-L8-Mex"/>
+                        <outlet property="settingsTableView" destination="nfu-Dg-ubk" id="9jK-CB-fYq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPW-mE-J3F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -653,7 +657,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Wnp-Qs-HwZ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="675"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="assignmentCell" rowHeight="110" id="hDx-qp-qMm" customClass="AssignmentTableViewCell" customModule="SchoolPlanner" customModuleProvider="target">
                                         <rect key="frame" x="20" y="49.5" width="374" height="110"/>
@@ -728,7 +732,7 @@
                             <constraint firstItem="R2n-ij-fue" firstAttribute="trailing" secondItem="Wnp-Qs-HwZ" secondAttribute="trailing" id="P3b-uL-ryH"/>
                             <constraint firstItem="Wnp-Qs-HwZ" firstAttribute="leading" secondItem="R2n-ij-fue" secondAttribute="leading" id="dIB-bW-11O"/>
                             <constraint firstItem="Wnp-Qs-HwZ" firstAttribute="top" secondItem="R2n-ij-fue" secondAttribute="top" id="kCn-pW-EVf"/>
-                            <constraint firstItem="R2n-ij-fue" firstAttribute="bottom" secondItem="Wnp-Qs-HwZ" secondAttribute="bottom" id="lBr-PI-yfL"/>
+                            <constraint firstItem="R2n-ij-fue" firstAttribute="bottom" secondItem="Wnp-Qs-HwZ" secondAttribute="bottom" constant="50" id="lBr-PI-yfL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Assignments" id="VIH-lv-5Ok">
@@ -776,19 +780,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WXA-j3-7ea">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="WXA-j3-7ea">
                                 <rect key="frame" x="0.0" y="478" width="414" height="335"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="classCell" id="m3A-Hf-icx" customClass="AddAssignmentTableViewCell" customModule="SchoolPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="20" y="49.5" width="374" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m3A-Hf-icx" id="Ni5-x7-zTl">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVR-F0-CFW">
-                                                    <rect key="frame" x="20" y="11" width="42" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1147,175 +1150,6 @@
                                                 <constraint firstItem="BVS-LX-PHc" firstAttribute="top" secondItem="c21-tb-lwJ" secondAttribute="topMargin" id="Rum-Pf-ObP"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="BVS-LX-PHc" secondAttribute="bottom" id="ZRh-sd-XmQ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="BVS-LX-PHc" secondAttribute="trailing" id="jfu-5I-aeT"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection id="2qU-pr-VHO">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="NlG-eL-0wE">
-                                        <rect key="frame" x="20" y="736.66667175292969" width="374" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NlG-eL-0wE" id="26S-o5-twU">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Export Hours To Time Cards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="er9-ek-BP6">
-                                                    <rect key="frame" x="20" y="11" width="275.5" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="er9-ek-BP6" firstAttribute="leading" secondItem="26S-o5-twU" secondAttribute="leadingMargin" id="1Vf-bg-voM"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="er9-ek-BP6" secondAttribute="bottom" id="MmY-at-06Q"/>
-                                                <constraint firstItem="er9-ek-BP6" firstAttribute="top" secondItem="26S-o5-twU" secondAttribute="topMargin" id="uC6-0T-6sH"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="141" id="eai-nU-fqV">
-                                        <rect key="frame" x="20" y="780.33333969116211" width="374" height="141"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eai-nU-fqV" id="JoQ-e5-Bg5">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="141"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNq-Te-vyL">
-                                                    <rect key="frame" x="20" y="11" width="334" height="119"/>
-                                                    <string key="text">In the History view you will see a button in the title bar that says "Export" if you click that it will export the hours into Time Cards, it will show each entry with total hours and the date from the first date to the last date</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="rNq-Te-vyL" firstAttribute="top" secondItem="JoQ-e5-Bg5" secondAttribute="topMargin" id="7wf-VR-j3p"/>
-                                                <constraint firstItem="rNq-Te-vyL" firstAttribute="leading" secondItem="JoQ-e5-Bg5" secondAttribute="leadingMargin" id="JkE-8S-JGM"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="rNq-Te-vyL" secondAttribute="bottom" id="qQi-hu-OPr"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="rNq-Te-vyL" secondAttribute="trailing" id="rje-b0-WRV"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection id="B5e-Rn-bAb">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="91" id="oWu-JL-ami">
-                                        <rect key="frame" x="20" y="939.33333969116211" width="374" height="91"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oWu-JL-ami" id="tYZ-0J-jXY">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="91"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Store Time Card Images and How to View Them" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JcZ-Xh-Xlc">
-                                                    <rect key="frame" x="20" y="11" width="267" height="77"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="JcZ-Xh-Xlc" firstAttribute="leading" secondItem="tYZ-0J-jXY" secondAttribute="leadingMargin" id="04V-aP-wpm"/>
-                                                <constraint firstItem="JcZ-Xh-Xlc" firstAttribute="top" secondItem="tYZ-0J-jXY" secondAttribute="topMargin" id="OLk-Hn-6Ss"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="JcZ-Xh-Xlc" secondAttribute="trailingMargin" constant="75" id="hZb-gX-l8I"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="JcZ-Xh-Xlc" secondAttribute="bottomMargin" id="srf-N0-9sl"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="141" id="dcs-K5-wPW">
-                                        <rect key="frame" x="20" y="1030.3333396911621" width="374" height="141"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dcs-K5-wPW" id="Ggp-o7-I00">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="141"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXt-nn-Ucd">
-                                                    <rect key="frame" x="20" y="11" width="334" height="119"/>
-                                                    <string key="text">To store a time card image, first you need to have entries exported into time cards. Then you will need to click on the entry and then click on the image view at the bottom, and select how you want to select your image</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="IXt-nn-Ucd" secondAttribute="trailing" id="6JV-uG-nfN"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="IXt-nn-Ucd" secondAttribute="bottom" id="EAz-Lr-v6L"/>
-                                                <constraint firstItem="IXt-nn-Ucd" firstAttribute="top" secondItem="Ggp-o7-I00" secondAttribute="topMargin" id="NZE-Fv-pav"/>
-                                                <constraint firstItem="IXt-nn-Ucd" firstAttribute="leading" secondItem="Ggp-o7-I00" secondAttribute="leadingMargin" id="SxL-mj-au0"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="114" id="ny9-4C-oRk">
-                                        <rect key="frame" x="20" y="1171.3333396911621" width="374" height="114"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ny9-4C-oRk" id="JvL-xv-HI0">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="114"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AB-7T-saH">
-                                                    <rect key="frame" x="20" y="11" width="334" height="92"/>
-                                                    <string key="text">To view images, you need to go to Settings-&gt;Gallery and all your images will be there. You can also click on the images and view them.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="5AB-7T-saH" firstAttribute="top" secondItem="JvL-xv-HI0" secondAttribute="topMargin" id="RFn-aU-4Iy"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="5AB-7T-saH" secondAttribute="bottom" id="Uda-Jn-TqP"/>
-                                                <constraint firstItem="5AB-7T-saH" firstAttribute="leading" secondItem="JvL-xv-HI0" secondAttribute="leadingMargin" id="ehX-bT-aCW"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="5AB-7T-saH" secondAttribute="trailing" id="pk8-ue-3Q4"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection id="HxK-eI-BfO">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="71" id="oA7-di-MiU">
-                                        <rect key="frame" x="20" y="1303.3333396911621" width="374" height="71"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oA7-di-MiU" id="6Gu-n5-6eP">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="71"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Share Time Card Images" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDV-Y1-QPG">
-                                                    <rect key="frame" x="8" y="8" width="283" height="55"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="iDV-Y1-QPG" secondAttribute="bottom" id="Mbz-Zu-pKl"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="iDV-Y1-QPG" secondAttribute="trailing" constant="75" id="QnZ-iQ-XZJ"/>
-                                                <constraint firstItem="iDV-Y1-QPG" firstAttribute="leading" secondItem="6Gu-n5-6eP" secondAttribute="leadingMargin" id="cOQ-WP-UOt"/>
-                                                <constraint firstItem="iDV-Y1-QPG" firstAttribute="top" secondItem="6Gu-n5-6eP" secondAttribute="topMargin" id="yZK-3K-VrO"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="154" id="9SX-ix-UrH">
-                                        <rect key="frame" x="20" y="1374.3333396911621" width="374" height="154"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9SX-ix-UrH" id="HlU-yc-UzH">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="154"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWA-N8-gfn">
-                                                    <rect key="frame" x="8" y="8" width="358" height="138"/>
-                                                    <string key="text">First, go to Gallery, then long press on the image you want to share, and then select as many as you would like. Then click the share button in the title bar and share them. BEWARE, depending on the app you are trying to share to, it may or may not work</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="kWA-N8-gfn" firstAttribute="leading" secondItem="HlU-yc-UzH" secondAttribute="leadingMargin" id="1yC-8K-seh"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="kWA-N8-gfn" secondAttribute="bottom" id="9TV-5q-Y7C"/>
-                                                <constraint firstItem="kWA-N8-gfn" firstAttribute="top" secondItem="HlU-yc-UzH" secondAttribute="topMargin" id="Obm-0T-Moo"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="kWA-N8-gfn" secondAttribute="trailing" id="T8b-SC-RR6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
