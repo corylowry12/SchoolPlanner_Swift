@@ -29,6 +29,8 @@
 		32B3B22B26FC12F2009A0F66 /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B3B22126FC12F2009A0F66 /* GoogleAppMeasurement.xcframework */; };
 		32B3B22D26FC12F2009A0F66 /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B3B22226FC12F2009A0F66 /* GoogleUtilities.xcframework */; };
 		32B3B23126FD6F31009A0F66 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B3B23026FD6F31009A0F66 /* SettingsTableViewController.swift */; };
+		32B3B23426FEDCE3009A0F66 /* AllGradesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B3B23326FEDCE3009A0F66 /* AllGradesViewController.swift */; };
+		32B3B23626FEDDCB009A0F66 /* AllGradesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B3B23526FEDDCB009A0F66 /* AllGradesTableViewCell.swift */; };
 		32B7FFA426F952DC00858101 /* AverageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7FFA326F952DC00858101 /* AverageCell.swift */; };
 		32B7FFA626F9616700858101 /* AssignmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7FFA526F9616700858101 /* AssignmentTableViewCell.swift */; };
 		32B7FFA826F9618500858101 /* AssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7FFA726F9618500858101 /* AssignmentViewController.swift */; };
@@ -64,6 +66,8 @@
 		32B3B22226FC12F2009A0F66 /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleUtilities.xcframework; path = "../../../Downloads/GoogleMobileAdsSdkiOS-8.7.0/GoogleUtilities.xcframework"; sourceTree = "<group>"; };
 		32B3B23026FD6F31009A0F66 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		32B3B23226FE6A59009A0F66 /* SchoolPlanner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SchoolPlanner.entitlements; sourceTree = "<group>"; };
+		32B3B23326FEDCE3009A0F66 /* AllGradesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGradesViewController.swift; sourceTree = "<group>"; };
+		32B3B23526FEDDCB009A0F66 /* AllGradesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGradesTableViewCell.swift; sourceTree = "<group>"; };
 		32B7FFA326F952DC00858101 /* AverageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageCell.swift; sourceTree = "<group>"; };
 		32B7FFA526F9616700858101 /* AssignmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentTableViewCell.swift; sourceTree = "<group>"; };
 		32B7FFA726F9618500858101 /* AssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 				32B3B21926FAF376009A0F66 /* PatchNotesViewController.swift */,
 				32B3B21B26FBE2A8009A0F66 /* HowToTableViewController.swift */,
 				32B3B23026FD6F31009A0F66 /* SettingsTableViewController.swift */,
+				32B3B23326FEDCE3009A0F66 /* AllGradesViewController.swift */,
+				32B3B23526FEDDCB009A0F66 /* AllGradesTableViewCell.swift */,
 			);
 			path = SchoolPlanner;
 			sourceTree = "<group>";
@@ -289,7 +295,9 @@
 				3249145026F81F3700A90C6D /* AppDelegate.swift in Sources */,
 				3249145A26F81F3700A90C6D /* SchoolPlanner.xcdatamodeld in Sources */,
 				32B7FFAA26F965D400858101 /* AddAssignmentViewController.swift in Sources */,
+				32B3B23626FEDDCB009A0F66 /* AllGradesTableViewCell.swift in Sources */,
 				32B7FFA426F952DC00858101 /* AverageCell.swift in Sources */,
+				32B3B23426FEDCE3009A0F66 /* AllGradesViewController.swift in Sources */,
 				32B3B21C26FBE2A8009A0F66 /* HowToTableViewController.swift in Sources */,
 				326C391C26F944C500EF01C3 /* GradesTableViewCell.swift in Sources */,
 				3249145226F81F3700A90C6D /* SceneDelegate.swift in Sources */,
@@ -445,12 +453,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SchoolPlanner/SchoolPlanner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = DP6RQZGX67;
 				INFOPLIST_FILE = SchoolPlanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cory.SchoolPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -466,12 +476,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SchoolPlanner/SchoolPlanner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = DP6RQZGX67;
 				INFOPLIST_FILE = SchoolPlanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cory.SchoolPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
