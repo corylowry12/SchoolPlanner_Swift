@@ -36,6 +36,24 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    var classes: [Classes] {
+        
+        do {
+            let fetchrequest = NSFetchRequest<Classes>(entityName: "Classes")
+            let predicate = userDefaults.integer(forKey: "id")
+            fetchrequest.predicate = NSPredicate(format: "id == %d", predicate as CVarArg)
+            return try context.fetch(fetchrequest)
+            
+        } catch {
+            
+            print("Couldn't fetch data")
+            
+        }
+        
+        return [Classes]()
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,7 +64,7 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         print("count is \(grades.count)")
-        
+        self.title = "Grades/\(classes[0].name ?? "Unknown")"
         noGradesStoredBackground()
     }
     

@@ -7,12 +7,19 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dueDate: UIDatePicker!
     @IBOutlet weak var notes: UITextView!
+    
+    var index: Int!
+    var isEditingAssignment = 0
+    var section : Int!
+    
+    var notificationID : String!
     
     @IBOutlet weak var classTableView: UITableView!
     
@@ -34,13 +41,187 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
         
     }
     
+    var assignments: [Assignments] {
+        
+        do {
+            
+            let fetchrequest = NSFetchRequest<Assignments>(entityName: "Assignments")
+            let predicate = 0
+            
+            let now: Date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            let date = dateFormatter.string(from: now)
+            let predicate2: NSPredicate = NSPredicate(format: "dueDate >= %@", date)
+            let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
+            let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicate2])
+            fetchrequest.predicate = andPredicate
+            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: true)
+            fetchrequest.sortDescriptors = [sort]
+            return try context.fetch(fetchrequest)
+            
+        } catch {
+            
+            print("Couldn't fetch data")
+            
+        }
+        
+        return [Assignments]()
+        
+    }
+    
+    var pastDue: [Assignments] {
+        
+        do {
+            let fetchrequest = NSFetchRequest<Assignments>(entityName: "Assignments")
+            let predicate = 0
+            
+            let now: Date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            let date = dateFormatter.string(from: now)
+            let predicate2: NSPredicate = NSPredicate(format: "dueDate < %@", date)
+            let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
+            let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicate2])
+            fetchrequest.predicate = andPredicate
+            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: true)
+            fetchrequest.sortDescriptors = [sort]
+            return try context.fetch(fetchrequest)
+            
+        } catch {
+            
+            print("Couldn't fetch data")
+            
+        }
+        
+        return [Assignments]()
+        
+    }
+    
+    var doneAssignments: [Assignments] {
+        
+        do {
+            
+            let fetchrequest = NSFetchRequest<Assignments>(entityName: "Assignments")
+            let predicate = 1
+            fetchrequest.predicate = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
+            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: false)
+            fetchrequest.sortDescriptors = [sort]
+            return try context.fetch(fetchrequest)
+            
+        } catch {
+            
+            print("Couldn't fetch data")
+            
+        }
+        
+        return [Assignments]()
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         classTableView.delegate = self
         classTableView.dataSource = self
         
-        dueDate.minimumDate = Date()
+        classTableView.allowsMultipleSelection = false
+        
+        //dueDate.minimumDate = Date()
+        print("hello world \(isEditingAssignment)")
+        if isEditingAssignment == 1 {
+            navigationItem.title = "Edit Assignment"
+            print("hello world")
+            
+            if section == 0 {
+            let assignmentName = assignments[index].name
+            nameTextField.text = assignmentName
+                nameTextField.isEnabled = false
+            notificationID = "\(assignments[index].name ?? "")\(assignments[index].dueDate ?? "")"
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            let date = dateFormatter.date(from: assignments[index].dueDate!)
+            dueDate.date = date!
+            
+            if assignments[index].notes == "None" {
+            notes.text = "Type Your Notes..."
+            }
+            else {
+                notes.text = assignments[index].notes
+            }
+            for i in 0...classes.count - 1 {
+                if assignments[index].assignmentClass == classes[i].name {
+                    let indexPath = IndexPath(row: i, section: 0)
+                    classTableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                    classTableView.delegate?.tableView?(classTableView, didSelectRowAt: indexPath)
+                    
+                    print("hello world")
+                    break
+                }
+            }
+            }
+            else if section == 1 {
+                let assignmentName = pastDue[index].name
+                nameTextField.text = assignmentName
+                nameTextField.isEnabled = false
+                notificationID = "\(assignments[index].name ?? "")\(assignments[index].dueDate ?? "")"
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yyyy"
+                let date = dateFormatter.date(from: pastDue[index].dueDate!)
+                dueDate.date = date!
+                
+                if pastDue[index].notes == "None" {
+                notes.text = "Type Your Notes..."
+                }
+                else {
+                    notes.text = pastDue[index].notes
+                }
+                for i in 0...classes.count - 1 {
+                    if pastDue[index].assignmentClass == classes[i].name {
+                        let indexPath = IndexPath(row: i, section: 0)
+                        classTableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                        classTableView.delegate?.tableView?(classTableView, didSelectRowAt: indexPath)
+                        
+                        print("hello world")
+                        break
+                    }
+                }
+            }
+            else if section == 2 {
+                let assignmentName = doneAssignments[index].name
+                nameTextField.text = assignmentName
+                nameTextField.isEnabled = false
+                notificationID = "\(doneAssignments[index].name ?? "")\(doneAssignments[index].dueDate ?? "")"
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yyyy"
+                let date = dateFormatter.date(from: doneAssignments[index].dueDate!)
+                dueDate.date = date!
+                
+                if doneAssignments[index].notes == "None" {
+                notes.text = "Type Your Notes..."
+                }
+                else {
+                    notes.text = doneAssignments[index].notes
+                }
+                for i in 0...classes.count - 1 {
+                    if doneAssignments[index].assignmentClass == classes[i].name {
+                        let indexPath = IndexPath(row: i, section: 0)
+                        classTableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                        classTableView.delegate?.tableView?(classTableView, didSelectRowAt: indexPath)
+                        
+                        print("hello world")
+                        break
+                    }
+                }
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        classTableView.reloadData()
         
     }
     
@@ -52,8 +233,18 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
         return classes.count
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Classes"
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+    
+        let userDefaults = UserDefaults.standard
+        
+        classTableView.cellForRow(at: [0, userDefaults.integer(forKey: "editAssignment")])?.accessoryType = .none
+      
+        userDefaults.set(indexPath.row, forKey: "editAssignment")
+        classTableView.cellForRow(at: [0, userDefaults.integer(forKey: "editAssignment")])?.accessoryType = .checkmark
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -79,107 +270,212 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
     }
     @IBAction func saveButton(_ sender: Any) {
         
-        var selectedItem : Int! = 100000
-        for i in 0...classes.count - 1 {
-            if classTableView.cellForRow(at: [0, i])?.accessoryType == .checkmark {
-                selectedItem = i
-                break
+        if isEditingAssignment == 0 {
+            var selectedItem : Int! = 100000
+            for i in 0...classes.count - 1 {
+                if classTableView.cellForRow(at: [0, i])?.accessoryType == .checkmark {
+                    selectedItem = i
+                    break
+                }
             }
-        }
-        
-        if nameTextField.text == "" {
-            let alert = UIAlertController(title: "Don't leave assignment name blank", message: nil, preferredStyle: .alert)
-            self.present(alert, animated: true, completion: nil)
-            let when = DispatchTime.now() + 1
-            DispatchQueue.main.asyncAfter(deadline: when) {
-                alert.dismiss(animated: true, completion: nil)
+            
+            if nameTextField.text == "" {
+                let alert = UIAlertController(title: "Don't leave assignment name blank", message: nil, preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+                let when = DispatchTime.now() + 1
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    alert.dismiss(animated: true, completion: nil)
+                }
             }
-        }
-        else if selectedItem == 100000 {
-            let alert = UIAlertController(title: "You must select a class", message: nil, preferredStyle: .alert)
-            self.present(alert, animated: true, completion: nil)
-            let when = DispatchTime.now() + 1
-            DispatchQueue.main.asyncAfter(deadline: when) {
-                alert.dismiss(animated: true, completion: nil)
+            else if selectedItem == 100000 {
+                let alert = UIAlertController(title: "You must select a class", message: nil, preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+                let when = DispatchTime.now() + 1
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    alert.dismiss(animated: true, completion: nil)
+                }
             }
-        }
-    
-        else {
-        let assignments = Assignments(context: context)
-        
-        for i in 0...classes.count - 1 {
-            if classTableView.cellForRow(at: [0, i])?.accessoryType == .checkmark {
-                selectedItem = i
-                break
-            }
-        }
-        let currentCell = classTableView.cellForRow(at: [0, selectedItem]) as! AddAssignmentTableViewCell
-        
-        let celltext = currentCell.classLabel.text
-        
-        assignments.assignmentClass = celltext
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        let dueDateForAssignment = dateFormatter.string(from: dueDate.date)
-        assignments.dueDate = dueDateForAssignment
-        assignments.name = nameTextField.text
-            if notes.text == "" || notes.text == "Type Your Notes..." {
-                assignments.notes = "None"
-            }
+            
             else {
-                assignments.notes = notes.text
+                let assignments = Assignments(context: context)
+                
+                for i in 0...classes.count - 1 {
+                    if classTableView.cellForRow(at: [0, i])?.accessoryType == .checkmark {
+                        selectedItem = i
+                        break
+                    }
+                }
+                let currentCell = classTableView.cellForRow(at: [0, selectedItem]) as! AddAssignmentTableViewCell
+                
+                let celltext = currentCell.classLabel.text
+                
+                assignments.assignmentClass = celltext
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yyyy"
+                let dueDateForAssignment = dateFormatter.string(from: dueDate.date)
+                assignments.dueDate = dueDateForAssignment
+                assignments.name = nameTextField.text
+                if notes.text == "" || notes.text == "Type Your Notes..." {
+                    assignments.notes = "None"
+                }
+                else {
+                    assignments.notes = notes.text
+                }
+                
+                let components = Calendar.current.dateComponents([.month, .day, .year], from: dueDate.date)
+                let month = components.month
+                let day = components.day
+                let year = components.year
+                
+                sendNotification(month: month!, day: day!, year: year!, name: "\(nameTextField.text!)\(dueDateForAssignment)")
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        else {
+            var notification = [String]()
+            UNUserNotificationCenter.current().getPendingNotificationRequests { [self] (notificationRequests) in
+                for notificationRequest:UNNotificationRequest in notificationRequests {
+                    print(notificationRequest.identifier)
+                    if notificationRequest.identifier == "\(notificationID ?? "")" {
+                        notification.append("\(notificationID ?? "")")
+                    }
+                }
+            }
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: notification)
+            var selectedItem : Int! = 100000
+            for i in 0...classes.count - 1 {
+                if classTableView.cellForRow(at: [0, i])?.accessoryType == .checkmark {
+                    selectedItem = i
+                    break
+                }
+            }
+            if nameTextField.text == "" {
+                let alert = UIAlertController(title: "Don't leave assignment name blank", message: nil, preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+                let when = DispatchTime.now() + 1
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    alert.dismiss(animated: true, completion: nil)
+                }
+            }
+            else if selectedItem == 100000 {
+                let alert = UIAlertController(title: "You must select a class", message: nil, preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+                let when = DispatchTime.now() + 1
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    alert.dismiss(animated: true, completion: nil)
+                }
             }
             
-            let components = Calendar.current.dateComponents([.month, .day, .year], from: dueDate.date)
-            let month = components.month
-            let day = components.day
-            let year = components.year
+            else {
+                if section == 0 {
+                let assignments = assignments[index]
+                
+                for i in 0...classes.count - 1 {
+                    if classTableView.cellForRow(at: [0, i])?.accessoryType == .checkmark {
+                        selectedItem = i
+                        break
+                    }
+                }
+                let currentCell = classTableView.cellForRow(at: [0, selectedItem]) as! AddAssignmentTableViewCell
+                
+                let celltext = currentCell.classLabel.text
+                
+                assignments.assignmentClass = celltext
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yyyy"
+                let dueDateForAssignment = dateFormatter.string(from: dueDate.date)
+                assignments.dueDate = dueDateForAssignment
+                assignments.name = nameTextField.text
+                if notes.text == "" || notes.text == "Type Your Notes..." {
+                    assignments.notes = "None"
+                }
+                else {
+                    assignments.notes = notes.text
+                }
+                
+                let components = Calendar.current.dateComponents([.month, .day, .year], from: dueDate.date)
+                let month = components.month
+                let day = components.day
+                let year = components.year
+                
+                sendNotification(month: month!, day: day!, year: year!, name: "\(nameTextField.text!)\(dueDateForAssignment)")
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                self.navigationController?.popViewController(animated: true)
+                }
+                else if section == 1 {
+                    let assignments = pastDue[index]
+                    
+                    for i in 0...classes.count - 1 {
+                        if classTableView.cellForRow(at: [0, i])?.accessoryType == .checkmark {
+                            selectedItem = i
+                            break
+                        }
+                    }
+                    let currentCell = classTableView.cellForRow(at: [0, selectedItem]) as! AddAssignmentTableViewCell
+                    
+                    let celltext = currentCell.classLabel.text
+                    
+                    assignments.assignmentClass = celltext
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "MM/dd/yyyy"
+                    let dueDateForAssignment = dateFormatter.string(from: dueDate.date)
+                    assignments.dueDate = dueDateForAssignment
+                    assignments.name = nameTextField.text
+                    if notes.text == "" || notes.text == "Type Your Notes..." {
+                        assignments.notes = "None"
+                    }
+                    else {
+                        assignments.notes = notes.text
+                    }
+                    
+                    let components = Calendar.current.dateComponents([.month, .day, .year], from: dueDate.date)
+                    let month = components.month
+                    let day = components.day
+                    let year = components.year
+                    
+                    sendNotification(month: month!, day: day!, year: year!, name: "\(nameTextField.text!)\(dueDateForAssignment)")
+                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    self.navigationController?.popViewController(animated: true)
+                }
+              
+            }
             
-            let random = Int32.random(in: 1...10000)
-            
-            let userDefaults = UserDefaults.standard
-            userDefaults.setValue(month, forKey: "month")
-            userDefaults.setValue(day, forKey: "day")
-            userDefaults.setValue(year, forKey: "year")
-            userDefaults.setValue("\(random)", forKey: "name")
-            sendNotification(month: month!, day: day!, year: year!, name: "\(nameTextField.text!)\(dueDateForAssignment)")
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        self.navigationController?.popViewController(animated: true)
         }
-    }
-    
-    func sendNotification(month: Int, day: Int, year: Int, name: String) {
-        
-        let content = UNMutableNotificationContent()
-                content.title = NSString.localizedUserNotificationString(forKey: "We have a new message for you", arguments: nil)
-                content.body = NSString.localizedUserNotificationString(forKey: "Open the app for see", arguments: nil)
+        }
+            
+            func sendNotification(month: Int, day: Int, year: Int, name: String) {
+                
+                let content = UNMutableNotificationContent()
+                content.title = NSString.localizedUserNotificationString(forKey: "You have an assignment due today", arguments: nil)
+                content.body = NSString.localizedUserNotificationString(forKey: "Open the app to check and see", arguments: nil)
                 content.sound = UNNotificationSound.default
                 content.badge = 1
                 let identifier = name
-
-            //Receive notification after 5 sec
-            //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-            
-            //Receive with date
-            var dateInfo = DateComponents()
-            dateInfo.day = day //Put your day
-            dateInfo.month = month //Put your month
-            dateInfo.year = year // Put your year
-            dateInfo.hour = 19 //Put your hour
-            dateInfo.minute = 45 //put your minutes
-            
-            //specify if repeats or no
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: true)
-            
-            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-            let center = UNUserNotificationCenter.current()
-            print(identifier)
-            center.add(request) { (error) in
-                if let error = error {
-                    print("Error \(error.localizedDescription)")
-                }else{
-                    print("send!!")
+                
+                //Receive notification after 5 sec
+                //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                
+                //Receive with date
+                var dateInfo = DateComponents()
+                dateInfo.day = day //Put your day
+                dateInfo.month = month //Put your month
+                dateInfo.year = year // Put your year
+                dateInfo.hour = 19 //Put your hour
+                dateInfo.minute = 45 //put your minutes
+                
+                //specify if repeats or no
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: true)
+                
+                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+                let center = UNUserNotificationCenter.current()
+                print(identifier)
+                center.add(request) { (error) in
+                    if let error = error {
+                        print("Error \(error.localizedDescription)")
+                    }else{
+                        print("send!!")
+                    }
                 }
             }
-    }
-}
+        }

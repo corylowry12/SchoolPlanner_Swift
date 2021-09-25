@@ -25,6 +25,23 @@ class AddClassViewContrller: ViewController {
     var editClass: Int! = 0
     var selectedIndex: Int! = 0
     
+    var assignmentsData: [Assignments] {
+        
+        do {
+            
+            let fetchrequest = NSFetchRequest<Assignments>(entityName: "Assignments")
+            return try context.fetch(fetchrequest)
+            
+        } catch {
+            
+            print("Couldn't fetch data")
+            
+        }
+        
+        return [Assignments]()
+        
+    }
+    
     override var classes: [Classes] {
         
         do {
@@ -46,9 +63,9 @@ class AddClassViewContrller: ViewController {
         do {
             
             let fetchrequest = NSFetchRequest<Classes>(entityName: "Classes")
-          
+            
             fetchrequest.predicate = NSPredicate(format: "id == %d", selectedIndex)
-           
+            
             return try context.fetch(fetchrequest)
             
         } catch {
@@ -147,71 +164,89 @@ class AddClassViewContrller: ViewController {
                     }
                 }
             }
-        else {
-            let classToStore = Classes(context: context)
-            var random : Int32!
-            do {
-                random = Int32.random(in: 1...500)
-            }
-            while self.classes.contains(where: { $0.id == random }) {
-                random = Int32.random(in: 1...500)
-            }
-            classToStore.id = random
-            classToStore.name = className.text
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "hh:mm a"
-            let inTime = dateFormatter.string(from: inTimePicker.date)
-            let outTime = dateFormatter.string(from: outTimePicker.date)
-            
-            let inTimeToStore = dateFormatter.date(from: inTime)
-            let outTimeToStore = dateFormatter.date(from: outTime)
-            
-            classToStore.intime = inTimeToStore
-            classToStore.outtime = outTimeToStore
-            var time : String!
-            //classToStore.time = time
-            if multiSelect.selectedSegmentTitles.count == 1 {
-                time = "\(inTime) - \(outTime) on \(multiSelect.selectedSegmentTitles.first ?? "Unknown")"
-                classToStore.time = time
-            }
             else {
-                var days = ""
-                for i in multiSelect.selectedSegmentTitles {
-                    print("time is: \(i)")
-                    /*if i != multiSelect.selectedSegmentTitles.last && i != multiSelect.selectedSegmentTitles.first {
-                     days += ", \(i)"
-                     }
-                     else if i == multiSelect.selectedSegmentTitles.first {
-                     days += "\(i), "
-                     }
-                     else if i == multiSelect.selectedSegmentTitles.last {
-                     days += i
-                     }
-                     else {
-                     days += i
-                     }*/
-                    if i == multiSelect.selectedSegmentTitles.first {
-                        days += "\(i)"
-                    }
-                    else if i != multiSelect.selectedSegmentTitles.first && i != multiSelect.selectedSegmentTitles.last {
-                        days += ", \(i)"
-                    }
-                    else if i == multiSelect.selectedSegmentTitles.last {
-                        days += " and \(i)"
+                var alreadyStored = false
+                for i in 0...classes.count - 1 {
+                    if classes[i].name == className.text {
+                        alreadyStored = true
+                        break
                     }
                 }
+                if alreadyStored == true {
+                    let alert = UIAlertController(title: "Class already exists, please enter a diferent name", message: nil, preferredStyle: .alert)
+                    self.present(alert, animated: true, completion: nil)
+                    let when = DispatchTime.now() + 1
+                    DispatchQueue.main.asyncAfter(deadline: when) {
+                        alert.dismiss(animated: true, completion: nil)
+                        
+                    }
+                }
+                else {
+                    let classToStore = Classes(context: context)
+                    var random : Int32!
+                    do {
+                        random = Int32.random(in: 1...500)
+                    }
+                    while self.classes.contains(where: { $0.id == random }) {
+                        random = Int32.random(in: 1...500)
+                    }
+                    classToStore.id = random
+                    classToStore.name = className.text
                     
-                    time = "\(inTime) - \(outTime) on \(days)"
-                    classToStore.time = time
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "hh:mm a"
+                    let inTime = dateFormatter.string(from: inTimePicker.date)
+                    let outTime = dateFormatter.string(from: outTimePicker.date)
+                    
+                    let inTimeToStore = dateFormatter.date(from: inTime)
+                    let outTimeToStore = dateFormatter.date(from: outTime)
+                    
+                    classToStore.intime = inTimeToStore
+                    classToStore.outtime = outTimeToStore
+                    var time : String!
+                    //classToStore.time = time
+                    if multiSelect.selectedSegmentTitles.count == 1 {
+                        time = "\(inTime) - \(outTime) on \(multiSelect.selectedSegmentTitles.first ?? "Unknown")"
+                        classToStore.time = time
+                    }
+                    else {
+                        var days = ""
+                        for i in multiSelect.selectedSegmentTitles {
+                            print("time is: \(i)")
+                            /*if i != multiSelect.selectedSegmentTitles.last && i != multiSelect.selectedSegmentTitles.first {
+                             days += ", \(i)"
+                             }
+                             else if i == multiSelect.selectedSegmentTitles.first {
+                             days += "\(i), "
+                             }
+                             else if i == multiSelect.selectedSegmentTitles.last {
+                             days += i
+                             }
+                             else {
+                             days += i
+                             }*/
+                            if i == multiSelect.selectedSegmentTitles.first {
+                                days += "\(i)"
+                            }
+                            else if i != multiSelect.selectedSegmentTitles.first && i != multiSelect.selectedSegmentTitles.last {
+                                days += ", \(i)"
+                            }
+                            else if i == multiSelect.selectedSegmentTitles.last {
+                                days += " and \(i)"
+                            }
+                        }
+                        
+                        time = "\(inTime) - \(outTime) on \(days)"
+                        classToStore.time = time
+                    }
+                    
+                    
+                    classToStore.location = classLocation.text
+                    
+                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    self.navigationController?.popViewController(animated: true)
                 }
-            
-            
-            classToStore.location = classLocation.text
-            
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            self.navigationController?.popViewController(animated: true)
-        }
+            }
         }
         else {
             if className.text == "" {
@@ -243,49 +278,56 @@ class AddClassViewContrller: ViewController {
                 }
             }
             else if classLocation.text == "" {
-               
-                    let alert = UIAlertController(title: "Class must have a location to update", message: nil, preferredStyle: .alert)
-                    self.present(alert, animated: true, completion: nil)
-                    let when = DispatchTime.now() + 1
-                    DispatchQueue.main.asyncAfter(deadline: when) {
-                        alert.dismiss(animated: true, completion: nil)
-                        
-                    }
+                
+                let alert = UIAlertController(title: "Class must have a location to update", message: nil, preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+                let when = DispatchTime.now() + 1
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    alert.dismiss(animated: true, completion: nil)
+                    
+                }
             }
             else {
-            let classToUpdate = classes[0]
-            classToUpdate.name = className.text
-            classToUpdate.id = Int32(selectedIndex)
-            classToUpdate.location = classLocation.text
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "hh:mm a"
-            let inTime = dateFormatter.string(from: inTimePicker.date)
-            let outTime = dateFormatter.string(from: outTimePicker.date)
-            
-            var time : String!
-            
-            var days = ""
-            for i in multiSelect.selectedSegmentTitles {
-                print("time is: \(i)")
-               
-                if i == multiSelect.selectedSegmentTitles.first {
-                    days += "\(i)"
+                let classToUpdate = editClassData[0]
+                
+                for i in 0...assignmentsData.count - 1 {
+                    if assignmentsData[i].assignmentClass == classToUpdate.name {
+                        assignmentsData[i].assignmentClass = className.text
+                    }
                 }
-                else if i != multiSelect.selectedSegmentTitles.first && i != multiSelect.selectedSegmentTitles.last {
-                    days += ", \(i)"
+                
+                classToUpdate.name = className.text
+                classToUpdate.id = Int32(selectedIndex)
+                classToUpdate.location = classLocation.text
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "hh:mm a"
+                let inTime = dateFormatter.string(from: inTimePicker.date)
+                let outTime = dateFormatter.string(from: outTimePicker.date)
+                
+                var time : String!
+                
+                var days = ""
+                for i in multiSelect.selectedSegmentTitles {
+                    print("time is: \(i)")
+                    
+                    if i == multiSelect.selectedSegmentTitles.first {
+                        days += "\(i)"
+                    }
+                    else if i != multiSelect.selectedSegmentTitles.first && i != multiSelect.selectedSegmentTitles.last {
+                        days += ", \(i)"
+                    }
+                    else if i == multiSelect.selectedSegmentTitles.last {
+                        days += " and \(i)"
+                    }
                 }
-                else if i == multiSelect.selectedSegmentTitles.last {
-                    days += " and \(i)"
-                }
-            }
                 
                 time = "\(inTime) - \(outTime) on \(days)"
                 classToUpdate.time = time
-            
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            self.navigationController?.popViewController(animated: true)
-        }
+                
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     }
 }

@@ -164,7 +164,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     }
                 }
                 if grades.count > 0 {
-                for i in 0...grades.count - 1 {
+                    for i in (0...grades.count - 1).reversed() {
                     let gradeToDelete = grades[i]
                     self.context.delete(gradeToDelete)
                 }
@@ -249,11 +249,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             else if text == "E" || text == "e" {
                 lblNameInitialize.backgroundColor = UIColor.systemRed
             }
-            else if text == "A" || text == "A" {
-                lblNameInitialize.backgroundColor = UIColor.green
+            else if text == "A" || text == "a" {
+                lblNameInitialize.backgroundColor = UIColor.magenta
             }
-            else if text == "B" || text == "B" {
+            else if text == "B" || text == "b" {
                 lblNameInitialize.backgroundColor = UIColor.cyan
+            }
+            else if text == "S" || text == "s" {
+                lblNameInitialize.backgroundColor = UIColor.systemGreen
             }
             else {
                 lblNameInitialize.backgroundColor = UIColor.systemOrange

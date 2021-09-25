@@ -18,6 +18,9 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var assignmentTableView: UITableView!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
+    var index: Int!
+    var type: Int!
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var classes: [Classes] {
@@ -199,6 +202,43 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    
+        let action = UIContextualAction(style: .normal,
+                                        title: "Edit") { [self] (action, view, completionHandler) in
+            
+                if indexPath.section == 0 {
+                  
+                    index = indexPath.row
+                    type = 0
+                    
+                       self.performSegue(withIdentifier: "editAssignment", sender: self)
+                    
+                }
+                else if indexPath.section == 2 {
+                    
+                    index = indexPath.row
+                    type = 2
+                    
+                       self.performSegue(withIdentifier: "editAssignment", sender: self)
+                }
+                else if indexPath.section == 1 {
+                    let alert = UIAlertController(title: "You can not edit this assignment. It has already been marked as \"Done\"", message: nil, preferredStyle: .alert)
+                    self.present(alert, animated: true, completion: nil)
+                    let when = DispatchTime.now() + 1
+                    DispatchQueue.main.asyncAfter(deadline: when) {
+                        alert.dismiss(animated: true, completion: nil)
+                        
+                    }
+                }
+                
+        }
+        
+        let swipeActionConfig = UISwipeActionsConfiguration(actions: [action])
+        action.backgroundColor = .systemOrange
+        return swipeActionConfig
+    }
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .normal,
                                         title: "Delete") { (action, view, completionHandler) in
@@ -206,13 +246,6 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] _ in
                 if indexPath.section == 0 {
                   
-                      /* var identifiers: [String] = []
-                       
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "MM/dd/yyyy"
-                        let date = dateFormatter.date(from: assignments[indexPath.row].dueDate ?? "")
-                        let identifier = "\(assignments[indexPath.row].name!)\(date!)"
-                              identifiers.append(identifier)*/
                     let name = assignments[indexPath.row].name!
                         
                     var notification = [String]()
@@ -443,5 +476,14 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
         UIView.animate(withDuration: 1, animations: {
             bannerView.alpha = 1
         })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editAssignment" {
+            let vc = segue.destination as! AddAssignmentViewController
+            vc.index = index
+            vc.isEditingAssignment = 1
+            vc.section = type
+        }
     }
 }

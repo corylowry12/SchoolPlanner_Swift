@@ -16,6 +16,7 @@ class ViewAssignmentViewController: UIViewController {
     @IBOutlet weak var classLabel: UILabel!
     @IBOutlet weak var dueDateLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
+    @IBOutlet var addButton: UIBarButtonItem!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -97,6 +98,45 @@ class ViewAssignmentViewController: UIViewController {
         
     }
     
+    var name : String!
+    
+    var classes: [Classes] {
+        
+        do {
+            
+            let fetchrequest = NSFetchRequest<Classes>(entityName: "Classes")
+            fetchrequest.predicate = NSPredicate(format: "name == %@", name as CVarArg)
+            return try context.fetch(fetchrequest)
+            
+        } catch {
+            
+            print("Couldn't fetch data")
+            
+        }
+        
+        return [Classes]()
+        
+    }
+    
+    var grades: [Grades] {
+        
+        do {
+            
+            let fetchrequest = NSFetchRequest<Grades>(entityName: "Grades")
+            let sort = NSSortDescriptor(key: #keyPath(Grades.date), ascending: false)
+            fetchrequest.sortDescriptors = [sort]
+            return try context.fetch(fetchrequest)
+            
+        } catch {
+            
+            print("Couldn't fetch data")
+            
+        }
+        
+        return [Grades]()
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         let userDefaults = UserDefaults.standard
         
@@ -107,18 +147,21 @@ class ViewAssignmentViewController: UIViewController {
             classLabel.text = "Class: \(doneAssignments[userDefaults.integer(forKey: "assignment")].assignmentClass ?? "Unknown")"
             dueDateLabel.text = "Due Date: \(doneAssignments[userDefaults.integer(forKey: "assignment")].dueDate ?? "Unknown")"
             notesLabel.text = "Notes: \(doneAssignments[userDefaults.integer(forKey: "assignment")].notes ?? "Unknown")"
+            addButton.isEnabled = true
         }
         else if userDefaults.integer(forKey: "pastDue") == 1{
             nameLabel.text = "Assignment Name: \(pastDue[userDefaults.integer(forKey: "assignment")].name ?? "Unknown")"
             classLabel.text = "Class: \(pastDue[userDefaults.integer(forKey: "assignment")].assignmentClass ?? "Unknown")"
             dueDateLabel.text = "Due Date: \(pastDue[userDefaults.integer(forKey: "assignment")].dueDate ?? "Unknown")"
             notesLabel.text = "Notes: \(pastDue[userDefaults.integer(forKey: "assignment")].notes ?? "Unknown")"
+            addButton.isEnabled = false
         }
         else {
             nameLabel.text = "Assignment Name: \(assignments[userDefaults.integer(forKey: "assignment")].name ?? "Unknown")"
             classLabel.text = "Class: \(assignments[userDefaults.integer(forKey: "assignment")].assignmentClass ?? "Unknown")"
             dueDateLabel.text = "Due Date: \(assignments[userDefaults.integer(forKey: "assignment")].dueDate ?? "Unknown")"
             notesLabel.text = "Notes: \(assignments[userDefaults.integer(forKey: "assignment")].notes ?? "Unknown")"
+            addButton.isEnabled = false
         }
     }
     @IBAction func markAsDoneClicked(_ sender: Any) {
@@ -134,5 +177,109 @@ class ViewAssignmentViewController: UIViewController {
             assignments[userDefaults.integer(forKey: "assignment")].doneStatus = 1
         }
         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func addButton(_ sender: Any) {
+        let userDefaults = UserDefaults.standard
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        let alert = UIAlertController(title: "Add Grade?", message: "Would you like to add a grade for this assignment?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] _ in
+            let alert = UIAlertController(title: "Add Grade", message: nil, preferredStyle: .alert)
+            alert.addTextField(configurationHandler: { (textField) in
+                textField.placeholder = "Grade"
+            })
+            alert.addTextField(configurationHandler: { (weightTextField) in
+                weightTextField.placeholder = "Weight"
+            })
+            alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [self] _ in
+                let gradeTextField = alert.textFields![0]
+                let weightTextField = alert.textFields![1]
+            if userDefaults.integer(forKey: "doneStatus") == 1 {
+            for i in 0...doneAssignments.count - 1 {
+                name = doneAssignments[userDefaults.integer(forKey: "assignment")].assignmentClass
+             
+                    if doneAssignments[i].assignmentClass == doneAssignments[userDefaults.integer(forKey: "assignment")].assignmentClass {
+                        let grades = Grades(context: context)
+                        grades.id = classes[0].id
+                        grades.name = doneAssignments[i].name
+                        let date = dateFormatter.string(from: Date())
+                        grades.date = date
+                        if gradeTextField.text == "" {
+                            grades.grade = 100.0
+                        }
+                        else {
+                            grades.grade = Double("\(gradeTextField.text ?? "")")!
+                        }
+                        if weightTextField.text == "" {
+                            grades.weight = 100.0
+                        }
+                        else {
+                            grades.weight = Double("\(weightTextField.text ?? "")")!
+                        }
+                        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                        break
+                    }
+            }
+            }
+                else if userDefaults.integer(forKey: "pastDue") == 1 {
+                    for i in 0...pastDue.count - 1 {
+                        name = pastDue[userDefaults.integer(forKey: "assignment")].assignmentClass
+                        
+                            if pastDue[i].assignmentClass == pastDue[userDefaults.integer(forKey: "assignment")].assignmentClass {
+                                let grades = Grades(context: context)
+                                grades.id = classes[0].id
+                                grades.name = pastDue[i].name
+                                let date = dateFormatter.string(from: Date())
+                                grades.date = date
+                                if gradeTextField.text == "" {
+                                    grades.grade = 100.0
+                                }
+                                else {
+                                    grades.grade = Double("\(gradeTextField.text ?? "")")!
+                                }
+                                if weightTextField.text == "" {
+                                    grades.weight = 100.0
+                                }
+                                else {
+                                    grades.weight = Double("\(weightTextField.text ?? "")")!
+                                }
+                                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                                break
+                            }
+                    }
+                }
+                else {
+                    for i in 0...assignments.count - 1 {
+                        name = pastDue[userDefaults.integer(forKey: "assignment")].assignmentClass
+                        
+                            if assignments[i].assignmentClass == assignments[userDefaults.integer(forKey: "assignment")].assignmentClass {
+                                let grades = Grades(context: context)
+                                grades.id = classes[0].id
+                                grades.name = assignments[i].name
+                                let date = dateFormatter.string(from: Date())
+                                grades.date = date
+                                if gradeTextField.text == "" {
+                                    grades.grade = 100.0
+                                }
+                                else {
+                                    grades.grade = Double("\(gradeTextField.text ?? "")")!
+                                }
+                                if weightTextField.text == "" {
+                                    grades.weight = 100.0
+                                }
+                                else {
+                                    grades.weight = Double("\(weightTextField.text ?? "")")!
+                                }
+                                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                                break
+                            }
+                    }
+            }
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
