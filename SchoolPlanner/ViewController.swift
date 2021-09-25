@@ -34,7 +34,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return [Classes]()
         
     }
+    
+    var classNamePredicate: String!
+    
+    var assignments: [Assignments] {
+        
+        do {
+            
+            let fetchrequest = NSFetchRequest<Assignments>(entityName: "Assignments")
+            fetchrequest.predicate = NSPredicate(format: "assignmentClass == %@", classNamePredicate as CVarArg)
+            return try context.fetch(fetchrequest)
+            
+        } catch {
+            
+            print("Couldn't fetch data")
+            
+        }
+        
+        return [Assignments]()
+        
+    }
+    
     var predicate: Int32!
+  
     var grades: [Grades] {
         
         do {
@@ -133,6 +155,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] _ in
                 
                 predicate = classes[indexPath.row].id
+                classNamePredicate = classes[indexPath.row].name
+                print("class name is \(classNamePredicate)")
+                if assignments.count > 0 {
+                    for i in 0...assignments.count - 1 {
+                        let assignmentToDelete = assignments[i]
+                        self.context.delete(assignmentToDelete)
+                    }
+                }
                 if grades.count > 0 {
                 for i in 0...grades.count - 1 {
                     let gradeToDelete = grades[i]
