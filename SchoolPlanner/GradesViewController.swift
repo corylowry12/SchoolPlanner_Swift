@@ -158,7 +158,7 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 dateFormatter.dateFormat = "MM/dd/yyyy"
                 let date = dateFormatter.string(from: Date())
                 gradeToStore.date = date
-                if gradeTextField.text == "" {
+                if weightTextField.text == "" {
                     gradeToStore.weight = 100.0
                 }
                 else {
