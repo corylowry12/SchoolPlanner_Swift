@@ -76,6 +76,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             UserDefaults.standard.set(2, forKey: "theme")
         }
         
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

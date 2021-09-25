@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import GoogleMobileAds
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -15,7 +16,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        application.applicationIconBadgeNumber = -1
+        
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
+        //MARK: Authorization
+            let center = UNUserNotificationCenter.current()
+            
+            
+            //Delegate for UNUserNotificationCenterDelegate
+            center.delegate = self
+            
+            //Permission for request alert, soud and badge
+            center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+                // Enable or disable features based on authorization.
+                if(!granted){
+                    print("not accept authorization")
+                }else{
+                    print("accept authorization")
+                    
+                    center.delegate = self
+                    
+                    
+                }
+            }
        
         return true
     }
@@ -32,6 +56,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        let userDefaults = UserDefaults.standard
+        let month = userDefaults.integer(forKey: "month")
+        let day = userDefaults.integer(forKey: "day")
+        let year = userDefaults.integer(forKey: "year")
+        let identifier = userDefaults.string(forKey: "name")
+        let viewController = AddAssignmentViewController()
+       // viewController.sendNotification(month: month, day: day, year: year, name: identifier!)
     }
 
     // MARK: - Core Data stack
@@ -63,6 +97,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
-
 }
 

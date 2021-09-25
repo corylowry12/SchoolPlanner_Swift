@@ -130,8 +130,56 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                 assignments.notes = notes.text
             }
             
+            let components = Calendar.current.dateComponents([.month, .day, .year], from: dueDate.date)
+            let month = components.month
+            let day = components.day
+            let year = components.year
+            
+            let random = Int32.random(in: 1...10000)
+            
+            let userDefaults = UserDefaults.standard
+            userDefaults.setValue(month, forKey: "month")
+            userDefaults.setValue(day, forKey: "day")
+            userDefaults.setValue(year, forKey: "year")
+            userDefaults.setValue("\(random)", forKey: "name")
+            sendNotification(month: month!, day: day!, year: year!, name: "\(nameTextField.text!)\(dueDateForAssignment)")
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    func sendNotification(month: Int, day: Int, year: Int, name: String) {
+        
+        let content = UNMutableNotificationContent()
+                content.title = NSString.localizedUserNotificationString(forKey: "We have a new message for you", arguments: nil)
+                content.body = NSString.localizedUserNotificationString(forKey: "Open the app for see", arguments: nil)
+                content.sound = UNNotificationSound.default
+                content.badge = 1
+                let identifier = name
+
+            //Receive notification after 5 sec
+            //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            
+            //Receive with date
+            var dateInfo = DateComponents()
+            dateInfo.day = day //Put your day
+            dateInfo.month = month //Put your month
+            dateInfo.year = year // Put your year
+            dateInfo.hour = 19 //Put your hour
+            dateInfo.minute = 45 //put your minutes
+            
+            //specify if repeats or no
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: true)
+            
+            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+            let center = UNUserNotificationCenter.current()
+            print(identifier)
+            center.add(request) { (error) in
+                if let error = error {
+                    print("Error \(error.localizedDescription)")
+                }else{
+                    print("send!!")
+                }
+            }
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import CoreData
 import GoogleMobileAds
+import UserNotifications
 
 class AssignmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -204,6 +205,29 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             let alert = UIAlertController(title: "Warning", message: "Would you like to delete this assignment? It can not be undone!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] _ in
                 if indexPath.section == 0 {
+                  
+                      /* var identifiers: [String] = []
+                       
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "MM/dd/yyyy"
+                        let date = dateFormatter.date(from: assignments[indexPath.row].dueDate ?? "")
+                        let identifier = "\(assignments[indexPath.row].name!)\(date!)"
+                              identifiers.append(identifier)*/
+                    let name = assignments[indexPath.row].name!
+                        
+                    var notification = [String]()
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "MM/dd/yyyy"
+                    let date = dateFormatter.date(from: assignments[indexPath.row].dueDate ?? "")
+                    UNUserNotificationCenter.current().getPendingNotificationRequests { (notificationRequests) in
+                         for notificationRequest:UNNotificationRequest in notificationRequests {
+                            print(notificationRequest.identifier)
+                            if notificationRequest.identifier == "\(name)\(date!)" {
+                                notification.append("\(assignments[indexPath.row].name!)\(date!)")
+                            }
+                        }
+                    }
+                    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: notification)
                     let assignmentToDelete = self.assignments[indexPath.row]
                     self.context.delete(assignmentToDelete)
                     
@@ -214,6 +238,11 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
                     if assignments.count == 0 && doneAssignments.count == 0 && pastDue.count == 0 {
                         self.assignmentTableView.reloadData()
                     }
+                    
+                    //let cell = assignmentTableView.cellForRow(at: indexPath) as! AssignmentTableViewCell
+                    
+                    
+                    
                 }
                 else if indexPath.section == 2 {
                     let assignmentToDelete = self.doneAssignments[indexPath.row]
