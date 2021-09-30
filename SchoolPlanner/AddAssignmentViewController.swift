@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import CoreData
+import UserNotifications
 
 class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -18,6 +19,9 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
     var index: Int!
     var isEditingAssignment = 0
     var section : Int!
+    
+    var assignmentName : String!
+    var className: String!
     
     var notificationID : String!
     
@@ -127,45 +131,45 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
         
         classTableView.allowsMultipleSelection = false
         
-        //dueDate.minimumDate = Date()
+        dueDate.minimumDate = Date()
         print("hello world \(isEditingAssignment)")
         if isEditingAssignment == 1 {
             navigationItem.title = "Edit Assignment"
             print("hello world")
             
             if section == 0 {
-            let assignmentName = assignments[index].name
-            nameTextField.text = assignmentName
+                let assignmentName = assignments[index].name
+                nameTextField.text = assignmentName
                 nameTextField.isEnabled = false
-            notificationID = "\(assignments[index].name ?? "")\(assignments[index].dueDate ?? "")"
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM/dd/yyyy"
-            let date = dateFormatter.date(from: assignments[index].dueDate!)
-            dueDate.date = date!
-            
-            if assignments[index].notes == "None" {
-            notes.text = "Type Your Notes..."
-            }
-            else {
-                notes.text = assignments[index].notes
-            }
-            for i in 0...classes.count - 1 {
-                if assignments[index].assignmentClass == classes[i].name {
-                    let indexPath = IndexPath(row: i, section: 0)
-                    classTableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-                    classTableView.delegate?.tableView?(classTableView, didSelectRowAt: indexPath)
-                    
-                    print("hello world")
-                    break
+                notificationID = "\(assignments[index].name ?? "")\(assignments[index].dueDate ?? "")"
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yyyy"
+                let date = dateFormatter.date(from: assignments[index].dueDate!)
+                dueDate.date = date!
+                
+                if assignments[index].notes == "None" {
+                    notes.text = "Type Your Notes..."
                 }
-            }
+                else {
+                    notes.text = assignments[index].notes
+                }
+                for i in 0...classes.count - 1 {
+                    if assignments[index].assignmentClass == classes[i].name {
+                        let indexPath = IndexPath(row: i, section: 0)
+                        classTableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                        classTableView.delegate?.tableView?(classTableView, didSelectRowAt: indexPath)
+                        
+                        print("hello world")
+                        break
+                    }
+                }
             }
             else if section == 1 {
                 let assignmentName = pastDue[index].name
                 nameTextField.text = assignmentName
                 nameTextField.isEnabled = false
-                notificationID = "\(assignments[index].name ?? "")\(assignments[index].dueDate ?? "")"
+                notificationID = "\(pastDue[index].name ?? "")\(pastDue[index].dueDate ?? "")"
                 
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "MM/dd/yyyy"
@@ -173,7 +177,7 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                 dueDate.date = date!
                 
                 if pastDue[index].notes == "None" {
-                notes.text = "Type Your Notes..."
+                    notes.text = "Type Your Notes..."
                 }
                 else {
                     notes.text = pastDue[index].notes
@@ -201,7 +205,7 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                 dueDate.date = date!
                 
                 if doneAssignments[index].notes == "None" {
-                notes.text = "Type Your Notes..."
+                    notes.text = "Type Your Notes..."
                 }
                 else {
                     notes.text = doneAssignments[index].notes
@@ -238,11 +242,11 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+        
         let userDefaults = UserDefaults.standard
         
         classTableView.cellForRow(at: [0, userDefaults.integer(forKey: "editAssignment")])?.accessoryType = .none
-      
+        
         userDefaults.set(indexPath.row, forKey: "editAssignment")
         classTableView.cellForRow(at: [0, userDefaults.integer(forKey: "editAssignment")])?.accessoryType = .checkmark
     }
@@ -327,6 +331,9 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                 let day = components.day
                 let year = components.year
                 
+                assignmentName = nameTextField.text
+                className = currentCell.classLabel.text
+                
                 sendNotification(month: month!, day: day!, year: year!, name: "\(nameTextField.text!)\(dueDateForAssignment)")
                 (UIApplication.shared.delegate as! AppDelegate).saveContext()
                 self.navigationController?.popViewController(animated: true)
@@ -369,39 +376,42 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
             
             else {
                 if section == 0 {
-                let assignments = assignments[index]
-                
-                for i in 0...classes.count - 1 {
-                    if classTableView.cellForRow(at: [0, i])?.accessoryType == .checkmark {
-                        selectedItem = i
-                        break
+                    let assignments = assignments[index]
+                    
+                    for i in 0...classes.count - 1 {
+                        if classTableView.cellForRow(at: [0, i])?.accessoryType == .checkmark {
+                            selectedItem = i
+                            break
+                        }
                     }
-                }
-                let currentCell = classTableView.cellForRow(at: [0, selectedItem]) as! AddAssignmentTableViewCell
-                
-                let celltext = currentCell.classLabel.text
-                
-                assignments.assignmentClass = celltext
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "MM/dd/yyyy"
-                let dueDateForAssignment = dateFormatter.string(from: dueDate.date)
-                assignments.dueDate = dueDateForAssignment
-                assignments.name = nameTextField.text
-                if notes.text == "" || notes.text == "Type Your Notes..." {
-                    assignments.notes = "None"
-                }
-                else {
-                    assignments.notes = notes.text
-                }
-                
-                let components = Calendar.current.dateComponents([.month, .day, .year], from: dueDate.date)
-                let month = components.month
-                let day = components.day
-                let year = components.year
-                
-                sendNotification(month: month!, day: day!, year: year!, name: "\(nameTextField.text!)\(dueDateForAssignment)")
-                (UIApplication.shared.delegate as! AppDelegate).saveContext()
-                self.navigationController?.popViewController(animated: true)
+                    let currentCell = classTableView.cellForRow(at: [0, selectedItem]) as! AddAssignmentTableViewCell
+                    
+                    let celltext = currentCell.classLabel.text
+                    
+                    assignments.assignmentClass = celltext
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "MM/dd/yyyy"
+                    let dueDateForAssignment = dateFormatter.string(from: dueDate.date)
+                    assignments.dueDate = dueDateForAssignment
+                    assignments.name = nameTextField.text
+                    if notes.text == "" || notes.text == "Type Your Notes..." {
+                        assignments.notes = "None"
+                    }
+                    else {
+                        assignments.notes = notes.text
+                    }
+                    
+                    assignmentName = nameTextField.text
+                    className = currentCell.classLabel.text
+                    
+                    let components = Calendar.current.dateComponents([.month, .day, .year], from: dueDate.date)
+                    let month = components.month
+                    let day = components.day
+                    let year = components.year
+                    
+                    sendNotification(month: month!, day: day!, year: year!, name: "\(nameTextField.text!)\(dueDateForAssignment)")
+                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    self.navigationController?.popViewController(animated: true)
                 }
                 else if section == 1 {
                     let assignments = pastDue[index]
@@ -429,6 +439,9 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                         assignments.notes = notes.text
                     }
                     
+                    assignmentName = nameTextField.text
+                    className = currentCell.classLabel.text
+                    
                     let components = Calendar.current.dateComponents([.month, .day, .year], from: dueDate.date)
                     let month = components.month
                     let day = components.day
@@ -438,44 +451,45 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
                     self.navigationController?.popViewController(animated: true)
                 }
-              
+                
             }
             
         }
-        }
+    }
+    
+    func sendNotification(month: Int, day: Int, year: Int, name: String) {
+        
+        if UserDefaults.standard.bool(forKey: "toggleNotifications") == true {
+            let content = UNMutableNotificationContent()
+            content.title = NSString.localizedUserNotificationString(forKey: "Assignment Due Today", arguments: nil)
+            content.body = NSString.localizedUserNotificationString(forKey: "Don't forget \(assignmentName ?? "homework") is due today in \(className ?? "one of your classes")", arguments: nil)
+            content.sound = UNNotificationSound.default
+            let badgeCount = UIApplication.shared.applicationIconBadgeNumber as NSNumber
+            content.badge = 1
+          
+            let identifier = name
             
-            func sendNotification(month: Int, day: Int, year: Int, name: String) {
-                
-                let content = UNMutableNotificationContent()
-                content.title = NSString.localizedUserNotificationString(forKey: "You have an assignment due today", arguments: nil)
-                content.body = NSString.localizedUserNotificationString(forKey: "Open the app to check and see", arguments: nil)
-                content.sound = UNNotificationSound.default
-                content.badge = 1
-                let identifier = name
-                
-                //Receive notification after 5 sec
-                //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-                
-                //Receive with date
-                var dateInfo = DateComponents()
-                dateInfo.day = day //Put your day
-                dateInfo.month = month //Put your month
-                dateInfo.year = year // Put your year
-                dateInfo.hour = 19 //Put your hour
-                dateInfo.minute = 45 //put your minutes
-                
-                //specify if repeats or no
-                let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: true)
-                
-                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-                let center = UNUserNotificationCenter.current()
-                print(identifier)
-                center.add(request) { (error) in
-                    if let error = error {
-                        print("Error \(error.localizedDescription)")
-                    }else{
-                        print("send!!")
-                    }
+            //Receive with date
+            var dateInfo = DateComponents()
+            dateInfo.day = day //Put your day
+            dateInfo.month = month //Put your month
+            dateInfo.year = year // Put your year
+            dateInfo.hour = UserDefaults.standard.integer(forKey: "hour") //Put your hour
+            dateInfo.minute = UserDefaults.standard.integer(forKey: "minutes") //put your minutes
+            
+            //specify if repeats or no
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: true)
+            
+            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+            let center = UNUserNotificationCenter.current()
+            print(identifier)
+            center.add(request) { (error) in
+                if let error = error {
+                    print("Error \(error.localizedDescription)")
+                }else{
+                    print("send!!")
                 }
             }
         }
+    }
+}

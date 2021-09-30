@@ -9,6 +9,12 @@ import Foundation
 import UIKit
 import CoreData
 
+extension String {
+   var isNumeric: Bool {
+     return self.allSatisfy { $0.isNumber }
+   }
+}
+
 class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var gradeTableView: UITableView!
@@ -59,13 +65,19 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         gradeTableView.delegate = self
         gradeTableView.dataSource = self
-    
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("count is \(grades.count)")
-        self.title = "Grades/\(classes[0].name ?? "Unknown")"
+        if classes.count > 0 {
+            self.title = "Grades/\(classes[0].name ?? "Unknown")"
+        }
+        else {
+            self.title = "Grades"
+        }
         noGradesStoredBackground()
+        gradeTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -112,39 +124,39 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if grades.count > 0 {
-    if indexPath == [0, 0] {
-        let averageCell = gradeTableView.dequeueReusableCell(withIdentifier: "averageCell") as! AverageCell
-        
-        var total = 0.0
-        
-        for i in 0...grades.count - 1 {
-            total += grades[i].grade * (Double(grades[i].weight))
-        }
-            var average : Double! = 0.0
-            var totalOfWeights = 0
-            for i in 0...grades.count - 1 {
-                totalOfWeights += Int(grades[i].weight)
+        if grades.count > 0 && classes.count > 0 {
+            if indexPath == [0, 0] {
+                let averageCell = gradeTableView.dequeueReusableCell(withIdentifier: "averageCell") as! AverageCell
+                
+                var total = 0.0
+                
+                for i in 0...grades.count - 1 {
+                    total += grades[i].grade * (Double(grades[i].weight))
+                }
+                var average : Double! = 0.0
+                var totalOfWeights = 0
+                for i in 0...grades.count - 1 {
+                    totalOfWeights += Int(grades[i].weight)
+                }
+                average += total / Double(totalOfWeights)
+                average = round(average * 100.0) / 100.0
+                averageCell.averageLabel.text = "Average: \(average ?? 0.0)"
+                return averageCell
+                
             }
-            average += total / Double(totalOfWeights)
-        average = round(average * 100.0) / 100.0
-            averageCell.averageLabel.text = "Average: \(average ?? 0.0)"
-        return averageCell
-        
-    }
-        else {
-            let gradesData = grades[indexPath.row - 1]
-            tableView.cellForRow(at: [0, 0])?.isHidden = false
-            print("hello \(grades.count)")
-            let cell = tableView.dequeueReusableCell(withIdentifier: "gradeCell") as! GradesTableViewCell
-            cell.nameLabel.text = String("Name: \(gradesData.name ?? "Unknown")")
-            cell.gradeLabel.text = String("Grade: \(gradesData.grade)")
-            cell.weightLabel.text = String("Weight: \(gradesData.weight)")
-            cell.dateLabel.text = String("Date: \(gradesData.date ?? "Unknown")")
-
-            return cell
-        }
-        
+            else {
+                let gradesData = grades[indexPath.row - 1]
+                tableView.cellForRow(at: [0, 0])?.isHidden = false
+                print("hello \(grades.count)")
+                let cell = tableView.dequeueReusableCell(withIdentifier: "gradeCell") as! GradesTableViewCell
+                cell.nameLabel.text = String("Name: \(gradesData.name ?? "Unknown")")
+                cell.gradeLabel.text = String("Grade: \(gradesData.grade)")
+                cell.weightLabel.text = String("Weight: \(gradesData.weight)")
+                cell.dateLabel.text = String("Date: \(gradesData.date ?? "Unknown")")
+                
+                return cell
+            }
+            
         }
         let cell = UITableViewCell()
         cell.isHidden = true
@@ -167,7 +179,9 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let nameTextField = alert.textFields![0]
             let gradeTextField = alert.textFields![1]
             let weightTextField = alert.textFields![2]
-            if nameTextField.text != "" && gradeTextField.text != "" {
+            let gradeText = "\(gradeTextField.text ?? "")"
+            let weightText = "\(weightTextField.text ?? "")"
+            if nameTextField.text != "" && gradeTextField.text != "" && gradeText.isNumeric && weightText.isNumeric {
                 let gradeToStore = Grades(context: context)
                 gradeToStore.id = Int32(userDefaults.integer(forKey: "id"))
                 gradeToStore.name = nameTextField.text
@@ -185,11 +199,12 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 (UIApplication.shared.delegate as! AppDelegate).saveContext()
                 gradeTableView.reloadData()
                 noGradesStoredBackground()
+                self.title = "Grades/\(classes[0].name ?? "Unknown")"
             }
             else {
                 print("hello world")
             }
-           
+            
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)

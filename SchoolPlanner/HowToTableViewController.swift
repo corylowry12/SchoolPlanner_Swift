@@ -31,7 +31,7 @@ class HowToTableViewController: UITableViewController {
         tableView.cellForRow(at: [1, 0])?.accessoryView = UIImageView(image: downArrow)
         tableView.cellForRow(at: [2, 0])?.accessoryView = UIImageView(image: downArrow)
         tableView.cellForRow(at: [3, 0])?.accessoryView = UIImageView(image: downArrow)
-        
+        tableView.cellForRow(at: [4, 0])?.accessoryView = UIImageView(image: downArrow)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -40,11 +40,10 @@ class HowToTableViewController: UITableViewController {
             if isSelected == false {
                 
                 if indexPath.row == 1 {
-                    return 0
+                    tableView.cellForRow(at: [0, 1])?.backgroundColor = UIColor.clear
+                    return 1
                 }
-                if indexPath.row == 2 {
-                    return 0
-                }
+                
             }
             else {
                 if indexPath.row == 1 {
@@ -57,7 +56,12 @@ class HowToTableViewController: UITableViewController {
             if section2IsSelected == false {
                 
                 if indexPath.row == 1 {
-                    return 0
+                    tableView.cellForRow(at: [1, 1])?.backgroundColor = UIColor.clear
+                    return 1
+                }
+                if indexPath.row == 2 {
+                    tableView.cellForRow(at: [1, 2])?.backgroundColor = UIColor.clear
+                    return 1
                 }
             }
             else {
@@ -65,13 +69,18 @@ class HowToTableViewController: UITableViewController {
                     tableView.cellForRow(at: [1, 1])?.backgroundColor = UIColor.systemGray2
                     return 130
                 }
+                if indexPath.row == 2 {
+                    tableView.cellForRow(at: [1, 2])?.backgroundColor = UIColor.systemGray2
+                    return 166
+                }
             }
         }
         if indexPath.section == 2 {
             if section3IsSelected == false {
                 
                 if indexPath.row == 1 {
-                    return 0
+                    tableView.cellForRow(at: [2, 1])?.backgroundColor = UIColor.clear
+                    return 1
                 }
              
             }
@@ -86,13 +95,37 @@ class HowToTableViewController: UITableViewController {
             if section4IsSelected == false {
                 
                 if indexPath.row == 1 {
-                    return 0
+                    tableView.cellForRow(at: [3, 1])?.backgroundColor = UIColor.clear
+                    return 1
                 }
             }
             else {
                 if indexPath.row == 1 {
                     tableView.cellForRow(at: [3, 1])?.backgroundColor = UIColor.systemGray2
                     return 106
+                }
+            }
+        }
+        if indexPath.section == 4 {
+            if section5IsSelected == false {
+                
+                if indexPath.row == 1 {
+                    tableView.cellForRow(at: [4, 1])?.backgroundColor = UIColor.clear
+                    return 1
+                }
+                if indexPath.row == 2 {
+                    tableView.cellForRow(at: [4, 2])?.backgroundColor = UIColor.clear
+                    return 1
+                }
+            }
+            else {
+                if indexPath.row == 1 {
+                    tableView.cellForRow(at: [4, 1])?.backgroundColor = UIColor.systemGray2
+                    return 115
+                }
+                if indexPath.row == 2 {
+                    tableView.cellForRow(at: [4, 2])?.backgroundColor = UIColor.systemGray2
+                    return 115
                 }
             }
         }
@@ -104,7 +137,7 @@ class HowToTableViewController: UITableViewController {
         
         let upArrow = UIImage(systemName: "chevron.up")
         let downArrow = UIImage(systemName: "chevron.down")
-        
+        print("index is \(indexPath)")
         if indexPath == [0, 0] {
             if isSelected == false {
                 isSelected = true
@@ -125,10 +158,10 @@ class HowToTableViewController: UITableViewController {
                 tableView.cellForRow(at: indexPath)?.accessoryView = UIImageView(image: upArrow)
                 tableView.beginUpdates()
                 tableView.endUpdates()
-                let completelyVisible = tableView.bounds.contains(tableView.rectForRow(at: [1, 1]))
+                let completelyVisible = tableView.bounds.contains(tableView.rectForRow(at: [1, 2]))
                 
                 if completelyVisible == false {
-                    tableView.scrollToRow(at: [1, 1], at: .bottom, animated: true)
+                    tableView.scrollToRow(at: [1, 2], at: .bottom, animated: true)
                 }
             }
             else {
@@ -144,10 +177,10 @@ class HowToTableViewController: UITableViewController {
                 tableView.cellForRow(at: indexPath)?.accessoryView = UIImageView(image: upArrow)
                 tableView.beginUpdates()
                 tableView.endUpdates()
-                let completelyVisible = tableView.bounds.contains(tableView.rectForRow(at: [2, 2]))
+                let completelyVisible = tableView.bounds.contains(tableView.rectForRow(at: [2, 1]))
                 
                 if completelyVisible == false {
-                    tableView.scrollToRow(at: [2, 2], at: .bottom, animated: true)
+                    tableView.scrollToRow(at: [2, 1], at: .bottom, animated: true)
                 }
             }
             else {
@@ -171,6 +204,26 @@ class HowToTableViewController: UITableViewController {
             }
             else {
                 section4IsSelected = false
+                tableView.cellForRow(at: indexPath)?.accessoryView = UIImageView(image: downArrow)
+                
+                tableView.beginUpdates()
+                tableView.endUpdates()
+            }
+        }
+        else if indexPath == [4, 0] {
+            if section5IsSelected == false {
+                section5IsSelected = true
+                tableView.cellForRow(at: indexPath)?.accessoryView = UIImageView(image: upArrow)
+                tableView.beginUpdates()
+                tableView.endUpdates()
+                let completelyVisible = tableView.bounds.contains(tableView.rectForRow(at: [4, 2]))
+                
+                if completelyVisible == false {
+                    tableView.scrollToRow(at: [4, 2], at: .bottom, animated: true)
+                }
+            }
+            else {
+                section5IsSelected = false
                 tableView.cellForRow(at: indexPath)?.accessoryView = UIImageView(image: downArrow)
                 tableView.beginUpdates()
                 tableView.endUpdates()

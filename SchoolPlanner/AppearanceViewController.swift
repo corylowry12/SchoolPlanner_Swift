@@ -27,7 +27,7 @@ class AppearanceViewController: UITableViewController {
             let userDefaults = UserDefaults.standard
             
             if indexPath.row == 0 {
-                themeTableView.cellForRow(at: [0, userDefaults.integer(forKey: "theme")])?.accessoryType = .none
+                tableView.cellForRow(at: [0, userDefaults.integer(forKey: "theme")])?.accessoryType = .none
               
                 UIView.transition(with: view.window ?? UIWindow(), duration: 0.5, options: [.transitionCrossDissolve, .curveEaseInOut], animations: {
                     self.view.window?.overrideUserInterfaceStyle = .light
@@ -36,7 +36,7 @@ class AppearanceViewController: UITableViewController {
                 themeTableView.cellForRow(at: [0, userDefaults.integer(forKey: "theme")])?.accessoryType = .checkmark
             }
             else if indexPath.row == 1 {
-                themeTableView.cellForRow(at: [0, userDefaults.integer(forKey: "theme")])?.accessoryType = .none
+                tableView.cellForRow(at: [0, userDefaults.integer(forKey: "theme")])?.accessoryType = .none
                 UIView.transition(with: view.window ?? UIWindow(), duration: 0.5, options: [.transitionCrossDissolve, .curveEaseInOut], animations: {
                     self.view.window?.overrideUserInterfaceStyle = .dark
                 }, completion: nil)
@@ -44,7 +44,7 @@ class AppearanceViewController: UITableViewController {
                 themeTableView.cellForRow(at: [0, userDefaults.integer(forKey: "theme")])?.accessoryType = .checkmark
             }
             else if indexPath.row == 2 {
-                themeTableView.cellForRow(at: [0, userDefaults.integer(forKey: "theme")])?.accessoryType = .none
+                tableView.cellForRow(at: [0, userDefaults.integer(forKey: "theme")])?.accessoryType = .none
                 UIView.transition(with: view.window ?? UIWindow(), duration: 0.5, options: [.transitionCrossDissolve, .curveEaseInOut], animations: {
                     self.view.window?.overrideUserInterfaceStyle = .unspecified
                 }, completion: nil)

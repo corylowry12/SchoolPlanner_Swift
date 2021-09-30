@@ -35,8 +35,6 @@ class ViewAssignmentViewController: UIViewController {
             let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
             let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicate2])
             fetchrequest.predicate = andPredicate
-            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: true)
-            fetchrequest.sortDescriptors = [sort]
             return try context.fetch(fetchrequest)
             
         } catch {
@@ -63,8 +61,6 @@ class ViewAssignmentViewController: UIViewController {
             let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
             let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicate2])
             fetchrequest.predicate = andPredicate
-            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: true)
-            fetchrequest.sortDescriptors = [sort]
             return try context.fetch(fetchrequest)
             
         } catch {
@@ -84,8 +80,6 @@ class ViewAssignmentViewController: UIViewController {
             let fetchrequest = NSFetchRequest<Assignments>(entityName: "Assignments")
             let predicate = 1
             fetchrequest.predicate = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
-            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: false)
-            fetchrequest.sortDescriptors = [sort]
             return try context.fetch(fetchrequest)
             
         } catch {
@@ -136,6 +130,26 @@ class ViewAssignmentViewController: UIViewController {
         return [Grades]()
         
     }
+    var assignmentName: String!
+    var gradesContains: [Grades] {
+        
+        do {
+            
+            let fetchrequest = NSFetchRequest<Grades>(entityName: "Grades")
+            fetchrequest.predicate = NSPredicate(format: "name == %@", assignmentName as CVarArg)
+            let sort = NSSortDescriptor(key: #keyPath(Grades.date), ascending: false)
+            fetchrequest.sortDescriptors = [sort]
+            return try context.fetch(fetchrequest)
+            
+        } catch {
+            
+            print("Couldn't fetch data")
+            
+        }
+        
+        return [Grades]()
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         let userDefaults = UserDefaults.standard
@@ -147,7 +161,27 @@ class ViewAssignmentViewController: UIViewController {
             classLabel.text = "Class: \(doneAssignments[userDefaults.integer(forKey: "assignment")].assignmentClass ?? "Unknown")"
             dueDateLabel.text = "Due Date: \(doneAssignments[userDefaults.integer(forKey: "assignment")].dueDate ?? "Unknown")"
             notesLabel.text = "Notes: \(doneAssignments[userDefaults.integer(forKey: "assignment")].notes ?? "Unknown")"
+            
+            name = doneAssignments[userDefaults.integer(forKey: "assignment")].assignmentClass
+            assignmentName = doneAssignments[userDefaults.integer(forKey: "assignment")].name
+            var same = false
+            if gradesContains.count > 0 {
+            for i in 0...gradesContains.count - 1 {
+                if gradesContains[i].name == doneAssignments[userDefaults.integer(forKey: "assignment")].name {
+                    same = true
+                    break
+                }
+            }
+            if same == false {
             addButton.isEnabled = true
+            }
+            else {
+                addButton.isEnabled = false
+            }
+            }
+            else {
+                addButton.isEnabled = true
+            }
         }
         else if userDefaults.integer(forKey: "pastDue") == 1{
             nameLabel.text = "Assignment Name: \(pastDue[userDefaults.integer(forKey: "assignment")].name ?? "Unknown")"
@@ -161,6 +195,7 @@ class ViewAssignmentViewController: UIViewController {
             classLabel.text = "Class: \(assignments[userDefaults.integer(forKey: "assignment")].assignmentClass ?? "Unknown")"
             dueDateLabel.text = "Due Date: \(assignments[userDefaults.integer(forKey: "assignment")].dueDate ?? "Unknown")"
             notesLabel.text = "Notes: \(assignments[userDefaults.integer(forKey: "assignment")].notes ?? "Unknown")"
+            
             addButton.isEnabled = false
         }
     }
@@ -176,8 +211,10 @@ class ViewAssignmentViewController: UIViewController {
         else {
             assignments[userDefaults.integer(forKey: "assignment")].doneStatus = 1
         }
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
         self.navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func addButton(_ sender: Any) {
         let userDefaults = UserDefaults.standard
         let dateFormatter = DateFormatter()
@@ -197,26 +234,31 @@ class ViewAssignmentViewController: UIViewController {
             if userDefaults.integer(forKey: "doneStatus") == 1 {
             for i in 0...doneAssignments.count - 1 {
                 name = doneAssignments[userDefaults.integer(forKey: "assignment")].assignmentClass
-             
+                print("name is \(doneAssignments[userDefaults.integer(forKey: "assignment")].name)")
+                print("name is \(doneAssignments[i].name)")
                     if doneAssignments[i].assignmentClass == doneAssignments[userDefaults.integer(forKey: "assignment")].assignmentClass {
-                        let grades = Grades(context: context)
-                        grades.id = classes[0].id
-                        grades.name = doneAssignments[i].name
+                        let gradeCount = grades.count
+                        let gradesContext = Grades(context: context)
+                        gradesContext.id = classes[0].id
+                        gradesContext.name = doneAssignments[userDefaults.integer(forKey: "assignment")].name
                         let date = dateFormatter.string(from: Date())
-                        grades.date = date
+                        gradesContext.date = date
                         if gradeTextField.text == "" {
-                            grades.grade = 100.0
+                            gradesContext.grade = 100.0
                         }
                         else {
-                            grades.grade = Double("\(gradeTextField.text ?? "")")!
+                            gradesContext.grade = Double("\(gradeTextField.text ?? "")")!
                         }
                         if weightTextField.text == "" {
-                            grades.weight = 100.0
+                            gradesContext.weight = 100.0
                         }
                         else {
-                            grades.weight = Double("\(weightTextField.text ?? "")")!
+                            gradesContext.weight = Double("\(weightTextField.text ?? "")")!
                         }
                         (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                        if grades.count == gradeCount + 1 {
+                            addButton.isEnabled = false
+                        }
                         break
                     }
             }
@@ -226,24 +268,28 @@ class ViewAssignmentViewController: UIViewController {
                         name = pastDue[userDefaults.integer(forKey: "assignment")].assignmentClass
                         
                             if pastDue[i].assignmentClass == pastDue[userDefaults.integer(forKey: "assignment")].assignmentClass {
-                                let grades = Grades(context: context)
-                                grades.id = classes[0].id
-                                grades.name = pastDue[i].name
+                                let gradeCount = grades.count
+                                let gradesContext = Grades(context: context)
+                                gradesContext.id = classes[0].id
+                                gradesContext.name = pastDue[i].name
                                 let date = dateFormatter.string(from: Date())
-                                grades.date = date
+                                gradesContext.date = date
                                 if gradeTextField.text == "" {
-                                    grades.grade = 100.0
+                                    gradesContext.grade = 100.0
                                 }
                                 else {
-                                    grades.grade = Double("\(gradeTextField.text ?? "")")!
+                                    gradesContext.grade = Double("\(gradeTextField.text ?? "")")!
                                 }
                                 if weightTextField.text == "" {
-                                    grades.weight = 100.0
+                                    gradesContext.weight = 100.0
                                 }
                                 else {
-                                    grades.weight = Double("\(weightTextField.text ?? "")")!
+                                    gradesContext.weight = Double("\(weightTextField.text ?? "")")!
                                 }
                                 (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                                if grades.count == gradeCount + 1 {
+                                    addButton.isEnabled = false
+                                }
                                 break
                             }
                     }
@@ -253,24 +299,30 @@ class ViewAssignmentViewController: UIViewController {
                         name = pastDue[userDefaults.integer(forKey: "assignment")].assignmentClass
                         
                             if assignments[i].assignmentClass == assignments[userDefaults.integer(forKey: "assignment")].assignmentClass {
-                                let grades = Grades(context: context)
-                                grades.id = classes[0].id
-                                grades.name = assignments[i].name
+                                let gradeCount = grades.count
+                                let gradesContext = Grades(context: context)
+                                gradesContext.id = classes[0].id
+                                gradesContext.name = assignments[i].name
                                 let date = dateFormatter.string(from: Date())
-                                grades.date = date
-                                if gradeTextField.text == "" {
-                                    grades.grade = 100.0
+                                gradesContext.date = date
+            
+                                if gradeTextField.text != "" && gradeTextField.text!.isNumeric {
+                                    
+                                    gradesContext.grade = Double("\(gradeTextField.text ?? "")")!
                                 }
                                 else {
-                                    grades.grade = Double("\(gradeTextField.text ?? "")")!
+                                    gradesContext.grade = 100.0
                                 }
-                                if weightTextField.text == "" {
-                                    grades.weight = 100.0
+                                if weightTextField.text != "" && weightTextField.text!.isNumeric {
+                                    gradesContext.weight = Double("\(weightTextField.text ?? "")")!
                                 }
                                 else {
-                                    grades.weight = Double("\(weightTextField.text ?? "")")!
+                                    gradesContext.weight = 100.0
                                 }
                                 (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                                if grades.count == gradeCount + 1 {
+                                    addButton.isEnabled = false
+                                }
                                 break
                             }
                     }

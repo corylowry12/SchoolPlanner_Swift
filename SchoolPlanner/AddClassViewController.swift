@@ -166,11 +166,13 @@ class AddClassViewContrller: ViewController {
             }
             else {
                 var alreadyStored = false
+                if classes.count > 0 {
                 for i in 0...classes.count - 1 {
                     if classes[i].name == className.text {
                         alreadyStored = true
                         break
                     }
+                }
                 }
                 if alreadyStored == true {
                     let alert = UIAlertController(title: "Class already exists, please enter a diferent name", message: nil, preferredStyle: .alert)

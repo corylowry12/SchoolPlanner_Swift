@@ -18,6 +18,11 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var assignmentTableView: UITableView!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
+    var assignmentName : String!
+    var className: String!
+    
+    var notificationID : String!
+    
     var index: Int!
     var type: Int!
     
@@ -54,8 +59,6 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
             let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicate2])
             fetchrequest.predicate = andPredicate
-            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: true)
-            fetchrequest.sortDescriptors = [sort]
             return try context.fetch(fetchrequest)
             
         } catch {
@@ -82,8 +85,6 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
             let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicate2])
             fetchrequest.predicate = andPredicate
-            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: true)
-            fetchrequest.sortDescriptors = [sort]
             return try context.fetch(fetchrequest)
             
         } catch {
@@ -103,8 +104,6 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             let fetchrequest = NSFetchRequest<Assignments>(entityName: "Assignments")
             let predicate = 1
             fetchrequest.predicate = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
-            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: false)
-            fetchrequest.sortDescriptors = [sort]
             return try context.fetch(fetchrequest)
             
         } catch {
@@ -203,35 +202,35 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    
+        
         let action = UIContextualAction(style: .normal,
                                         title: "Edit") { [self] (action, view, completionHandler) in
             
-                if indexPath.section == 0 {
-                  
-                    index = indexPath.row
-                    type = 0
-                    
-                       self.performSegue(withIdentifier: "editAssignment", sender: self)
-                    
-                }
-                else if indexPath.section == 2 {
-                    
-                    index = indexPath.row
-                    type = 2
-                    
-                       self.performSegue(withIdentifier: "editAssignment", sender: self)
-                }
-                else if indexPath.section == 1 {
-                    let alert = UIAlertController(title: "You can not edit this assignment. It has already been marked as \"Done\"", message: nil, preferredStyle: .alert)
-                    self.present(alert, animated: true, completion: nil)
-                    let when = DispatchTime.now() + 1
-                    DispatchQueue.main.asyncAfter(deadline: when) {
-                        alert.dismiss(animated: true, completion: nil)
-                        
-                    }
-                }
+            if indexPath.section == 0 {
                 
+                index = indexPath.row
+                type = 0
+                
+                self.performSegue(withIdentifier: "editAssignment", sender: self)
+                
+            }
+            else if indexPath.section == 2 {
+                let alert = UIAlertController(title: "You can not edit this assignment. It has already been marked as \"Done\"", message: nil, preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+                let when = DispatchTime.now() + 1
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    alert.dismiss(animated: true, completion: nil)
+                    
+                }
+                assignmentTableView.setEditing(false, animated: true)
+            }
+            else if indexPath.section == 1 {
+                index = indexPath.row
+                type = 1
+                
+                self.performSegue(withIdentifier: "editAssignment", sender: self)
+            }
+            
         }
         
         let swipeActionConfig = UISwipeActionsConfiguration(actions: [action])
@@ -245,22 +244,17 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             let alert = UIAlertController(title: "Warning", message: "Would you like to delete this assignment? It can not be undone!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] _ in
                 if indexPath.section == 0 {
-                  
-                    let name = assignments[indexPath.row].name!
-                        
-                    var notification = [String]()
+                    
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "MM/dd/yyyy"
-                    let date = dateFormatter.date(from: assignments[indexPath.row].dueDate ?? "")
-                    UNUserNotificationCenter.current().getPendingNotificationRequests { (notificationRequests) in
-                         for notificationRequest:UNNotificationRequest in notificationRequests {
-                            print(notificationRequest.identifier)
-                            if notificationRequest.identifier == "\(name)\(date!)" {
-                                notification.append("\(assignments[indexPath.row].name!)\(date!)")
-                            }
-                        }
-                    }
-                    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: notification)
+                    
+                    let date = dateFormatter.date(from: assignments[indexPath.row].dueDate!)
+                    let date2 = dateFormatter.string(from: date!)
+                    
+                    let center = UNUserNotificationCenter.current()
+                    center.removePendingNotificationRequests(withIdentifiers: ["\(assignments[indexPath.row].name!)\(date2)"])
+                    
+                    
                     let assignmentToDelete = self.assignments[indexPath.row]
                     self.context.delete(assignmentToDelete)
                     
@@ -271,10 +265,6 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
                     if assignments.count == 0 && doneAssignments.count == 0 && pastDue.count == 0 {
                         self.assignmentTableView.reloadData()
                     }
-                    
-                    //let cell = assignmentTableView.cellForRow(at: indexPath) as! AssignmentTableViewCell
-                    
-                    
                     
                 }
                 else if indexPath.section == 2 {
@@ -328,14 +318,39 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
                 if indexPath.section == 0 {
                     
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "MM/dd/yyyy"
+                    
+                    let date = dateFormatter.date(from: assignments[indexPath.row].dueDate!)
+                    let date2 = dateFormatter.string(from: date!)
+                    
+                    let center = UNUserNotificationCenter.current()
+                    center.removePendingNotificationRequests(withIdentifiers: ["\(assignments[indexPath.row].name!)\(date2)"])
+                    
                     self.assignments[indexPath.row].doneStatus = 1
                     
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
                     UIView.transition(with: assignmentTableView, duration: 0.5, options: .transitionCrossDissolve, animations: { [self] in
                         assignmentTableView.reloadData()
                     }, completion: nil)
+                    
                 }
                 else if indexPath.section == 2 {
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "MM/dd/yyyy"
+                    
+                    let date = dateFormatter.date(from: doneAssignments[indexPath.row].dueDate!)
+                    let date2 = dateFormatter.string(from: date!)
+                    
+                    let str = "\(doneAssignments[indexPath.row].dueDate ?? "")"
+                    let strArray = str.components(separatedBy: "/")
+                    print("string array is \(strArray)")
+                    
+                    className = doneAssignments[indexPath.row].assignmentClass
+                    assignmentName = doneAssignments[indexPath.row].name
+                    
+                    sendNotification(month: Int(strArray[0])!, day: Int(strArray[1])!, year: Int(strArray[2])!, name: "\(doneAssignments[indexPath.row].name!)\(date2)")
                     self.doneAssignments[indexPath.row].doneStatus = 0
                     
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
@@ -345,6 +360,16 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
                     
                 }
                 else {
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "MM/dd/yyyy"
+                    
+                    let date = dateFormatter.date(from: pastDue[indexPath.row].dueDate!)
+                    let date2 = dateFormatter.string(from: date!)
+                    
+                    let center = UNUserNotificationCenter.current()
+                    center.removePendingNotificationRequests(withIdentifiers: ["\(pastDue[indexPath.row].name!)\(date2)"])
+                    
                     self.pastDue[indexPath.row].doneStatus = 1
                     
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
@@ -369,10 +394,7 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = assignmentTableView.dequeueReusableCell(withIdentifier: "assignmentCell") as! AssignmentTableViewCell
         if indexPath.section == 0 {
             let assignments = assignments[indexPath.row]
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM/dd/yyyy"
-            let date = dateFormatter.date(from: assignments.dueDate!)
-            //if date! > Date() {
+            
             cell.nameLabel.text = "Name: \(assignments.name ?? "Unknown")"
             cell.classLabel.text = "Class: \(assignments.assignmentClass ?? "Unknown")"
             
@@ -387,7 +409,6 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             else {
                 cell.notesLabel.text = "Notes: \(assignments.notes ?? "Unknown")"
             }
-            //}
         }
         else if indexPath.section == 2 {
             let doneAssignments = doneAssignments[indexPath.row]
@@ -407,10 +428,7 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         else if indexPath.section == 1 {
             let assignments = pastDue[indexPath.row]
-            //let dateFormatter = DateFormatter()
-            //dateFormatter.dateFormat = "MM/dd/yyyy"
-            //let date = dateFormatter.date(from: assignments.dueDate!)
-            //if date! > Date() {
+            
             cell.nameLabel.text = "Name: \(assignments.name ?? "Unknown")"
             cell.classLabel.text = "Class: \(assignments.assignmentClass ?? "Unknown")"
             
@@ -425,7 +443,6 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             else {
                 cell.notesLabel.text = "Notes: \(assignments.notes ?? "Unknown")"
             }
-            //}
         }
         return cell
     }
@@ -484,6 +501,39 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             vc.index = index
             vc.isEditingAssignment = 1
             vc.section = type
+        }
+    }
+    
+    func sendNotification(month: Int, day: Int, year: Int, name: String) {
+        if UserDefaults.standard.bool(forKey: "toggleNotifications") == true {
+            let content = UNMutableNotificationContent()
+            content.title = NSString.localizedUserNotificationString(forKey: "Assignment Due Today", arguments: nil)
+            content.body = NSString.localizedUserNotificationString(forKey: "Don't forget \(assignmentName ?? "homework") is due today in \(className ?? "one of your classes")", arguments: nil)
+            content.sound = UNNotificationSound.default
+            content.badge = 1
+            let identifier = name
+            
+            //Receive with date
+            var dateInfo = DateComponents()
+            dateInfo.day = day //Put your day
+            dateInfo.month = month //Put your month
+            dateInfo.year = year // Put your year
+            dateInfo.hour = UserDefaults.standard.integer(forKey: "hour") //Put your hour
+            dateInfo.minute = UserDefaults.standard.integer(forKey: "minutes") // Put your minute
+            
+            //specify if repeats or no
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: true)
+            
+            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+            let center = UNUserNotificationCenter.current()
+            print(identifier)
+            center.add(request) { (error) in
+                if let error = error {
+                    print("Error \(error.localizedDescription)")
+                }else{
+                    print("send!!")
+                }
+            }
         }
     }
 }

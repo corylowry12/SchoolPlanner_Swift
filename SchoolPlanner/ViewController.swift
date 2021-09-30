@@ -42,7 +42,72 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         do {
             
             let fetchrequest = NSFetchRequest<Assignments>(entityName: "Assignments")
-            fetchrequest.predicate = NSPredicate(format: "assignmentClass == %@", classNamePredicate as CVarArg)
+            let predicate = 0
+            
+            let now: Date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            let date = dateFormatter.string(from: now)
+            let predicate2: NSPredicate = NSPredicate(format: "dueDate >= %@", date)
+            let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
+            let predicateClassName = NSPredicate(format: "assignmentClass == %@", classNamePredicate as CVarArg)
+            let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicate2, predicateClassName])
+            fetchrequest.predicate = andPredicate
+            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: true)
+            fetchrequest.sortDescriptors = [sort]
+            return try context.fetch(fetchrequest)
+            
+        } catch {
+            
+            print("Couldn't fetch data")
+            
+        }
+        
+        return [Assignments]()
+        
+    }
+    
+    var pastDue: [Assignments] {
+        
+        do {
+            let fetchrequest = NSFetchRequest<Assignments>(entityName: "Assignments")
+            let predicate = 0
+            
+            let now: Date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            let date = dateFormatter.string(from: now)
+            let predicate2: NSPredicate = NSPredicate(format: "dueDate < %@", date)
+            let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
+            let predicateClassName = NSPredicate(format: "assignmentClass == %@", classNamePredicate as CVarArg)
+            let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicate2, predicateClassName])
+            fetchrequest.predicate = andPredicate
+            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: true)
+            fetchrequest.sortDescriptors = [sort]
+            return try context.fetch(fetchrequest)
+            
+        } catch {
+            
+            print("Couldn't fetch data")
+            
+        }
+        
+        return [Assignments]()
+        
+    }
+    
+    var doneAssignments: [Assignments] {
+        
+        do {
+            
+            let fetchrequest = NSFetchRequest<Assignments>(entityName: "Assignments")
+            let predicate = 1
+            let predicate1 = NSPredicate(format: "doneStatus == %d", predicate as CVarArg)
+            let predicateClassName = NSPredicate(format: "assignmentClass == %@", classNamePredicate as CVarArg)
+            let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicate1, predicateClassName])
+            fetchrequest.predicate = andPredicate
+            let sort = NSSortDescriptor(key: #keyPath(Assignments.dueDate), ascending: false)
+            fetchrequest.sortDescriptors = [sort]
             return try context.fetch(fetchrequest)
             
         } catch {
@@ -98,6 +163,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             UserDefaults.standard.set(2, forKey: "theme")
         }
         
+        if UserDefaults.standard.value(forKey: "toggleNotifications") == nil {
+            UserDefaults.standard.set(true, forKey: "toggleNotifications")
+        }
+        
+        if UserDefaults.standard.value(forKey: "time") == nil {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "hh:mm"
+            let time = dateFormatter.date(from: "07:30")
+            UserDefaults.standard.set(time, forKey: "time")
+        }
+        
+        if UserDefaults.standard.value(forKey: "hour") == nil {
+            UserDefaults.standard.set(7, forKey: "hour")
+        }
+        
+        if UserDefaults.standard.value(forKey: "minutes") == nil {
+            UserDefaults.standard.set(30, forKey: "minutes")
+        }
         
     }
     
@@ -151,7 +234,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .normal,
                                         title: "Delete") { (action, view, completionHandler) in
-            let alert = UIAlertController(title: "Warning", message: "Would you like to delete this class? It can not be undone!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Warning", message: "This will delete the class, all assignments for this class, and grades. Would you like to continue?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] _ in
                 
                 predicate = classes[indexPath.row].id
@@ -163,11 +246,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         self.context.delete(assignmentToDelete)
                     }
                 }
+                if pastDue.count > 0 {
+                    for i in 0...pastDue.count - 1 {
+                        let assignmentToDelete = pastDue[i]
+                        self.context.delete(assignmentToDelete)
+                    }
+                }
+                if doneAssignments.count > 0 {
+                    for i in 0...doneAssignments.count - 1 {
+                        let assignmentToDelete = doneAssignments[i]
+                        self.context.delete(assignmentToDelete)
+                    }
+                }
+                print("grades count is \(grades.count)")
                 if grades.count > 0 {
                     for i in (0...grades.count - 1).reversed() {
                     let gradeToDelete = grades[i]
-                    self.context.delete(gradeToDelete)
+                        print("grade id is \(gradeToDelete.id)")
+                        print("class id is \(predicate)")
+                        self.context.delete(gradeToDelete)
                 }
+                }
+                print("grades count is \(grades.count)")
+                if UserDefaults.standard.integer(forKey: "id") == predicate {
+                    UserDefaults.standard.setValue(0, forKey: "id")
                 }
                 
                 let classToDelete = self.classes[indexPath.row]
@@ -240,22 +342,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let secondLetter = twoLetters[1].prefix(1)
                 text = "\(firstLetter)\(secondLetter)"
             }
-            
+            let letter = text.prefix(1)
+            print("letter is \(letter)")
             lblNameInitialize.text = "\(text ?? "C") "
             lblNameInitialize.textAlignment = NSTextAlignment.center
-            if text == "M" || text == "m" {
+            if letter == "M" || letter == "m" {
                 lblNameInitialize.backgroundColor = UIColor.systemBlue
             }
-            else if text == "E" || text == "e" {
+            else if letter == "E" || letter == "e" {
                 lblNameInitialize.backgroundColor = UIColor.systemRed
             }
-            else if text == "A" || text == "a" {
+            else if letter == "A" || letter == "a" {
                 lblNameInitialize.backgroundColor = UIColor.magenta
             }
-            else if text == "B" || text == "b" {
+            else if letter == "B" || letter == "b" {
                 lblNameInitialize.backgroundColor = UIColor.cyan
             }
-            else if text == "S" || text == "s" {
+            else if letter == "S" || letter == "s" {
                 lblNameInitialize.backgroundColor = UIColor.systemGreen
             }
             else {

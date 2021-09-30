@@ -103,14 +103,17 @@ class AllGradesViewController: UIViewController, UITableViewDelegate, UITableVie
         average = round(average * 100.0) / 100.0
             cell.classLabel.text = "Class: \(classes.name ?? "")"
             cell.averageLabel.text = "Average: \(average ?? 0.0)%"
-            if average > 90 {
+            if average >= 90 {
             cell.averageLabel.textColor = UIColor.systemGreen
             }
-            else if average > 80 {
+            else if average >= 80 {
                 cell.averageLabel.textColor = UIColor.systemYellow
             }
-            else if average > 70 {
+            else if average >= 70 {
                 cell.averageLabel.textColor = UIColor.systemOrange
+            }
+            else if average >= 60 {
+                cell.averageLabel.textColor = UIColor.magenta
             }
             else {
                 cell.averageLabel.textColor = UIColor.red
