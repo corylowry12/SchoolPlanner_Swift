@@ -15,7 +15,4 @@ class ClassCell: UITableViewCell {
     @IBOutlet weak var classLocationLabel: UILabel!
     @IBOutlet weak var logoImage: UIImageView!
     
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-    }
 }

@@ -85,14 +85,14 @@
 		855E1C3D437D9ED569AB6E55AB7A044F /* TimeInterval+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TimeInterval+Sweeter.swift"; path = "Source/TimeInterval+Sweeter.swift"; sourceTree = "<group>"; };
 		86A8B54A4163C81456D980937F6F62B9 /* MultiSegmentPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiSegmentPicker.swift; path = Sources/MultiSegmentPicker.swift; sourceTree = "<group>"; };
 		9476C5EE526613750323D4A0C40F1AD1 /* DateFormatter+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateFormatter+Sweeter.swift"; path = "Source/DateFormatter+Sweeter.swift"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A1FDBD9A4C236AD692E0B433AA67AAB3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		AEAB592007FFAF5B56F1F6865EF94C92 /* UIViewController+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Sweeter.swift"; path = "Source/UIViewController+Sweeter.swift"; sourceTree = "<group>"; };
 		B11623F14301B14186F9C193F0207F8F /* MultiSelectSegmentedControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MultiSelectSegmentedControl.modulemap; sourceTree = "<group>"; };
 		B2BE14A04D7C444F7ADEC53C2DFC4698 /* MultiSelectSegmentedControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiSelectSegmentedControl-umbrella.h"; sourceTree = "<group>"; };
 		B3A700C83CEBBA257E589452494DFBEC /* NSObject+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject+Sweeter.swift"; path = "Source/NSObject+Sweeter.swift"; sourceTree = "<group>"; };
-		B76CD9F952582A6A4387D799501B3950 /* SweeterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SweeterSwift.framework; path = SweeterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDB8950F1D22AE2426821F2A23F05E16 /* Pods_SchoolPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SchoolPlanner.framework; path = "Pods-SchoolPlanner.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B76CD9F952582A6A4387D799501B3950 /* SweeterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SweeterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDB8950F1D22AE2426821F2A23F05E16 /* Pods_SchoolPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchoolPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C868F32658ABC33463F96EF3E6DD6A28 /* MultiSelectSegmentedControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiSelectSegmentedControl-prefix.pch"; sourceTree = "<group>"; };
 		D20129CCCD3145098306C17EEC0428F6 /* MultiSelectSegmentedControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MultiSelectSegmentedControl-dummy.m"; sourceTree = "<group>"; };
 		D95ADB760E90D43FC83C227F8CA7EBD7 /* MultiSelectSegmentedControl-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MultiSelectSegmentedControl-Info.plist"; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		EE1025DA5E49CCAD5E97700DBBF429CC /* MultiSelectSegment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiSelectSegment.swift; path = Sources/MultiSelectSegment.swift; sourceTree = "<group>"; };
 		F0C46BE5204224DB17692275FEF00105 /* Pods-SchoolPlanner-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SchoolPlanner-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F26167A0AC9EB9E7C68FEE96E452015E /* Pods-SchoolPlanner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SchoolPlanner.modulemap"; sourceTree = "<group>"; };
-		F75AA00BE79A85F485A628B9C0D5263F /* MultiSelectSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MultiSelectSegmentedControl.framework; path = MultiSelectSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F75AA00BE79A85F485A628B9C0D5263F /* MultiSelectSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiSelectSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCACA4E51853483465A70BC663A3E1CE /* String+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Sweeter.swift"; path = "Source/String+Sweeter.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,7 +191,6 @@
 				12D7EBA490303E9381F95A7759487835 /* MultiSelectSegmentedControl.swift */,
 				E9695803234D9873049E15F8F52B3219 /* Support Files */,
 			);
-			name = MultiSelectSegmentedControl;
 			path = MultiSelectSegmentedControl;
 			sourceTree = "<group>";
 		};
@@ -253,7 +252,6 @@
 				AEAB592007FFAF5B56F1F6865EF94C92 /* UIViewController+Sweeter.swift */,
 				4510E6F1627576783D3702FB9354B938 /* Support Files */,
 			);
-			name = SweeterSwift;
 			path = SweeterSwift;
 			sourceTree = "<group>";
 		};
@@ -365,7 +363,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1300;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -529,7 +527,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -557,7 +555,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SweeterSwift/SweeterSwift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SweeterSwift/SweeterSwift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -591,7 +589,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SweeterSwift/SweeterSwift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SweeterSwift/SweeterSwift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -697,7 +695,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -763,7 +761,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/MultiSelectSegmentedControl/MultiSelectSegmentedControl-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/MultiSelectSegmentedControl/MultiSelectSegmentedControl-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MODULEMAP_FILE = "Target Support Files/MultiSelectSegmentedControl/MultiSelectSegmentedControl.modulemap";
 				PRODUCT_MODULE_NAME = MultiSelectSegmentedControl;
 				PRODUCT_NAME = MultiSelectSegmentedControl;
@@ -793,7 +791,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/MultiSelectSegmentedControl/MultiSelectSegmentedControl-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/MultiSelectSegmentedControl/MultiSelectSegmentedControl-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MODULEMAP_FILE = "Target Support Files/MultiSelectSegmentedControl/MultiSelectSegmentedControl.modulemap";
 				PRODUCT_MODULE_NAME = MultiSelectSegmentedControl;
 				PRODUCT_NAME = MultiSelectSegmentedControl;
