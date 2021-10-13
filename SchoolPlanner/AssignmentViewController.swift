@@ -291,6 +291,13 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
                         self.assignmentTableView.reloadData()
                     }
                 }
+                let indexSet = IndexSet(integer: 0)
+                let indexSet2 = IndexSet(integer: 1)
+                let indexSet3 = IndexSet(integer: 2)
+                assignmentTableView.reloadSections(indexSet, with: .none)
+                assignmentTableView.reloadSections(indexSet2, with: .none)
+                assignmentTableView.reloadSections(indexSet3, with: .none)
+            
                 noAssignmentStoredBackground()
             }))
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: {_ in

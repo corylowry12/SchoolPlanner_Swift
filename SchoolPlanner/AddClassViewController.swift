@@ -290,12 +290,15 @@ class AddClassViewContrller: ViewController {
                 }
             }
             else {
+                
                 let classToUpdate = editClassData[0]
                 
+                if assignmentsData.count > 0 {
                 for i in 0...assignmentsData.count - 1 {
                     if assignmentsData[i].assignmentClass == classToUpdate.name {
                         assignmentsData[i].assignmentClass = className.text
                     }
+                }
                 }
                 
                 classToUpdate.name = className.text

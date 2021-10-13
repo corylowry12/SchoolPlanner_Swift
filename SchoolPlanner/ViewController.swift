@@ -239,21 +239,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 predicate = classes[indexPath.row].id
                 classNamePredicate = classes[indexPath.row].name
-                print("class name is \(classNamePredicate)")
+                //print("class name is \(classNamePredicate)")
                 if assignments.count > 0 {
-                    for i in 0...assignments.count - 1 {
+                    for i in (0...assignments.count - 1).reversed() {
                         let assignmentToDelete = assignments[i]
                         self.context.delete(assignmentToDelete)
                     }
                 }
                 if pastDue.count > 0 {
-                    for i in 0...pastDue.count - 1 {
+                    for i in (0...pastDue.count - 1).reversed() {
                         let assignmentToDelete = pastDue[i]
                         self.context.delete(assignmentToDelete)
                     }
                 }
                 if doneAssignments.count > 0 {
-                    for i in 0...doneAssignments.count - 1 {
+                    for i in (0...doneAssignments.count - 1).reversed() {
                         let assignmentToDelete = doneAssignments[i]
                         self.context.delete(assignmentToDelete)
                     }
@@ -262,8 +262,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 if grades.count > 0 {
                     for i in (0...grades.count - 1).reversed() {
                     let gradeToDelete = grades[i]
-                        print("grade id is \(gradeToDelete.id)")
-                        print("class id is \(predicate)")
+                        //print("grade id is \(gradeToDelete.id)")
+                        //print("class id is \(predicate)")
                         self.context.delete(gradeToDelete)
                 }
                 }
