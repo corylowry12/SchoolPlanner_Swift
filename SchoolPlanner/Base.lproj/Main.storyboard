@@ -110,7 +110,7 @@
                     <navigationItem key="navigationItem" title="Grades" id="biA-CI-lQ5">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Sb7-ZT-wAG">
                             <connections>
-                                <action selector="addButtonPressed:" destination="ZYx-iS-Wg8" id="2FD-xy-NLz"/>
+                                <segue destination="IvW-J8-nNW" kind="show" id="8KA-M7-YQs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -121,6 +121,91 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZL-Bl-dnZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="876.81159420289862" y="-607.36607142857144"/>
+        </scene>
+        <!--Add Grade-->
+        <scene sceneID="sdb-E6-a5n">
+            <objects>
+                <viewController id="IvW-J8-nNW" customClass="AddGradeViewController" customModule="SchoolPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dxZ-F9-PaU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Grade Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lNS-4q-1wt">
+                                <rect key="frame" x="10" y="176" width="394" height="34"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grade Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mm-9P-HEr">
+                                <rect key="frame" x="0.0" y="145" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grade" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4a-q5-5A2">
+                                <rect key="frame" x="0.0" y="220" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Grade" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F1c-Ya-aaP">
+                                <rect key="frame" x="10" y="251" width="394" height="34"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9k-ga-HxI">
+                                <rect key="frame" x="0.0" y="295" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Weight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wko-YJ-aTs">
+                                <rect key="frame" x="10" y="326" width="394" height="34"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="obK-le-3Eb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="i4a-q5-5A2" firstAttribute="leading" secondItem="obK-le-3Eb" secondAttribute="leading" id="2ar-9x-fyT"/>
+                            <constraint firstItem="6Mm-9P-HEr" firstAttribute="top" secondItem="obK-le-3Eb" secondAttribute="top" constant="5" id="6MG-mv-RkG"/>
+                            <constraint firstItem="6Mm-9P-HEr" firstAttribute="leading" secondItem="obK-le-3Eb" secondAttribute="leading" id="6aA-el-XmF"/>
+                            <constraint firstItem="i4a-q5-5A2" firstAttribute="top" secondItem="lNS-4q-1wt" secondAttribute="bottom" constant="10" id="7if-Ze-Lbj"/>
+                            <constraint firstItem="lNS-4q-1wt" firstAttribute="leading" secondItem="obK-le-3Eb" secondAttribute="leading" constant="10" id="A3U-Ch-YGc"/>
+                            <constraint firstItem="obK-le-3Eb" firstAttribute="trailing" secondItem="6Mm-9P-HEr" secondAttribute="trailing" id="EC5-c0-DKg"/>
+                            <constraint firstItem="Wko-YJ-aTs" firstAttribute="leading" secondItem="obK-le-3Eb" secondAttribute="leading" constant="10" id="JZa-8v-zUW"/>
+                            <constraint firstItem="obK-le-3Eb" firstAttribute="trailing" secondItem="i4a-q5-5A2" secondAttribute="trailing" id="OXK-J1-PeR"/>
+                            <constraint firstItem="F1c-Ya-aaP" firstAttribute="top" secondItem="i4a-q5-5A2" secondAttribute="bottom" constant="10" id="Qke-Tb-nqu"/>
+                            <constraint firstItem="Wko-YJ-aTs" firstAttribute="top" secondItem="h9k-ga-HxI" secondAttribute="bottom" constant="10" id="VSH-lw-yaE"/>
+                            <constraint firstItem="F1c-Ya-aaP" firstAttribute="leading" secondItem="obK-le-3Eb" secondAttribute="leading" constant="10" id="cb7-qW-mUj"/>
+                            <constraint firstItem="h9k-ga-HxI" firstAttribute="leading" secondItem="obK-le-3Eb" secondAttribute="leading" id="dBU-Y1-SA5"/>
+                            <constraint firstItem="lNS-4q-1wt" firstAttribute="top" secondItem="6Mm-9P-HEr" secondAttribute="bottom" constant="10" id="e7m-iB-bxS"/>
+                            <constraint firstItem="obK-le-3Eb" firstAttribute="trailing" secondItem="Wko-YJ-aTs" secondAttribute="trailing" constant="10" id="gIu-Cs-S5f"/>
+                            <constraint firstItem="obK-le-3Eb" firstAttribute="trailing" secondItem="F1c-Ya-aaP" secondAttribute="trailing" constant="10" id="n1Q-Jg-bge"/>
+                            <constraint firstItem="obK-le-3Eb" firstAttribute="trailing" secondItem="h9k-ga-HxI" secondAttribute="trailing" id="ou7-Qb-2DW"/>
+                            <constraint firstItem="obK-le-3Eb" firstAttribute="trailing" secondItem="lNS-4q-1wt" secondAttribute="trailing" constant="10" id="tfi-24-8hc"/>
+                            <constraint firstItem="h9k-ga-HxI" firstAttribute="top" secondItem="F1c-Ya-aaP" secondAttribute="bottom" constant="10" id="uBY-O1-0co"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Grade" id="nLK-JF-H1G">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Bgn-yP-98b">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="IvW-J8-nNW" id="1QG-Wl-hXB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="gradeNameTextField" destination="lNS-4q-1wt" id="8w5-ag-C3b"/>
+                        <outlet property="gradeTextField" destination="F1c-Ya-aaP" id="zgu-8I-BkZ"/>
+                        <outlet property="weightTextField" destination="Wko-YJ-aTs" id="6GZ-Cu-BsF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OhQ-U6-cCh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1988" y="-582"/>
         </scene>
         <!--Classes-->
         <scene sceneID="tne-QT-ifu">
@@ -373,7 +458,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version: 1.0.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGy-jb-A0F">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version: 1.0.6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGy-jb-A0F">
                                                     <rect key="frame" x="20" y="11" width="101" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -394,7 +479,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Updated: Oct 13, 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUx-VG-O2Z">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Updated: Oct 18, 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUx-VG-O2Z">
                                                     <rect key="frame" x="20" y="11" width="207.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -614,7 +699,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4gP-b1-asL">
-                                <rect key="frame" x="345" y="140" width="49" height="31"/>
+                                <rect key="frame" x="347" y="174" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.20392156859999999" green="0.49019607840000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="onTintColor" red="0.20392156859999999" green="0.49019607840000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -623,14 +708,14 @@
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Toggle Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oC-Si-jB8">
-                                <rect key="frame" x="20" y="145" width="152" height="21"/>
+                                <rect key="frame" x="20" y="179" width="152" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="OCr-K9-Zha">
-                                <rect key="frame" x="0.0" y="179" width="414" height="162"/>
+                                <rect key="frame" x="0.0" y="229" width="414" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
                         </subviews>
@@ -670,7 +755,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fixed issue with crashing if you went to update a classes properties and there was no assignments stored for that class" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8p-4m-Cku">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fixed issue with app still sending notification even if you deleted the class the assignment was for" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8p-4m-Cku">
                                                     <rect key="frame" x="20" y="11" width="334" height="71.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -685,63 +770,18 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="94" id="AcW-xC-cvx">
-                                        <rect key="frame" x="20" y="126" width="374" height="94"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AcW-xC-cvx" id="R9p-Yf-AF0">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="94"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fixed issue with crashing when deleting a class and you had multiple assignments stored for that class" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58U-TG-UAG">
-                                                    <rect key="frame" x="20" y="11" width="334" height="71.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="58U-TG-UAG" secondAttribute="trailing" id="8bV-SO-3iL"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="58U-TG-UAG" secondAttribute="bottom" constant="0.5" id="g8N-qP-hnC"/>
-                                                <constraint firstItem="58U-TG-UAG" firstAttribute="leading" secondItem="R9p-Yf-AF0" secondAttribute="leadingMargin" id="lVA-oo-9BA"/>
-                                                <constraint firstItem="58U-TG-UAG" firstAttribute="top" secondItem="R9p-Yf-AF0" secondAttribute="topMargin" id="pq1-qp-yV5"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="119" id="rt6-mD-k6I">
-                                        <rect key="frame" x="20" y="220" width="374" height="119"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rt6-mD-k6I" id="STk-LF-NP6">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="119"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqd-cF-sBs">
-                                                    <rect key="frame" x="20" y="11" width="334" height="96.5"/>
-                                                    <string key="text">Fixed issue with the headers for the table view in the assignments view not changing the number when you marked an item as done or deleted it</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="hqd-cF-sBs" firstAttribute="top" secondItem="STk-LF-NP6" secondAttribute="topMargin" id="0lz-mL-tHR"/>
-                                                <constraint firstItem="hqd-cF-sBs" firstAttribute="leading" secondItem="STk-LF-NP6" secondAttribute="leadingMargin" id="2Wp-ON-OK7"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="hqd-cF-sBs" secondAttribute="bottom" constant="0.5" id="CJd-gX-qpF"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="hqd-cF-sBs" secondAttribute="trailing" id="Twv-yg-yv9"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Enhancements" id="u4K-6D-KKp">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="98" id="vJi-7v-aOl">
-                                        <rect key="frame" x="20" y="389" width="374" height="98"/>
+                                        <rect key="frame" x="20" y="176" width="374" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vJi-7v-aOl" id="IyD-oM-2lZ">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="98"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweaked design of splash screen (the screen shown when launching the app)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gd5-hq-ycv">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Redesigned the way you enter grades for each class" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gd5-hq-ycv">
                                                     <rect key="frame" x="20" y="11" width="334" height="75.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -753,6 +793,94 @@
                                                 <constraint firstItem="Gd5-hq-ycv" firstAttribute="leading" secondItem="IyD-oM-2lZ" secondAttribute="leadingMargin" id="QKx-Lj-wtg"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Gd5-hq-ycv" secondAttribute="bottom" constant="0.5" id="jPh-jz-sPv"/>
                                                 <constraint firstItem="Gd5-hq-ycv" firstAttribute="top" secondItem="IyD-oM-2lZ" secondAttribute="topMargin" id="wmc-ka-OLo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="98" id="HtU-hp-hXd">
+                                        <rect key="frame" x="20" y="274" width="374" height="98"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HtU-hp-hXd" id="uE9-UY-oc6">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="98"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Will now show specific errors if there is an error when entering a grade" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZt-TO-IAj">
+                                                    <rect key="frame" x="20" y="11" width="334" height="75.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nZt-TO-IAj" secondAttribute="trailing" id="GnJ-BV-4no"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="nZt-TO-IAj" secondAttribute="bottom" constant="0.5" id="duX-nz-2RG"/>
+                                                <constraint firstItem="nZt-TO-IAj" firstAttribute="top" secondItem="uE9-UY-oc6" secondAttribute="topMargin" id="h7y-TM-D76"/>
+                                                <constraint firstItem="nZt-TO-IAj" firstAttribute="leading" secondItem="uE9-UY-oc6" secondAttribute="leadingMargin" id="hhe-hc-Kt9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="98" id="hCx-Kj-81a">
+                                        <rect key="frame" x="20" y="372" width="374" height="98"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hCx-Kj-81a" id="rKP-FI-c3t">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="98"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweaked the design of the notifications view in the settings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lC-Cx-KD4">
+                                                    <rect key="frame" x="20" y="11" width="334" height="75.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5lC-Cx-KD4" firstAttribute="top" secondItem="rKP-FI-c3t" secondAttribute="topMargin" id="Mpc-rO-BB2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5lC-Cx-KD4" secondAttribute="trailing" id="bE9-Su-suq"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="5lC-Cx-KD4" secondAttribute="bottom" constant="0.5" id="kTk-3T-hdc"/>
+                                                <constraint firstItem="5lC-Cx-KD4" firstAttribute="leading" secondItem="rKP-FI-c3t" secondAttribute="leadingMargin" id="kVl-Bc-AQc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="98" id="er7-5c-mph">
+                                        <rect key="frame" x="20" y="470" width="374" height="98"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="er7-5c-mph" id="gOt-3f-LaJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="98"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made the time picker slightly taller in the notification view in the settings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mM-4s-TAl">
+                                                    <rect key="frame" x="20" y="11" width="334" height="75.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="1mM-4s-TAl" secondAttribute="trailing" id="129-eb-kyi"/>
+                                                <constraint firstItem="1mM-4s-TAl" firstAttribute="top" secondItem="gOt-3f-LaJ" secondAttribute="topMargin" id="2BC-BN-nhb"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="1mM-4s-TAl" secondAttribute="bottom" constant="0.5" id="RdY-aI-vJU"/>
+                                                <constraint firstItem="1mM-4s-TAl" firstAttribute="leading" secondItem="gOt-3f-LaJ" secondAttribute="leadingMargin" id="Vvn-yB-Ov2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="98" id="HUk-mj-RR3">
+                                        <rect key="frame" x="20" y="568" width="374" height="98"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HUk-mj-RR3" id="lbB-jo-w4y">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="98"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Added slide animation when changing tabs using the tab bar at the bottom of the screen" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBt-9p-xLA">
+                                                    <rect key="frame" x="20" y="11" width="334" height="75.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="tBt-9p-xLA" secondAttribute="bottom" constant="0.5" id="8av-YM-AAQ"/>
+                                                <constraint firstItem="tBt-9p-xLA" firstAttribute="top" secondItem="lbB-jo-w4y" secondAttribute="topMargin" id="K1e-w1-ObA"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="tBt-9p-xLA" secondAttribute="trailing" id="K6D-wU-Vbx"/>
+                                                <constraint firstItem="tBt-9p-xLA" firstAttribute="leading" secondItem="lbB-jo-w4y" secondAttribute="leadingMargin" id="iaH-6v-9dv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -873,7 +1001,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="PMd-pa-a5H">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kMQ-Lg-WmH" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kMQ-Lg-WmH" customClass="TabBarController" customModule="SchoolPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="n8D-xv-7TD">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -1516,7 +1644,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="pNw-ul-mCl"/>
         <segue reference="kqg-vx-gcY"/>
-        <segue reference="e4c-Yx-EL6"/>
+        <segue reference="q37-FV-wff"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="outline_assignment_black_36pt" width="36" height="36"/>

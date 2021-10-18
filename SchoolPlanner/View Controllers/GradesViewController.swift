@@ -163,7 +163,7 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+    /*@IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "Add Grade", message: nil, preferredStyle: .alert)
         alert.addTextField(configurationHandler: { (nameTextField) in
@@ -208,7 +208,7 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
-    }
+    }*/
     
     func noGradesStoredBackground() {
         if grades.count == 0 {

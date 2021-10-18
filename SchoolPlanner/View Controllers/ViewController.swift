@@ -121,7 +121,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     var predicate: Int32!
-  
+    
     var grades: [Grades] {
         
         do {
@@ -243,29 +243,51 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 if assignments.count > 0 {
                     for i in (0...assignments.count - 1).reversed() {
                         let assignmentToDelete = assignments[i]
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "MM/dd/yyyy"
+                        
+                        let date = dateFormatter.date(from: assignmentToDelete.dueDate!)
+                        let date2 = dateFormatter.string(from: date!)
+                        
+                        let center = UNUserNotificationCenter.current()
+                        center.removePendingNotificationRequests(withIdentifiers: ["\(assignmentToDelete.name!)\(date2)"])
                         self.context.delete(assignmentToDelete)
                     }
                 }
                 if pastDue.count > 0 {
                     for i in (0...pastDue.count - 1).reversed() {
                         let assignmentToDelete = pastDue[i]
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "MM/dd/yyyy"
+                        
+                        let date = dateFormatter.date(from: assignmentToDelete.dueDate!)
+                        let date2 = dateFormatter.string(from: date!)
+                        
+                        let center = UNUserNotificationCenter.current()
+                        center.removePendingNotificationRequests(withIdentifiers: ["\(assignmentToDelete.name!)\(date2)"])
                         self.context.delete(assignmentToDelete)
                     }
                 }
                 if doneAssignments.count > 0 {
                     for i in (0...doneAssignments.count - 1).reversed() {
                         let assignmentToDelete = doneAssignments[i]
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "MM/dd/yyyy"
+                        
+                        let date = dateFormatter.date(from: assignmentToDelete.dueDate!)
+                        let date2 = dateFormatter.string(from: date!)
+                        
+                        let center = UNUserNotificationCenter.current()
+                        center.removePendingNotificationRequests(withIdentifiers: ["\(assignmentToDelete.name!)\(date2)"])
                         self.context.delete(assignmentToDelete)
                     }
                 }
                 print("grades count is \(grades.count)")
                 if grades.count > 0 {
                     for i in (0...grades.count - 1).reversed() {
-                    let gradeToDelete = grades[i]
-                        //print("grade id is \(gradeToDelete.id)")
-                        //print("class id is \(predicate)")
+                        let gradeToDelete = grades[i]
                         self.context.delete(gradeToDelete)
-                }
+                    }
                 }
                 print("grades count is \(grades.count)")
                 if UserDefaults.standard.integer(forKey: "id") == predicate {
@@ -294,14 +316,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .normal,
                                         title: "Edit") { [self] (action, view, completionHandler) in
-           
+            
             index = Int(classes[indexPath.row].id)
             performSegue(withIdentifier: "editClass", sender: nil)
         }
-            
+        
         action.backgroundColor = .systemOrange
         return UISwipeActionsConfiguration(actions: [action])
-            
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
