@@ -14,5 +14,6 @@ class AssignmentTableViewCell: UITableViewCell {
     @IBOutlet weak var dueDateLabel: UILabel!
     @IBOutlet weak var classLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
     
 }
