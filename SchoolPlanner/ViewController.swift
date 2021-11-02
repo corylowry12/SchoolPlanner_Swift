@@ -163,6 +163,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             UserDefaults.standard.set(2, forKey: "theme")
         }
         
+        if UserDefaults.standard.value(forKey: "accent") == nil {
+            UserDefaults.standard.set(0, forKey: "accent")
+        }
+        
+        if UserDefaults.standard.value(forKey: "categoryBackground") == nil {
+            UserDefaults.standard.set(0, forKey: "categoryBackground")
+        }
+        
+        if UserDefaults.standard.value(forKey: "defaultCategory") == nil {
+            UserDefaults.standard.set(2, forKey: "defaultCategory")
+        }
+        
         if UserDefaults.standard.value(forKey: "toggleNotifications") == nil {
             UserDefaults.standard.set(true, forKey: "toggleNotifications")
         }
@@ -304,6 +316,87 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
     }
     
+    func cellBackgroundColor(letter: String) -> UIColor {
+        if letter == "A" || letter == "a" {
+            return UIColor.magenta
+        }
+        else if letter == "B" || letter == "b" {
+            return UIColor.cyan
+        }
+        else if letter == "C" || letter == "c" {
+            return UIColor.systemTeal
+        }
+        else if letter == "D" || letter == "d" {
+            return UIColor.systemOrange
+        }
+        else if letter == "E" || letter == "e" {
+            return UIColor.systemRed
+        }
+        else if letter == "F" || letter == "f" {
+            return UIColor.systemPink
+        }
+        else if letter == "G" || letter == "g" {
+            return UIColor.systemPurple
+        }
+        else if letter == "H" || letter == "h" {
+            return UIColor.systemYellow
+        }
+        else if letter == "I" || letter == "i" {
+            return UIColor.systemBrown
+        }
+        else if letter == "J" || letter == "j" {
+            return UIColor.gray
+        }
+        else if letter == "K" || letter == "k" {
+            return UIColor.darkGray
+        }
+        else if letter == "L" || letter == "l" {
+            return UIColor.magenta
+        }
+        if letter == "M" || letter == "m" {
+            return UIColor.systemBlue
+        }
+        else if letter == "N" || letter == "n" {
+            return UIColor.orange
+        }
+        else if letter == "O" || letter == "o" {
+            return UIColor.init(rgb: 0x01D4C2)
+        }
+        else if letter == "P" || letter == "p" {
+            return UIColor.init(rgb: 0x49B104)
+        }
+        else if letter == "Q" || letter == "q" {
+            return UIColor.init(rgb: 0x3012C4)
+        }
+        else if letter == "R" || letter == "r" {
+            return UIColor.init(rgb: 0x45AE76)
+        }
+        else if letter == "S" || letter == "s" {
+            return UIColor.systemGreen
+        }
+        else if letter == "T" || letter == "t" {
+            return UIColor.init(rgb: 0xECC693)
+        }
+        else if letter == "U" || letter == "u" {
+            return UIColor.init(rgb: 0x4F5DEE)
+        }
+        else if letter == "V" || letter == "v" {
+            return UIColor.init(rgb: 0x8210A8)
+        }
+        else if letter == "W" || letter == "w" {
+            return UIColor.init(rgb: 0x760C05)
+        }
+        else if letter == "X" || letter == "x" {
+            return UIColor.init(rgb: 0x4B696D)
+        }
+        else if letter == "Y" || letter == "y" {
+            return UIColor.init(rgb: 0xEF66A5)
+        }
+        else {
+            return UIColor.systemOrange
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if classes.count > 0 {
             let className = classes[indexPath.row]
@@ -333,37 +426,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             if ((className.name!.trimmingCharacters(in: .whitespaces)).contains(" ") == false)  {
                 
-                text = "\(className.name!.prefix(1))"
+                text = "\(className.name!.prefix(1).uppercased())"
                 print("no whitespace")
             }
             else {
                 twoLetters = className.name!.split{$0 == " "}.map(String.init)
                 let firstLetter = twoLetters[0].prefix(1)
                 let secondLetter = twoLetters[1].prefix(1)
-                text = "\(firstLetter)\(secondLetter)"
+                text = "\(firstLetter.uppercased())\(secondLetter.uppercased())"
             }
             let letter = text.prefix(1)
             print("letter is \(letter)")
             lblNameInitialize.text = "\(text ?? "C") "
             lblNameInitialize.textAlignment = NSTextAlignment.center
-            if letter == "M" || letter == "m" {
-                lblNameInitialize.backgroundColor = UIColor.systemBlue
-            }
-            else if letter == "E" || letter == "e" {
-                lblNameInitialize.backgroundColor = UIColor.systemRed
-            }
-            else if letter == "A" || letter == "a" {
-                lblNameInitialize.backgroundColor = UIColor.magenta
-            }
-            else if letter == "B" || letter == "b" {
-                lblNameInitialize.backgroundColor = UIColor.cyan
-            }
-            else if letter == "S" || letter == "s" {
-                lblNameInitialize.backgroundColor = UIColor.systemGreen
-            }
-            else {
-                lblNameInitialize.backgroundColor = UIColor.systemOrange
-            }
+            
+            lblNameInitialize.backgroundColor = cellBackgroundColor(letter: String(letter.uppercased()))
+          
             lblNameInitialize.layer.cornerRadius = 56.0
             lblNameInitialize.font = UIFont.systemFont(ofSize: 20, weight: .bold)
             

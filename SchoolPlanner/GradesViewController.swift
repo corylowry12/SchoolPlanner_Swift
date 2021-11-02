@@ -140,6 +140,21 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
                 average += total / Double(totalOfWeights)
                 average = round(average * 100.0) / 100.0
+                if average >= 90 {
+                averageCell.averageLabel.textColor = UIColor.systemGreen
+                }
+                else if average >= 80 {
+                    averageCell.averageLabel.textColor = UIColor.systemYellow
+                }
+                else if average >= 70 {
+                    averageCell.averageLabel.textColor = UIColor.systemOrange
+                }
+                else if average >= 60 {
+                    averageCell.averageLabel.textColor = UIColor.magenta
+                }
+                else {
+                    averageCell.averageLabel.textColor = UIColor.red
+                }
                 averageCell.averageLabel.text = "Average: \(average ?? 0.0)"
                 return averageCell
                 

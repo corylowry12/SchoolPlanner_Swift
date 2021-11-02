@@ -58,14 +58,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    func applicationWillTerminate(_ application: UIApplication) {
-        let userDefaults = UserDefaults.standard
-        let month = userDefaults.integer(forKey: "month")
-        let day = userDefaults.integer(forKey: "day")
-        let year = userDefaults.integer(forKey: "year")
-        let identifier = userDefaults.string(forKey: "name")
-        let viewController = AddAssignmentViewController()
-       // viewController.sendNotification(month: month, day: day, year: year, name: identifier!)
+    func application(_ application: UIApplication, shouldSaveSecureApplicationState coder: NSCoder) -> Bool {
+        return true
+    }
+    
+    func application(_ application: UIApplication, shouldRestoreSecureApplicationState coder: NSCoder) -> Bool {
+        return true
     }
 
     // MARK: - Core Data stack

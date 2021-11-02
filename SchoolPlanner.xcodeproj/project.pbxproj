@@ -10,6 +10,7 @@
 		320F702E26FABB38001E0F34 /* ViewAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320F702D26FABB38001E0F34 /* ViewAssignmentViewController.swift */; };
 		320F703026FAD2B2001E0F34 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320F702F26FAD2B2001E0F34 /* AppearanceViewController.swift */; };
 		323B0DFB2704F10C008F1C7B /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323B0DFA2704F10C008F1C7B /* NotificationSettingsViewController.swift */; };
+		323D99832731A80E00A26D03 /* AssignmentSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323D99822731A80E00A26D03 /* AssignmentSettingsViewController.swift */; };
 		3249145026F81F3700A90C6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249144F26F81F3700A90C6D /* AppDelegate.swift */; };
 		3249145226F81F3700A90C6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249145126F81F3700A90C6D /* SceneDelegate.swift */; };
 		3249145426F81F3700A90C6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249145326F81F3700A90C6D /* ViewController.swift */; };
@@ -44,6 +45,7 @@
 		320F702D26FABB38001E0F34 /* ViewAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAssignmentViewController.swift; sourceTree = "<group>"; };
 		320F702F26FAD2B2001E0F34 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 		323B0DFA2704F10C008F1C7B /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
+		323D99822731A80E00A26D03 /* AssignmentSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentSettingsViewController.swift; sourceTree = "<group>"; };
 		3249144C26F81F3700A90C6D /* SchoolPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3249144F26F81F3700A90C6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3249145126F81F3700A90C6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< Updated upstream
+=======
+		3245957C271DD60B002E1F15 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				32B7FFAB26F9664000858101 /* AddAssignmentTableViewCell.swift */,
+				32B7FFA926F965D400858101 /* AddAssignmentViewController.swift */,
+				3297611226F82BDB002E897E /* AddClassViewController.swift */,
+				3226DD79271B48EB00B27180 /* AddGradeViewController.swift */,
+				32B3B23526FEDDCB009A0F66 /* AllGradesTableViewCell.swift */,
+				32B3B23326FEDCE3009A0F66 /* AllGradesViewController.swift */,
+				320F702F26FAD2B2001E0F34 /* AppearanceViewController.swift */,
+				32B7FFA526F9616700858101 /* AssignmentTableViewCell.swift */,
+				32B7FFA726F9618500858101 /* AssignmentViewController.swift */,
+				32B7FFA326F952DC00858101 /* AverageCell.swift */,
+				3249146626F8241F00A90C6D /* ClassCell.swift */,
+				326C391B26F944C500EF01C3 /* GradesTableViewCell.swift */,
+				326C391926F8ECAA00EF01C3 /* GradesViewController.swift */,
+				32B3B21B26FBE2A8009A0F66 /* HowToTableViewController.swift */,
+				323B0DFA2704F10C008F1C7B /* NotificationSettingsViewController.swift */,
+				32B3B21926FAF376009A0F66 /* PatchNotesViewController.swift */,
+				32B3B23026FD6F31009A0F66 /* SettingsTableViewController.swift */,
+				3226DD7B271B57E100B27180 /* TabBarController.swift */,
+				320F702D26FABB38001E0F34 /* ViewAssignmentViewController.swift */,
+				3249145326F81F3700A90C6D /* ViewController.swift */,
+				323D99822731A80E00A26D03 /* AssignmentSettingsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+>>>>>>> Stashed changes
 		3249144326F81F3600A90C6D = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +320,7 @@
 			files = (
 				320F702E26FABB38001E0F34 /* ViewAssignmentViewController.swift in Sources */,
 				32B3B21A26FAF376009A0F66 /* PatchNotesViewController.swift in Sources */,
+				323D99832731A80E00A26D03 /* AssignmentSettingsViewController.swift in Sources */,
 				3249145426F81F3700A90C6D /* ViewController.swift in Sources */,
 				32B7FFA826F9618500858101 /* AssignmentViewController.swift in Sources */,
 				3297611326F82BDB002E897E /* AddClassViewController.swift in Sources */,

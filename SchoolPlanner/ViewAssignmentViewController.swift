@@ -16,6 +16,7 @@ class ViewAssignmentViewController: UIViewController {
     @IBOutlet weak var classLabel: UILabel!
     @IBOutlet weak var dueDateLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet var addButton: UIBarButtonItem!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -162,6 +163,17 @@ class ViewAssignmentViewController: UIViewController {
             dueDateLabel.text = "Due Date: \(doneAssignments[userDefaults.integer(forKey: "assignment")].dueDate ?? "Unknown")"
             notesLabel.text = "Notes: \(doneAssignments[userDefaults.integer(forKey: "assignment")].notes ?? "Unknown")"
             
+            if doneAssignments[userDefaults.integer(forKey: "assignment")].category == 0 {
+                categoryLabel.text = "Category: Exam"
+            }
+            else if doneAssignments[userDefaults.integer(forKey: "assignment")].category == 1 {
+                categoryLabel.text = "Category: Homework"
+            }
+            else if doneAssignments[userDefaults.integer(forKey: "assignment")].category == 2 ||
+                    doneAssignments[userDefaults.integer(forKey: "assignment")].category == 3 {
+                categoryLabel.text = "Category: Other"
+            }
+            
             name = doneAssignments[userDefaults.integer(forKey: "assignment")].assignmentClass
             assignmentName = doneAssignments[userDefaults.integer(forKey: "assignment")].name
             var same = false
@@ -188,6 +200,18 @@ class ViewAssignmentViewController: UIViewController {
             classLabel.text = "Class: \(pastDue[userDefaults.integer(forKey: "assignment")].assignmentClass ?? "Unknown")"
             dueDateLabel.text = "Due Date: \(pastDue[userDefaults.integer(forKey: "assignment")].dueDate ?? "Unknown")"
             notesLabel.text = "Notes: \(pastDue[userDefaults.integer(forKey: "assignment")].notes ?? "Unknown")"
+            
+            if pastDue[userDefaults.integer(forKey: "assignment")].category == 0 {
+                categoryLabel.text = "Category: Exam"
+            }
+            else if pastDue[userDefaults.integer(forKey: "assignment")].category == 1 {
+                categoryLabel.text = "Category: Homework"
+            }
+            else if pastDue[userDefaults.integer(forKey: "assignment")].category == 2 ||
+                    pastDue[userDefaults.integer(forKey: "assignment")].category == 3 {
+                categoryLabel.text = "Category: Other"
+            }
+            
             addButton.isEnabled = false
         }
         else {
@@ -195,6 +219,17 @@ class ViewAssignmentViewController: UIViewController {
             classLabel.text = "Class: \(assignments[userDefaults.integer(forKey: "assignment")].assignmentClass ?? "Unknown")"
             dueDateLabel.text = "Due Date: \(assignments[userDefaults.integer(forKey: "assignment")].dueDate ?? "Unknown")"
             notesLabel.text = "Notes: \(assignments[userDefaults.integer(forKey: "assignment")].notes ?? "Unknown")"
+            
+            if assignments[userDefaults.integer(forKey: "assignment")].category == 0 {
+                categoryLabel.text = "Category: Exam"
+            }
+            else if assignments[userDefaults.integer(forKey: "assignment")].category == 1 {
+                categoryLabel.text = "Category: Homework"
+            }
+            else if assignments[userDefaults.integer(forKey: "assignment")].category == 2 ||
+                    assignments[userDefaults.integer(forKey: "assignment")].category == 3 {
+                categoryLabel.text = "Category: Other"
+            }
             
             addButton.isEnabled = false
         }
