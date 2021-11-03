@@ -251,7 +251,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 predicate = classes[indexPath.row].id
                 classNamePredicate = classes[indexPath.row].name
-                print("class name is \(classNamePredicate)")
+               
                 if assignments.count > 0 {
                     for i in 0...assignments.count - 1 {
                         let assignmentToDelete = assignments[i]
@@ -517,4 +517,3 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         })
     }
 }
-
