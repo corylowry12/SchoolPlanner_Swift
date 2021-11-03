@@ -14,8 +14,6 @@ class AddGradeViewController: UIViewController {
     @IBOutlet weak var gradeNameTextField: UITextField!
     @IBOutlet weak var gradeTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
-    @IBOutlet weak var bonusPointsSwitch: UISwitch!
-    @IBOutlet weak var bonusPointsTextField: UITextField!
     
     var isSaved = false
     
@@ -58,9 +56,6 @@ class AddGradeViewController: UIViewController {
         
         return [Classes]()
         
-    }
-    @IBAction func bonusPointsSwitchChanged(_ sender: Any) {
-        bonusPointsTextField.isHidden = false
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
