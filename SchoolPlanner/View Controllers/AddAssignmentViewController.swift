@@ -12,6 +12,7 @@ import UserNotifications
 
 class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var categorySegmentedControl: UISegmentedControl!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dueDate: UIDatePicker!
     @IBOutlet weak var notes: UITextView!
@@ -148,6 +149,8 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                 let date = dateFormatter.date(from: assignments[index].dueDate!)
                 dueDate.date = date!
                 
+                categorySegmentedControl.selectedSegmentIndex = Int(assignments[index].category)
+                
                 if assignments[index].notes == "None" {
                     notes.text = "Type Your Notes..."
                 }
@@ -175,6 +178,8 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                 dateFormatter.dateFormat = "MM/dd/yyyy"
                 let date = dateFormatter.date(from: pastDue[index].dueDate!)
                 dueDate.date = date!
+                
+                categorySegmentedControl.selectedSegmentIndex = Int(pastDue[index].category)
                 
                 if pastDue[index].notes == "None" {
                     notes.text = "Type Your Notes..."
@@ -204,6 +209,8 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                 let date = dateFormatter.date(from: doneAssignments[index].dueDate!)
                 dueDate.date = date!
                 
+                categorySegmentedControl.selectedSegmentIndex = Int(doneAssignments[index].category)
+                
                 if doneAssignments[index].notes == "None" {
                     notes.text = "Type Your Notes..."
                 }
@@ -222,10 +229,17 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                 }
             }
         }
+        else {
+            categorySegmentedControl.selectedSegmentIndex = UserDefaults.standard.integer(forKey: "defaultCategory")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         classTableView.reloadData()
+        
+        if isEditingAssignment == 0 {
+            categorySegmentedControl.selectedSegmentIndex = UserDefaults.standard.integer(forKey: "defaultCategory")
+        }
         
     }
     
@@ -318,6 +332,9 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                 dateFormatter.dateFormat = "MM/dd/yyyy"
                 let dueDateForAssignment = dateFormatter.string(from: dueDate.date)
                 assignments.dueDate = dueDateForAssignment
+                assignments.category = Int32(categorySegmentedControl.selectedSegmentIndex)
+                print("selected item is \(categorySegmentedControl.selectedSegmentIndex)")
+                
                 assignments.name = nameTextField.text
                 if notes.text == "" || notes.text == "Type Your Notes..." {
                     assignments.notes = "None"
@@ -389,6 +406,8 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                     let celltext = currentCell.classLabel.text
                     
                     assignments.assignmentClass = celltext
+                    assignments.category = Int32(categorySegmentedControl.selectedSegmentIndex)
+                    print("selected item is \(categorySegmentedControl.selectedSegmentIndex)")
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "MM/dd/yyyy"
                     let dueDateForAssignment = dateFormatter.string(from: dueDate.date)
@@ -427,6 +446,8 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                     let celltext = currentCell.classLabel.text
                     
                     assignments.assignmentClass = celltext
+                    assignments.category = Int32(categorySegmentedControl.selectedSegmentIndex)
+                    print("selected item is \(categorySegmentedControl.selectedSegmentIndex)")
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "MM/dd/yyyy"
                     let dueDateForAssignment = dateFormatter.string(from: dueDate.date)
@@ -464,7 +485,7 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
             content.title = NSString.localizedUserNotificationString(forKey: "Assignment Due Today", arguments: nil)
             content.body = NSString.localizedUserNotificationString(forKey: "Don't forget \(assignmentName ?? "homework") is due today in \(className ?? "one of your classes")", arguments: nil)
             content.sound = UNNotificationSound.default
-            let badgeCount = UIApplication.shared.applicationIconBadgeNumber as NSNumber
+            //let badgeCount = UIApplication.shared.applicationIconBadgeNumber as NSNumber
             content.badge = 1
           
             let identifier = name
