@@ -178,11 +178,13 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        assignmentTableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 0 {
             let userDefaults = UserDefaults.standard
             userDefaults.setValue(indexPath.row, forKey: "assignment")
             userDefaults.setValue(0, forKey: "doneStatus")
             userDefaults.setValue(0, forKey: "pastDue")
+            userDefaults.setValue(assignments[indexPath.row].category, forKey: "category")
             performSegue(withIdentifier: "viewAssignment", sender: nil)
         }
         else if indexPath.section == 2 {
@@ -190,6 +192,7 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             userDefaults.setValue(indexPath.row, forKey: "assignment")
             userDefaults.setValue(1, forKey: "doneStatus")
             userDefaults.setValue(0, forKey: "pastDue")
+            userDefaults.setValue(doneAssignments[indexPath.row].category, forKey: "category")
             performSegue(withIdentifier: "viewAssignment", sender: nil)
         }
         else if indexPath.section == 1 {
@@ -197,6 +200,7 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             userDefaults.setValue(indexPath.row, forKey: "assignment")
             userDefaults.setValue(0, forKey: "doneStatus")
             userDefaults.setValue(1, forKey: "pastDue")
+            userDefaults.setValue(pastDue[indexPath.row].category, forKey: "category")
             performSegue(withIdentifier: "viewAssignment", sender: nil)
         }
     }
@@ -291,13 +295,6 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
                         self.assignmentTableView.reloadData()
                     }
                 }
-                let indexSet = IndexSet(integer: 0)
-                let indexSet2 = IndexSet(integer: 1)
-                let indexSet3 = IndexSet(integer: 2)
-                assignmentTableView.reloadSections(indexSet, with: .none)
-                assignmentTableView.reloadSections(indexSet2, with: .none)
-                assignmentTableView.reloadSections(indexSet3, with: .none)
-            
                 noAssignmentStoredBackground()
             }))
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: {_ in
@@ -335,6 +332,8 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
                     center.removePendingNotificationRequests(withIdentifiers: ["\(assignments[indexPath.row].name!)\(date2)"])
                     
                     self.assignments[indexPath.row].doneStatus = 1
+                    
+                    assignmentTableView.cellForRow(at: indexPath)?.backgroundColor = .secondarySystemGroupedBackground
                     
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
                     UIView.transition(with: assignmentTableView, duration: 0.5, options: .transitionCrossDissolve, animations: { [self] in
@@ -404,8 +403,32 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             
             cell.nameLabel.text = "Name: \(assignments.name ?? "Unknown")"
             cell.classLabel.text = "Class: \(assignments.assignmentClass ?? "Unknown")"
-            
             cell.dueDateLabel.text = "Due Date: \(assignments.dueDate ?? "Unknown")"
+            
+            print("category is: \(assignments.category)")
+            
+            if assignments.category == 0 {
+                if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
+                cell.backgroundColor = UIColor.systemRed
+                }
+                else {
+                    cell.backgroundColor = .secondarySystemGroupedBackground
+                }
+                cell.categoryLabel.text = "Category: Exam"
+            }
+            if assignments.category == 1  {
+                if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
+                cell.backgroundColor = UIColor.systemTeal
+                }
+                else {
+                    cell.backgroundColor = .secondarySystemGroupedBackground
+                }
+                cell.categoryLabel.text = "Category: Homework"
+            }
+            if assignments.category == 2 || assignments.category == 3  {
+                cell.backgroundColor = .secondarySystemGroupedBackground
+                cell.categoryLabel.text = "Category: Other"
+            }
             
             if (assignments.notes?.count)! >= 35 {
                 
@@ -423,6 +446,29 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.classLabel.text = "Class: \(doneAssignments.assignmentClass ?? "Unknown")"
             cell.dueDateLabel.text = "Due Date: \(doneAssignments.dueDate ?? "Unknown")"
             
+            if doneAssignments.category == 0 {
+                if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
+                cell.backgroundColor = UIColor.systemRed
+                }
+                else {
+                    cell.backgroundColor = .secondarySystemGroupedBackground
+                }
+                cell.categoryLabel.text = "Category: Exam"
+            }
+            else if doneAssignments.category == 1  {
+                if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
+                cell.backgroundColor = UIColor.systemTeal
+                }
+                else {
+                    cell.backgroundColor = .secondarySystemGroupedBackground
+                }
+                cell.categoryLabel.text = "Category: Homework"
+            }
+            else if doneAssignments.category == 2 || doneAssignments.category == 3  {
+                cell.backgroundColor = .secondarySystemGroupedBackground
+                cell.categoryLabel.text = "Category: Other"
+            }
+            
             if (doneAssignments.notes?.count)! >= 35 {
                 
                 let index = doneAssignments.notes?.index((doneAssignments.notes?.startIndex)!, offsetBy: 25)
@@ -438,8 +484,30 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             
             cell.nameLabel.text = "Name: \(assignments.name ?? "Unknown")"
             cell.classLabel.text = "Class: \(assignments.assignmentClass ?? "Unknown")"
-            
             cell.dueDateLabel.text = "Due Date: \(assignments.dueDate ?? "Unknown")"
+            
+            if assignments.category == 0 {
+                if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
+                cell.backgroundColor = UIColor.systemRed
+                }
+                else {
+                    cell.backgroundColor = .secondarySystemGroupedBackground
+                }
+                cell.categoryLabel.text = "Category: Exam"
+            }
+            else if assignments.category == 1  {
+                if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
+                cell.backgroundColor = UIColor.systemTeal
+                }
+                else {
+                    cell.backgroundColor = .secondarySystemGroupedBackground
+                }
+                cell.categoryLabel.text = "Category: Homework"
+            }
+            else if assignments.category == 2 || assignments.category == 3  {
+                cell.backgroundColor = .secondarySystemGroupedBackground
+                cell.categoryLabel.text = "Category: Other"
+            }
             
             if (assignments.notes?.count)! >= 35 {
                 
