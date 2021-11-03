@@ -12,6 +12,7 @@
 		3226DD7A271B48EB00B27180 /* AddGradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226DD79271B48EB00B27180 /* AddGradeViewController.swift */; };
 		3226DD7C271B57E100B27180 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226DD7B271B57E100B27180 /* TabBarController.swift */; };
 		323B0DFB2704F10C008F1C7B /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323B0DFA2704F10C008F1C7B /* NotificationSettingsViewController.swift */; };
+		323D998627322F4E00A26D03 /* MappingModel.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 323D998527322F4E00A26D03 /* MappingModel.xcmappingmodel */; };
 		3249145026F81F3700A90C6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249144F26F81F3700A90C6D /* AppDelegate.swift */; };
 		3249145226F81F3700A90C6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249145126F81F3700A90C6D /* SceneDelegate.swift */; };
 		3249145426F81F3700A90C6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249145326F81F3700A90C6D /* ViewController.swift */; };
@@ -48,6 +49,8 @@
 		3226DD79271B48EB00B27180 /* AddGradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGradeViewController.swift; sourceTree = "<group>"; };
 		3226DD7B271B57E100B27180 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		323B0DFA2704F10C008F1C7B /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
+		323D998427322F2100A26D03 /* SchoolPlanner 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SchoolPlanner 2.xcdatamodel"; sourceTree = "<group>"; };
+		323D998527322F4E00A26D03 /* MappingModel.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel.xcmappingmodel; sourceTree = "<group>"; };
 		3249144C26F81F3700A90C6D /* SchoolPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3249144F26F81F3700A90C6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3249145126F81F3700A90C6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,26 +107,26 @@
 		3245957C271DD60B002E1F15 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3249145326F81F3700A90C6D /* ViewController.swift */,
-				3249146626F8241F00A90C6D /* ClassCell.swift */,
+				32B7FFAB26F9664000858101 /* AddAssignmentTableViewCell.swift */,
+				32B7FFA926F965D400858101 /* AddAssignmentViewController.swift */,
 				3297611226F82BDB002E897E /* AddClassViewController.swift */,
-				326C391926F8ECAA00EF01C3 /* GradesViewController.swift */,
-				326C391B26F944C500EF01C3 /* GradesTableViewCell.swift */,
-				32B7FFA326F952DC00858101 /* AverageCell.swift */,
+				3226DD79271B48EB00B27180 /* AddGradeViewController.swift */,
+				32B3B23526FEDDCB009A0F66 /* AllGradesTableViewCell.swift */,
+				32B3B23326FEDCE3009A0F66 /* AllGradesViewController.swift */,
+				320F702F26FAD2B2001E0F34 /* AppearanceViewController.swift */,
 				32B7FFA526F9616700858101 /* AssignmentTableViewCell.swift */,
 				32B7FFA726F9618500858101 /* AssignmentViewController.swift */,
-				32B7FFA926F965D400858101 /* AddAssignmentViewController.swift */,
-				32B7FFAB26F9664000858101 /* AddAssignmentTableViewCell.swift */,
-				320F702D26FABB38001E0F34 /* ViewAssignmentViewController.swift */,
-				320F702F26FAD2B2001E0F34 /* AppearanceViewController.swift */,
-				32B3B21926FAF376009A0F66 /* PatchNotesViewController.swift */,
+				32B7FFA326F952DC00858101 /* AverageCell.swift */,
+				3249146626F8241F00A90C6D /* ClassCell.swift */,
+				326C391B26F944C500EF01C3 /* GradesTableViewCell.swift */,
+				326C391926F8ECAA00EF01C3 /* GradesViewController.swift */,
 				32B3B21B26FBE2A8009A0F66 /* HowToTableViewController.swift */,
-				32B3B23026FD6F31009A0F66 /* SettingsTableViewController.swift */,
-				32B3B23326FEDCE3009A0F66 /* AllGradesViewController.swift */,
-				32B3B23526FEDDCB009A0F66 /* AllGradesTableViewCell.swift */,
 				323B0DFA2704F10C008F1C7B /* NotificationSettingsViewController.swift */,
-				3226DD79271B48EB00B27180 /* AddGradeViewController.swift */,
+				32B3B21926FAF376009A0F66 /* PatchNotesViewController.swift */,
+				32B3B23026FD6F31009A0F66 /* SettingsTableViewController.swift */,
 				3226DD7B271B57E100B27180 /* TabBarController.swift */,
+				320F702D26FABB38001E0F34 /* ViewAssignmentViewController.swift */,
+				3249145326F81F3700A90C6D /* ViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				3249145D26F81F3A00A90C6D /* LaunchScreen.storyboard */,
 				3249146026F81F3A00A90C6D /* Info.plist */,
 				3249145826F81F3700A90C6D /* SchoolPlanner.xcdatamodeld */,
+				323D998527322F4E00A26D03 /* MappingModel.xcmappingmodel */,
 			);
 			path = SchoolPlanner;
 			sourceTree = "<group>";
@@ -321,6 +325,7 @@
 				32B3B21C26FBE2A8009A0F66 /* HowToTableViewController.swift in Sources */,
 				326C391C26F944C500EF01C3 /* GradesTableViewCell.swift in Sources */,
 				3249145226F81F3700A90C6D /* SceneDelegate.swift in Sources */,
+				323D998627322F4E00A26D03 /* MappingModel.xcmappingmodel in Sources */,
 				3249146726F8241F00A90C6D /* ClassCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,9 +543,10 @@
 		3249145826F81F3700A90C6D /* SchoolPlanner.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				323D998427322F2100A26D03 /* SchoolPlanner 2.xcdatamodel */,
 				3249145926F81F3700A90C6D /* SchoolPlanner.xcdatamodel */,
 			);
-			currentVersion = 3249145926F81F3700A90C6D /* SchoolPlanner.xcdatamodel */;
+			currentVersion = 323D998427322F2100A26D03 /* SchoolPlanner 2.xcdatamodel */;
 			path = SchoolPlanner.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
