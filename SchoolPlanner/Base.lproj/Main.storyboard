@@ -166,16 +166,34 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="shf-Yg-lgf">
+                                <rect key="frame" x="355" y="370" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJX-4a-VaR">
+                                <rect key="frame" x="10" y="375" width="99.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bonus Points" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IpQ-X2-thM">
+                                <rect key="frame" x="10" y="406" width="394" height="34"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="obK-le-3Eb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="i4a-q5-5A2" firstAttribute="leading" secondItem="obK-le-3Eb" secondAttribute="leading" id="2ar-9x-fyT"/>
+                            <constraint firstItem="BJX-4a-VaR" firstAttribute="top" secondItem="Wko-YJ-aTs" secondAttribute="bottom" constant="15" id="5WH-vc-Lhv"/>
                             <constraint firstItem="6Mm-9P-HEr" firstAttribute="top" secondItem="obK-le-3Eb" secondAttribute="top" constant="5" id="6MG-mv-RkG"/>
                             <constraint firstItem="6Mm-9P-HEr" firstAttribute="leading" secondItem="obK-le-3Eb" secondAttribute="leading" id="6aA-el-XmF"/>
+                            <constraint firstItem="BJX-4a-VaR" firstAttribute="leading" secondItem="obK-le-3Eb" secondAttribute="leading" constant="10" id="7a1-O6-Y2S"/>
                             <constraint firstItem="i4a-q5-5A2" firstAttribute="top" secondItem="lNS-4q-1wt" secondAttribute="bottom" constant="10" id="7if-Ze-Lbj"/>
                             <constraint firstItem="lNS-4q-1wt" firstAttribute="leading" secondItem="obK-le-3Eb" secondAttribute="leading" constant="10" id="A3U-Ch-YGc"/>
                             <constraint firstItem="obK-le-3Eb" firstAttribute="trailing" secondItem="6Mm-9P-HEr" secondAttribute="trailing" id="EC5-c0-DKg"/>
+                            <constraint firstItem="IpQ-X2-thM" firstAttribute="leading" secondItem="obK-le-3Eb" secondAttribute="leading" constant="10" id="FQG-If-OcX"/>
                             <constraint firstItem="Wko-YJ-aTs" firstAttribute="leading" secondItem="obK-le-3Eb" secondAttribute="leading" constant="10" id="JZa-8v-zUW"/>
                             <constraint firstItem="obK-le-3Eb" firstAttribute="trailing" secondItem="i4a-q5-5A2" secondAttribute="trailing" id="OXK-J1-PeR"/>
                             <constraint firstItem="F1c-Ya-aaP" firstAttribute="top" secondItem="i4a-q5-5A2" secondAttribute="bottom" constant="10" id="Qke-Tb-nqu"/>
@@ -183,11 +201,15 @@
                             <constraint firstItem="F1c-Ya-aaP" firstAttribute="leading" secondItem="obK-le-3Eb" secondAttribute="leading" constant="10" id="cb7-qW-mUj"/>
                             <constraint firstItem="h9k-ga-HxI" firstAttribute="leading" secondItem="obK-le-3Eb" secondAttribute="leading" id="dBU-Y1-SA5"/>
                             <constraint firstItem="lNS-4q-1wt" firstAttribute="top" secondItem="6Mm-9P-HEr" secondAttribute="bottom" constant="10" id="e7m-iB-bxS"/>
+                            <constraint firstItem="IpQ-X2-thM" firstAttribute="top" secondItem="BJX-4a-VaR" secondAttribute="bottom" constant="10" id="fz1-v5-bEB"/>
                             <constraint firstItem="obK-le-3Eb" firstAttribute="trailing" secondItem="Wko-YJ-aTs" secondAttribute="trailing" constant="10" id="gIu-Cs-S5f"/>
+                            <constraint firstItem="obK-le-3Eb" firstAttribute="trailing" secondItem="shf-Yg-lgf" secondAttribute="trailing" constant="10" id="iEc-BK-ZXP"/>
                             <constraint firstItem="obK-le-3Eb" firstAttribute="trailing" secondItem="F1c-Ya-aaP" secondAttribute="trailing" constant="10" id="n1Q-Jg-bge"/>
                             <constraint firstItem="obK-le-3Eb" firstAttribute="trailing" secondItem="h9k-ga-HxI" secondAttribute="trailing" id="ou7-Qb-2DW"/>
+                            <constraint firstItem="obK-le-3Eb" firstAttribute="trailing" secondItem="IpQ-X2-thM" secondAttribute="trailing" constant="10" id="qdL-d9-Dgw"/>
                             <constraint firstItem="obK-le-3Eb" firstAttribute="trailing" secondItem="lNS-4q-1wt" secondAttribute="trailing" constant="10" id="tfi-24-8hc"/>
                             <constraint firstItem="h9k-ga-HxI" firstAttribute="top" secondItem="F1c-Ya-aaP" secondAttribute="bottom" constant="10" id="uBY-O1-0co"/>
+                            <constraint firstItem="shf-Yg-lgf" firstAttribute="top" secondItem="Wko-YJ-aTs" secondAttribute="bottom" constant="10" id="xmq-3o-zKd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Grade" id="nLK-JF-H1G">
@@ -198,6 +220,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bonusPointsSwitch" destination="shf-Yg-lgf" id="LkS-AM-OAq"/>
+                        <outlet property="bonusPointsTextField" destination="IpQ-X2-thM" id="IdV-WN-TKb"/>
                         <outlet property="gradeNameTextField" destination="lNS-4q-1wt" id="8w5-ag-C3b"/>
                         <outlet property="gradeTextField" destination="F1c-Ya-aaP" id="zgu-8I-BkZ"/>
                         <outlet property="weightTextField" destination="Wko-YJ-aTs" id="6GZ-Cu-BsF"/>
