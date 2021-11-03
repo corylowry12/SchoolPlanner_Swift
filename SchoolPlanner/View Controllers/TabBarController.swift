@@ -18,7 +18,7 @@ class TabBarController: UITabBarController {
 
 extension TabBarController: UITabBarControllerDelegate  {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        guard let tabViewControllers = tabBarController.viewControllers, let toIndex = tabViewControllers.index(of: viewController) else {
+        guard let tabViewControllers = tabBarController.viewControllers, let toIndex = tabViewControllers.firstIndex(of: viewController) else {
             return false
         }
         animateToTab(toIndex: toIndex)
