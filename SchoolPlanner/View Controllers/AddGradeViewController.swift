@@ -14,6 +14,8 @@ class AddGradeViewController: UIViewController {
     @IBOutlet weak var gradeNameTextField: UITextField!
     @IBOutlet weak var gradeTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var bonusPointsSwitch: UISwitch!
+    @IBOutlet weak var bonusPointsTextField: UITextField!
     
     var isSaved = false
     
@@ -57,6 +59,9 @@ class AddGradeViewController: UIViewController {
         return [Classes]()
         
     }
+    @IBAction func bonusPointsSwitchChanged(_ sender: Any) {
+        bonusPointsTextField.isHidden = false
+    }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
         
@@ -90,8 +95,26 @@ class AddGradeViewController: UIViewController {
                 
             }
         }
+        else if Double(gradeText)! > 100 {
+            let alert = UIAlertController(title: "Grade Can Not Be Greater than 100", message: nil, preferredStyle: .alert)
+            self.present(alert, animated: true, completion: nil)
+            let when = DispatchTime.now() + 1
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                alert.dismiss(animated: true, completion: nil)
+                
+            }
+        }
         else if !weightText.isNumeric {
             let alert = UIAlertController(title: "Weight Must Be A Number", message: nil, preferredStyle: .alert)
+            self.present(alert, animated: true, completion: nil)
+            let when = DispatchTime.now() + 1
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                alert.dismiss(animated: true, completion: nil)
+                
+            }
+        }
+        else if Double(weightText)! > 100 {
+            let alert = UIAlertController(title: "Weight Can Not Be Greater than 100", message: nil, preferredStyle: .alert)
             self.present(alert, animated: true, completion: nil)
             let when = DispatchTime.now() + 1
             DispatchQueue.main.asyncAfter(deadline: when) {
