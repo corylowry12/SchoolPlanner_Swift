@@ -31,7 +31,7 @@ extension TabBarController: UITabBarControllerDelegate  {
 
         guard let fromView = selectedVC.view,
             let toView = tabViewControllers[toIndex].view,
-            let fromIndex = tabViewControllers.index(of: selectedVC),
+              let fromIndex = tabViewControllers.firstIndex(of: selectedVC),
             fromIndex != toIndex else { return }
 
 
