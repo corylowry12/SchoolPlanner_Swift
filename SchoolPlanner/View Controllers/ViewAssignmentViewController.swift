@@ -269,8 +269,7 @@ class ViewAssignmentViewController: UIViewController {
             if userDefaults.integer(forKey: "doneStatus") == 1 {
             for i in 0...doneAssignments.count - 1 {
                 name = doneAssignments[userDefaults.integer(forKey: "assignment")].assignmentClass
-                print("name is \(doneAssignments[userDefaults.integer(forKey: "assignment")].name)")
-                print("name is \(doneAssignments[i].name)")
+              
                     if doneAssignments[i].assignmentClass == doneAssignments[userDefaults.integer(forKey: "assignment")].assignmentClass {
                         let gradeCount = grades.count
                         let gradesContext = Grades(context: context)
