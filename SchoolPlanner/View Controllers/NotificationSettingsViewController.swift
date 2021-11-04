@@ -21,14 +21,71 @@ class NotificationSettingsViewController: UIViewController {
         toggleNotificationSwitch.isOn = userDefaults.bool(forKey: "toggleNotifications")
         
         timePicker.isEnabled = userDefaults.bool(forKey: "toggleNotifications")
-    
+        
         timePicker.date = userDefaults.value(forKey: "time") as! Date
+        
+        appMovedToForeground()
+        
     }
+    
+    @objc func appMovedToForeground() {
+        print("App moved to ForeGround!")
+        
+        let center = UNUserNotificationCenter.current()
+        
+        center.getNotificationSettings(completionHandler: { [self] settings in
+            switch settings.authorizationStatus {
+            case .authorized, .provisional, .ephemeral:
+                print("authorized")
+                timePicker.isEnabled = true
+                toggleNotificationSwitch.isEnabled = true
+            case .denied:
+                print("denied")
+                timePicker.isEnabled = false
+                toggleNotificationSwitch.isEnabled = false
+            case .notDetermined:
+                print("not determined, ask user for permission now")
+            default:
+                print("unknown")
+                timePicker.isEnabled = true
+                toggleNotificationSwitch.isEnabled = true
+            }
+        })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        
+        let center = UNUserNotificationCenter.current()
+        
+        center.getNotificationSettings(completionHandler: { [self] settings in
+            switch settings.authorizationStatus {
+            case .authorized, .provisional, .ephemeral:
+                print("authorized")
+                timePicker.isEnabled = true
+                toggleNotificationSwitch.isEnabled = true
+            case .denied:
+                print("denied")
+                timePicker.isEnabled = false
+                toggleNotificationSwitch.isEnabled = false
+            case .notDetermined:
+                print("not determined, ask user for permission now")
+            default:
+                print("unknown")
+                timePicker.isEnabled = true
+                toggleNotificationSwitch.isEnabled = true
+            }
+        })
+    }
+    
     @IBAction func toggleSwitch(_ sender: UISwitch) {
         
         userDefaults.set(sender.isOn, forKey: "toggleNotifications")
         
         timePicker.isEnabled = userDefaults.bool(forKey: "toggleNotifications")
+     
     }
     @IBAction func saveButton(_ sender: Any) {
         
