@@ -409,7 +409,7 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             
             if assignments.category == 0 {
                 if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
-                cell.backgroundColor = UIColor.systemRed
+                cell.backgroundColor = UIColor.orange
                 }
                 else {
                     cell.backgroundColor = .secondarySystemGroupedBackground
@@ -448,7 +448,7 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             
             if doneAssignments.category == 0 {
                 if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
-                cell.backgroundColor = UIColor.systemRed
+                cell.backgroundColor = UIColor.orange
                 }
                 else {
                     cell.backgroundColor = .secondarySystemGroupedBackground
@@ -488,7 +488,7 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             
             if assignments.category == 0 {
                 if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
-                cell.backgroundColor = UIColor.systemRed
+                    cell.backgroundColor = UIColor.orange
                 }
                 else {
                     cell.backgroundColor = .secondarySystemGroupedBackground
