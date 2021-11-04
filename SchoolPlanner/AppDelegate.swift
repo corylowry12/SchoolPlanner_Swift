@@ -22,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         //MARK: Authorization
             let center = UNUserNotificationCenter.current()
-            
-            
+    
             //Delegate for UNUserNotificationCenterDelegate
             center.delegate = self
             
@@ -34,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     print("not accept authorization")
                 }else{
                     print("accept authorization")
-                    
                     center.delegate = self
                     
                     
