@@ -124,8 +124,19 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
         
     }
     
+    @objc func notesTextViewTapped() {
+        if notes.text == "Type Your Notes..." {
+            notes.text = ""
+        }
+        notes.becomeFirstResponder()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapTerm = UITapGestureRecognizer(target: self, action: #selector(notesTextViewTapped))
+            
+            notes.addGestureRecognizer(tapTerm)
         
         classTableView.delegate = self
         classTableView.dataSource = self
