@@ -433,7 +433,8 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             if (assignments.notes?.count)! >= 35 {
                 
                 let index = assignments.notes?.index((assignments.notes?.startIndex)!, offsetBy: 25)
-                cell.notesLabel.text = "Notes: \(assignments.notes?.substring(to: index!) ?? "Unknown")"
+                cell.notesLabel.text = "Notes: \(assignments.notes?.prefix(upTo: index!) ?? "Unknown")"
+                //"Notes: \(doneAssignments.notes?.substring(to: index!) ?? "Unknown")"
                 cell.notesLabel.text = cell.notesLabel.text?.appending("...")
             }
             else {
@@ -472,7 +473,8 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             if (doneAssignments.notes?.count)! >= 35 {
                 
                 let index = doneAssignments.notes?.index((doneAssignments.notes?.startIndex)!, offsetBy: 25)
-                cell.notesLabel.text = "Notes: \(doneAssignments.notes?.substring(to: index!) ?? "Unknown")"
+                cell.notesLabel.text = "Notes: \(doneAssignments.notes?.prefix(upTo: index!) ?? "Unknown")"
+                //"Notes: \(doneAssignments.notes?.substring(to: index!) ?? "Unknown")"
                 cell.notesLabel.text = cell.notesLabel.text?.appending("...")
             }
             else {
@@ -512,7 +514,8 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
             if (assignments.notes?.count)! >= 35 {
                 
                 let index = assignments.notes?.index((assignments.notes?.startIndex)!, offsetBy: 25)
-                cell.notesLabel.text = "Notes: \(assignments.notes?.substring(to: index!) ?? "Unknown")"
+                cell.notesLabel.text = "Notes: \(assignments.notes?.prefix(upTo: index!) ?? "Unknown")"
+                //"Notes: \(doneAssignments.notes?.substring(to: index!) ?? "Unknown")"
                 cell.notesLabel.text = cell.notesLabel.text?.appending("...")
             }
             else {
