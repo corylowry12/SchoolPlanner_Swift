@@ -57,16 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    
-    func applicationWillTerminate(_ application: UIApplication) {
-        let userDefaults = UserDefaults.standard
-        let month = userDefaults.integer(forKey: "month")
-        let day = userDefaults.integer(forKey: "day")
-        let year = userDefaults.integer(forKey: "year")
-        let identifier = userDefaults.string(forKey: "name")
-        let viewController = AddAssignmentViewController()
-       // viewController.sendNotification(month: month, day: day, year: year, name: identifier!)
-    }
 
     // MARK: - Core Data stack
 
