@@ -154,7 +154,7 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
         else {
             return pastDue.count
         }
-        return 0
+       // return 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
