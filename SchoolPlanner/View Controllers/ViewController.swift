@@ -121,7 +121,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     var predicate: Int32!
-  
+    
     var grades: [Grades] {
         
         do {
@@ -251,7 +251,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 predicate = classes[indexPath.row].id
                 classNamePredicate = classes[indexPath.row].name
-               
+                
                 if assignments.count > 0 {
                     for i in 0...assignments.count - 1 {
                         let assignmentToDelete = assignments[i]
@@ -273,11 +273,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 print("grades count is \(grades.count)")
                 if grades.count > 0 {
                     for i in (0...grades.count - 1).reversed() {
-                    let gradeToDelete = grades[i]
-                        print("grade id is \(gradeToDelete.id)")
-                        print("class id is \(predicate)")
+                        let gradeToDelete = grades[i]
+                        
                         self.context.delete(gradeToDelete)
-                }
+                    }
                 }
                 print("grades count is \(grades.count)")
                 if UserDefaults.standard.integer(forKey: "id") == predicate {
@@ -306,14 +305,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .normal,
                                         title: "Edit") { [self] (action, view, completionHandler) in
-           
+            
             index = Int(classes[indexPath.row].id)
             performSegue(withIdentifier: "editClass", sender: nil)
         }
-            
+        
         action.backgroundColor = .systemOrange
         return UISwipeActionsConfiguration(actions: [action])
-            
+        
     }
     
     func cellBackgroundColor(letter: String) -> UIColor {
@@ -441,7 +440,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             lblNameInitialize.textAlignment = NSTextAlignment.center
             
             lblNameInitialize.backgroundColor = cellBackgroundColor(letter: String(letter.uppercased()))
-          
+            
             lblNameInitialize.layer.cornerRadius = 56.0
             lblNameInitialize.font = UIFont.systemFont(ofSize: 20, weight: .bold)
             
