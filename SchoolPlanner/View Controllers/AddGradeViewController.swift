@@ -9,11 +9,61 @@ import Foundation
 import UIKit
 import CoreData
 
-class AddGradeViewController: UIViewController {
+var gradeNameTextField1 : UITextField!
+var gradeTextField1 : UITextField!
+var gradeWeightTextField1 : UITextField!
+
+extension UITextField {
+    func addDoneCancelToolbar(onDone: (target: Any, action: Selector)? = nil, onCancel: (target: Any, action: Selector)? = nil) {
+        let onDone = onDone ?? (target: self, action: #selector(doneButtonTapped))
+
+        let toolbar: UIToolbar = UIToolbar()
+        toolbar.barStyle = .default
+        toolbar.items = [
+            UIBarButtonItem(image: UIImage(systemName: "chevron.down"), style: .plain, target: self, action: #selector(downTapped)),
+            UIBarButtonItem(image: UIImage(systemName: "chevron.up"), style: .plain, target: self, action: #selector(upTapped)),
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
+            UIBarButtonItem(title: "Done", style: .done, target: onDone.target, action: onDone.action)
+        ]
+        toolbar.sizeToFit()
+
+        self.inputAccessoryView = toolbar
+    }
+
+    // Default actions:
+    @objc func doneButtonTapped() { self.resignFirstResponder() }
+    @objc func upTapped() {
+        
+        if gradeTextField1.isFirstResponder {
+            gradeNameTextField1.becomeFirstResponder()
+        }
+        else if gradeWeightTextField1.isFirstResponder {
+            gradeTextField1.becomeFirstResponder()
+        }
+    }
     
-    @IBOutlet weak var gradeNameTextField: UITextField!
-    @IBOutlet weak var gradeTextField: UITextField!
-    @IBOutlet weak var weightTextField: UITextField!
+    @objc func downTapped() {
+        
+        if gradeNameTextField1.isFirstResponder {
+            gradeTextField1.becomeFirstResponder()
+        }
+        else if gradeTextField1.isFirstResponder {
+            gradeWeightTextField1.becomeFirstResponder()
+        }
+    }
+}
+
+class AddGradeViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet weak var gradeNameTextField: UITextField! {
+        didSet { gradeNameTextField?.addDoneCancelToolbar() }
+    }
+    @IBOutlet weak var gradeTextField: UITextField! {
+        didSet { gradeTextField?.addDoneCancelToolbar() }
+    }
+    @IBOutlet weak var weightTextField: UITextField! {
+        didSet { weightTextField?.addDoneCancelToolbar() }
+    }
     
     var isSaved = false
     
@@ -56,6 +106,35 @@ class AddGradeViewController: UIViewController {
         
         return [Classes]()
         
+    }
+    
+    func upTapped() {
+        //if gradeTextField.isFirstResponder {
+            print("hello world")
+        //}
+    }
+    
+    override func viewDidLoad() {
+        
+        gradeNameTextField.delegate = self
+        
+        gradeNameTextField1 = gradeNameTextField
+        gradeTextField1 = gradeTextField
+        gradeWeightTextField1 = weightTextField
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if gradeNameTextField.isFirstResponder {
+            gradeNameTextField.resignFirstResponder()
+        }
+        else if gradeTextField.isFirstResponder {
+            gradeTextField.resignFirstResponder()
+        }
+        else if weightTextField.isFirstResponder {
+            weightTextField.resignFirstResponder()
+        }
+        return true
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
