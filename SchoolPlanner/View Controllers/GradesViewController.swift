@@ -65,6 +65,8 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         gradeTableView.delegate = self
         gradeTableView.dataSource = self
+    
+        gradeTableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0) //replace 10 by your needed value
         
     }
     
