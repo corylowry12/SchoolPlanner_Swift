@@ -12,6 +12,8 @@ class NotificationSettingsViewController: UIViewController {
     
     @IBOutlet var timePicker: UIDatePicker!
     @IBOutlet var toggleNotificationSwitch: UISwitch!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var openSettingsButton: UIButton!
     
     let userDefaults = UserDefaults.standard
     
@@ -39,10 +41,14 @@ class NotificationSettingsViewController: UIViewController {
                 print("authorized")
                 timePicker.isEnabled = true
                 toggleNotificationSwitch.isEnabled = true
+                infoLabel.isHidden = true
+                openSettingsButton.isHidden = true
             case .denied:
                 print("denied")
                 timePicker.isEnabled = false
                 toggleNotificationSwitch.isEnabled = false
+                infoLabel.isHidden = false
+                openSettingsButton.isHidden = false
             case .notDetermined:
                 print("not determined, ask user for permission now")
             default:
@@ -66,10 +72,14 @@ class NotificationSettingsViewController: UIViewController {
                 print("authorized")
                 timePicker.isEnabled = true
                 toggleNotificationSwitch.isEnabled = true
+                infoLabel.isHidden = true
+                openSettingsButton.isHidden = true
             case .denied:
                 print("denied")
                 timePicker.isEnabled = false
                 toggleNotificationSwitch.isEnabled = false
+                infoLabel.isHidden = false
+                openSettingsButton.isHidden = false
             case .notDetermined:
                 print("not determined, ask user for permission now")
             default:
@@ -94,5 +104,9 @@ class NotificationSettingsViewController: UIViewController {
         userDefaults.set(components.hour, forKey: "hour")
         userDefaults.set(components.minute, forKey: "minutes")
         userDefaults.set(timePicker.date, forKey: "time")
+    }
+    @IBAction func openSettingsButtonClicked(_ sender: Any) {
+        
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
     }
 }
