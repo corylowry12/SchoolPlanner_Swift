@@ -261,6 +261,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 if pastDue.count > 0 {
                     for i in 0...pastDue.count - 1 {
                         let assignmentToDelete = pastDue[i]
+                      
                         self.context.delete(assignmentToDelete)
                     }
                 }
@@ -274,7 +275,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 if grades.count > 0 {
                     for i in (0...grades.count - 1).reversed() {
                         let gradeToDelete = grades[i]
-                        
+                     
                         self.context.delete(gradeToDelete)
                     }
                 }
