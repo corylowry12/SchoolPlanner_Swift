@@ -10,7 +10,7 @@ import UIKit
 import MultiSelectSegmentedControl
 import CoreData
 
-class AddClassViewContrller: ViewController {
+class AddClassViewContrller: ViewController, UITextFieldDelegate {
     
     @IBOutlet weak var multiSelect: MultiSelectSegmentedControl!
     
@@ -83,6 +83,9 @@ class AddClassViewContrller: ViewController {
         multiSelect.allowsMultipleSelection = true
         multiSelect.items = ["Mon", "Tue", "Wed", "Thur", "Fri"]
         
+        className.delegate = self
+        classLocation.delegate = self
+        
         if editClass == 1 {
             //multiSelect.selectedSegmentIndex = 0
             let indexSet = NSMutableIndexSet()
@@ -111,7 +114,18 @@ class AddClassViewContrller: ViewController {
             
             saveButton.title = "Update"
             navigationBar.title = "Update Class"
+            
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if className.isFirstResponder {
+            className.resignFirstResponder()
+        }
+        else if classLocation.isFirstResponder {
+            classLocation.resignFirstResponder()
+        }
+        return true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
