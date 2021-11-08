@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import UserNotifications
 
-class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var categorySegmentedControl: UISegmentedControl!
     @IBOutlet weak var nameTextField: UITextField!
@@ -20,6 +20,8 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
     var index: Int!
     var isEditingAssignment = 0
     var section : Int!
+    
+    var selectedCell = -1
     
     var assignmentName : String!
     var className: String!
@@ -124,6 +126,21 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
         
     }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            if notes.text == "" {
+                notes.text = "Type Your Notes..."
+            }
+            notes.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
     @objc func notesTextViewTapped() {
         if notes.text == "Type Your Notes..." {
             notes.text = ""
@@ -134,9 +151,12 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        nameTextField.delegate = self
+        notes.delegate = self
+        
         let tapTerm = UITapGestureRecognizer(target: self, action: #selector(notesTextViewTapped))
-            
-            notes.addGestureRecognizer(tapTerm)
+        
+        notes.addGestureRecognizer(tapTerm)
         
         classTableView.delegate = self
         classTableView.dataSource = self
@@ -251,8 +271,13 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
         if isEditingAssignment == 0 {
             categorySegmentedControl.selectedSegmentIndex = UserDefaults.standard.integer(forKey: "defaultCategory")
         }
+        if selectedCell != -1 {
+            classTableView.delegate?.tableView?(classTableView, didSelectRowAt: [0, selectedCell])
+        }
         
     }
+    
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -267,13 +292,23 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        selectedCell = indexPath.row
         let userDefaults = UserDefaults.standard
+        if selectedCell == -1 {
+            classTableView.cellForRow(at: [0, userDefaults.integer(forKey: "editAssignment")])?.accessoryType = .none
+            
+            userDefaults.set(indexPath.row, forKey: "editAssignment")
+            classTableView.cellForRow(at: [0, userDefaults.integer(forKey: "editAssignment")])?.accessoryType = .checkmark
+        }
+        else {
+            for i in 0...classes.count - 1 {
+                classTableView.cellForRow(at: [0, i])?.accessoryType = .none
+            }
+            userDefaults.set(selectedCell, forKey: "editAssignment")
+            classTableView.cellForRow(at: [0, selectedCell])?.accessoryType = .checkmark
+        }
+        print("selected cell is \(selectedCell)")
         
-        classTableView.cellForRow(at: [0, userDefaults.integer(forKey: "editAssignment")])?.accessoryType = .none
-        
-        userDefaults.set(indexPath.row, forKey: "editAssignment")
-        classTableView.cellForRow(at: [0, userDefaults.integer(forKey: "editAssignment")])?.accessoryType = .checkmark
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -498,7 +533,7 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
             content.sound = UNNotificationSound.default
             //let badgeCount = UIApplication.shared.applicationIconBadgeNumber as NSNumber
             content.badge = 1
-          
+            
             let identifier = name
             
             //Receive with date
