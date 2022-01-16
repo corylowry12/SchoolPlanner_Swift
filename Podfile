@@ -7,5 +7,6 @@ target 'SchoolPlanner' do
 
   # Pods for SchoolPlanner
 pod 'MultiSelectSegmentedControl'
+pod 'Siren'
 
 end

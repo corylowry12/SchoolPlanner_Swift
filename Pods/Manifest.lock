@@ -1,20 +1,24 @@
 PODS:
   - MultiSelectSegmentedControl (2.3.6):
     - SweeterSwift
+  - Siren (5.8.1)
   - SweeterSwift (1.1.4)
 
 DEPENDENCIES:
   - MultiSelectSegmentedControl
+  - Siren
 
 SPEC REPOS:
   trunk:
     - MultiSelectSegmentedControl
+    - Siren
     - SweeterSwift
 
 SPEC CHECKSUMS:
   MultiSelectSegmentedControl: 37fcb70250c2e6ec0aff942c15c294161dc7c11b
+  Siren: de768099aff1f1c9acda4247064788a4940b4bf3
   SweeterSwift: 8a90cf3156f5a1b6f39785c479369a16633b5ea9
 
-PODFILE CHECKSUM: 9ef28c54e143ad97ad5d10eb96278129e0dd9eaf
+PODFILE CHECKSUM: e06f57727013168d03f06f00a64acea9983c0bba
 
 COCOAPODS: 1.8.4

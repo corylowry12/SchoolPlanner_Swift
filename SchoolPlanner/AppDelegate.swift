@@ -9,12 +9,19 @@ import UIKit
 import CoreData
 import GoogleMobileAds
 import UserNotifications
+import Siren
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let siren = Siren.shared
+        siren.rulesManager = RulesManager(globalRules: .critical,
+                                                  showAlertAfterCurrentVersionHasBeenReleasedForDays: 7)
+        siren.wail()
+
         
         application.applicationIconBadgeNumber = -1
         

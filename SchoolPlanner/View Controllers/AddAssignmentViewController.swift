@@ -336,7 +336,7 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
         
         if isEditingAssignment == 0 {
             var selectedItem : Int! = 100000
-            for i in 0...classes.count - 1 {
+            for i in (0...classes.count - 1).reversed() {
                 if classTableView.cellForRow(at: [0, i])?.accessoryType == .checkmark {
                     selectedItem = i
                     break

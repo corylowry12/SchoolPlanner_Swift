@@ -81,7 +81,7 @@ class AddClassViewContrller: ViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         multiSelect.allowsMultipleSelection = true
-        multiSelect.items = ["Mon", "Tue", "Wed", "Thur", "Fri"]
+        multiSelect.items = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"]
         
         className.delegate = self
         classLocation.delegate = self
@@ -103,6 +103,12 @@ class AddClassViewContrller: ViewController, UITextFieldDelegate {
             }
             if editClassData[0].time?.contains("Fri") == true {
                 indexSet.add(4)
+            }
+            if editClassData[0].time?.contains("Sat") == true {
+                indexSet.add(5)
+            }
+            if editClassData[0].time?.contains("Sun") == true {
+                indexSet.add(6)
             }
             multiSelect.selectedSegmentIndexes = indexSet as IndexSet
             
@@ -140,7 +146,7 @@ class AddClassViewContrller: ViewController, UITextFieldDelegate {
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         if editClass == 0 {
             if className.text == "" {
-                let alert = UIAlertController(title: "Class must have a name to update", message: nil, preferredStyle: .alert)
+                let alert = UIAlertController(title: "Please enter a class name", message: nil, preferredStyle: .alert)
                 self.present(alert, animated: true, completion: nil)
                 let when = DispatchTime.now() + 1
                 DispatchQueue.main.asyncAfter(deadline: when) {
@@ -150,7 +156,7 @@ class AddClassViewContrller: ViewController, UITextFieldDelegate {
                 print("index is: \(multiSelect.selectedSegmentTitles)")
             }
             else if multiSelect.selectedSegmentTitles == [] {
-                let alert = UIAlertController(title: "You must have a class day selected to update", message: nil, preferredStyle: .alert)
+                let alert = UIAlertController(title: "Please select days that the class meets", message: nil, preferredStyle: .alert)
                 self.present(alert, animated: true, completion: nil)
                 let when = DispatchTime.now() + 1
                 DispatchQueue.main.asyncAfter(deadline: when) {
@@ -168,15 +174,13 @@ class AddClassViewContrller: ViewController, UITextFieldDelegate {
                 }
             }
             else if classLocation.text == "" {
-                if inTimePicker.date >= outTimePicker.date {
-                    let alert = UIAlertController(title: "Class must have a location to update", message: nil, preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Please enter the class location", message: nil, preferredStyle: .alert)
                     self.present(alert, animated: true, completion: nil)
                     let when = DispatchTime.now() + 1
                     DispatchQueue.main.asyncAfter(deadline: when) {
                         alert.dismiss(animated: true, completion: nil)
                         
                     }
-                }
             }
             else {
                 var alreadyStored = false

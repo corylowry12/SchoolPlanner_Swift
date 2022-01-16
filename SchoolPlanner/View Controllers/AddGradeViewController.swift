@@ -187,6 +187,15 @@ class AddGradeViewController: UIViewController, UITextFieldDelegate {
                 
             }
         }
+        else if weightText == "" {
+            let alert = UIAlertController(title: nil, message: "Weight was left blank, would you like to make it 100?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {_ in
+                self.weightTextField.text = "100"
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+        }
         else if Double(weightText)! > 100 {
             let alert = UIAlertController(title: "Weight Can Not Be Greater than 100", message: nil, preferredStyle: .alert)
             self.present(alert, animated: true, completion: nil)
