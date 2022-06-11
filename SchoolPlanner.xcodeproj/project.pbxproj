@@ -41,6 +41,9 @@
 		32B7FFA826F9618500858101 /* AssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7FFA726F9618500858101 /* AssignmentViewController.swift */; };
 		32B7FFAA26F965D400858101 /* AddAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7FFA926F965D400858101 /* AddAssignmentViewController.swift */; };
 		32B7FFAC26F9664000858101 /* AddAssignmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7FFAB26F9664000858101 /* AddAssignmentTableViewCell.swift */; };
+		32FF9921283B8683003BEFED /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FF9920283B8683003BEFED /* AdViewController.swift */; };
+		32FF9924283B8B60003BEFED /* PatchNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FF9922283B8B60003BEFED /* PatchNotesTableViewCell.swift */; };
+		32FF9925283B8B60003BEFED /* PatchNotesTableViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FF9923283B8B60003BEFED /* PatchNotesTableViewHeaderCell.swift */; };
 		7B8C80E695B6BC506F62D877 /* Pods_SchoolPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6DFEF5B889BC9F7D011B71 /* Pods_SchoolPlanner.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +87,9 @@
 		32B7FFA726F9618500858101 /* AssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentViewController.swift; sourceTree = "<group>"; };
 		32B7FFA926F965D400858101 /* AddAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssignmentViewController.swift; sourceTree = "<group>"; };
 		32B7FFAB26F9664000858101 /* AddAssignmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssignmentTableViewCell.swift; sourceTree = "<group>"; };
+		32FF9920283B8683003BEFED /* AdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
+		32FF9922283B8B60003BEFED /* PatchNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatchNotesTableViewCell.swift; sourceTree = "<group>"; };
+		32FF9923283B8B60003BEFED /* PatchNotesTableViewHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatchNotesTableViewHeaderCell.swift; sourceTree = "<group>"; };
 		5F6DFEF5B889BC9F7D011B71 /* Pods_SchoolPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchoolPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BA26CFDA207656AE672877 /* Pods-SchoolPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolPlanner.release.xcconfig"; path = "Target Support Files/Pods-SchoolPlanner/Pods-SchoolPlanner.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +115,9 @@
 		3245957C271DD60B002E1F15 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				32FF9922283B8B60003BEFED /* PatchNotesTableViewCell.swift */,
+				32FF9923283B8B60003BEFED /* PatchNotesTableViewHeaderCell.swift */,
+				32FF9920283B8683003BEFED /* AdViewController.swift */,
 				32B7FFAB26F9664000858101 /* AddAssignmentTableViewCell.swift */,
 				32B7FFA926F965D400858101 /* AddAssignmentViewController.swift */,
 				3297611226F82BDB002E897E /* AddClassViewController.swift */,
@@ -310,6 +319,7 @@
 				32B3B21A26FAF376009A0F66 /* PatchNotesViewController.swift in Sources */,
 				3249145426F81F3700A90C6D /* ViewController.swift in Sources */,
 				323D99882732321B00A26D03 /* AssignmentSettingsViewController.swift in Sources */,
+				32FF9924283B8B60003BEFED /* PatchNotesTableViewCell.swift in Sources */,
 				32B7FFA826F9618500858101 /* AssignmentViewController.swift in Sources */,
 				3297611326F82BDB002E897E /* AddClassViewController.swift in Sources */,
 				3226DD7C271B57E100B27180 /* TabBarController.swift in Sources */,
@@ -320,7 +330,9 @@
 				320F703026FAD2B2001E0F34 /* AppearanceViewController.swift in Sources */,
 				3249145026F81F3700A90C6D /* AppDelegate.swift in Sources */,
 				323B0DFB2704F10C008F1C7B /* NotificationSettingsViewController.swift in Sources */,
+				32FF9925283B8B60003BEFED /* PatchNotesTableViewHeaderCell.swift in Sources */,
 				3226DD7A271B48EB00B27180 /* AddGradeViewController.swift in Sources */,
+				32FF9921283B8683003BEFED /* AdViewController.swift in Sources */,
 				3249145A26F81F3700A90C6D /* SchoolPlanner.xcdatamodeld in Sources */,
 				32B7FFAA26F965D400858101 /* AddAssignmentViewController.swift in Sources */,
 				32B3B23626FEDDCB009A0F66 /* AllGradesTableViewCell.swift in Sources */,
@@ -482,14 +494,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SchoolPlanner/SchoolPlanner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = DP6RQZGX67;
 				INFOPLIST_FILE = SchoolPlanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.9;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cory.SchoolPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -505,14 +517,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SchoolPlanner/SchoolPlanner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = DP6RQZGX67;
 				INFOPLIST_FILE = SchoolPlanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.9;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cory.SchoolPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

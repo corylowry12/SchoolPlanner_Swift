@@ -13,6 +13,11 @@ import UserNotifications
 
 class AssignmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBInspectable var topInset: CGFloat = 0.0
+    @IBInspectable var leftInset: CGFloat = 0.0
+    @IBInspectable var bottomInset: CGFloat = 0.0
+    @IBInspectable var rightInset: CGFloat = 0.0
+    
     lazy var bannerView: GADBannerView! = GADBannerView(adSize: kGADAdSizeBanner)
     
     @IBOutlet weak var assignmentTableView: UITableView!
@@ -116,10 +121,12 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addBannerViewToView(bannerView)
+        //addBannerViewToView(bannerView)
         
         bannerView.adUnitID = "ca-app-pub-4546055219731501/4458073112"
         bannerView.rootViewController = self
@@ -528,7 +535,8 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
         if assignments.count == 0 && doneAssignments.count == 0 && pastDue.count == 0 {
             
             let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.accessibilityFrame.size.width, height: self.accessibilityFrame.size.height))
-            messageLabel.text = "There are no assignments stored. Hit the + to add one. (+ Button will be disabled if there is no classes stored.)"
+            
+            messageLabel.text = "\tThere are no assignments stored. Hit the + to add one. (+ Button will be disabled if there is no classes stored.)\t"
             messageLabel.numberOfLines = 0;
             messageLabel.textAlignment = .center;
             messageLabel.font = UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight.medium)

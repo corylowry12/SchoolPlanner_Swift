@@ -146,7 +146,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        addBannerViewToView(bannerView)
+       // addBannerViewToView(bannerView)
         
         bannerView.adUnitID = "ca-app-pub-4546055219731501/4458073112"
         bannerView.rootViewController = self
