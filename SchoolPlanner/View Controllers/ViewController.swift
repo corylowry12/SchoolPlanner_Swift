@@ -287,7 +287,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let classToDelete = self.classes[indexPath.row]
                 self.context.delete(classToDelete)
                 
+                self.tableView.beginUpdates()
                 self.tableView.deleteRows(at: [indexPath], with: .left)
+                self.tableView.endUpdates()
                 
                 (UIApplication.shared.delegate as! AppDelegate).saveContext()
                 

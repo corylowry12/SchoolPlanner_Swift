@@ -403,132 +403,131 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = assignmentTableView.dequeueReusableCell(withIdentifier: "assignmentCell") as! AssignmentTableViewCell
-        if indexPath.section == 0 {
-            let assignments = assignments[indexPath.row]
-            
-            cell.nameLabel.text = "Name: \(assignments.name ?? "Unknown")"
-            cell.classLabel.text = "Class: \(assignments.assignmentClass ?? "Unknown")"
-            cell.dueDateLabel.text = "Due Date: \(assignments.dueDate ?? "Unknown")"
-            
-            print("category is: \(assignments.category)")
-            
-            if assignments.category == 0 {
-                if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
-                cell.backgroundColor = UIColor.orange
+            let cell = assignmentTableView.dequeueReusableCell(withIdentifier: "assignmentCell") as! AssignmentTableViewCell
+                if indexPath.section == 0 {
+                    let assignments = assignments[indexPath.row]
+                    
+                    cell.nameLabel.text = "Name: \(assignments.name ?? "Unknown")"
+                    cell.classLabel.text = "Class: \(assignments.assignmentClass ?? "Unknown")"
+                    cell.dueDateLabel.text = "Due Date: \(assignments.dueDate ?? "Unknown")"
+                    
+                    print("category is: \(assignments.category)")
+                    
+                    if assignments.category == 0 {
+                        if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
+                            cell.backgroundColor = UIColor.orange
+                        }
+                        else {
+                            cell.backgroundColor = .secondarySystemGroupedBackground
+                        }
+                        cell.categoryLabel.text = "Category: Exam"
+                    }
+                    if assignments.category == 1  {
+                        if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
+                            cell.backgroundColor = UIColor.systemTeal
+                        }
+                        else {
+                            cell.backgroundColor = .secondarySystemGroupedBackground
+                        }
+                        cell.categoryLabel.text = "Category: Homework"
+                    }
+                    if assignments.category == 2 || assignments.category == 3  {
+                        cell.backgroundColor = .secondarySystemGroupedBackground
+                        cell.categoryLabel.text = "Category: Other"
+                    }
+                    
+                    if (assignments.notes?.count)! >= 35 {
+                        
+                        let index = assignments.notes?.index((assignments.notes?.startIndex)!, offsetBy: 25)
+                        cell.notesLabel.text = "Notes: \(assignments.notes?.prefix(upTo: index!) ?? "Unknown")"
+                        //"Notes: \(doneAssignments.notes?.substring(to: index!) ?? "Unknown")"
+                        cell.notesLabel.text = cell.notesLabel.text?.appending("...")
+                    }
+                    else {
+                        cell.notesLabel.text = "Notes: \(assignments.notes ?? "Unknown")"
+                    }
                 }
-                else {
-                    cell.backgroundColor = .secondarySystemGroupedBackground
+                else if indexPath.section == 2 {
+                    let doneAssignments = doneAssignments[indexPath.row]
+                    cell.nameLabel.text = "Name: \(doneAssignments.name ?? "Unknown")"
+                    cell.classLabel.text = "Class: \(doneAssignments.assignmentClass ?? "Unknown")"
+                    cell.dueDateLabel.text = "Due Date: \(doneAssignments.dueDate ?? "Unknown")"
+                    
+                    if doneAssignments.category == 0 {
+                        if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
+                            cell.backgroundColor = UIColor.orange
+                        }
+                        else {
+                            cell.backgroundColor = .secondarySystemGroupedBackground
+                        }
+                        cell.categoryLabel.text = "Category: Exam"
+                    }
+                    else if doneAssignments.category == 1  {
+                        if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
+                            cell.backgroundColor = UIColor.systemTeal
+                        }
+                        else {
+                            cell.backgroundColor = .secondarySystemGroupedBackground
+                        }
+                        cell.categoryLabel.text = "Category: Homework"
+                    }
+                    else if doneAssignments.category == 2 || doneAssignments.category == 3  {
+                        cell.backgroundColor = .secondarySystemGroupedBackground
+                        cell.categoryLabel.text = "Category: Other"
+                    }
+                    
+                    if (doneAssignments.notes?.count)! >= 35 {
+                        
+                        let index = doneAssignments.notes?.index((doneAssignments.notes?.startIndex)!, offsetBy: 25)
+                        cell.notesLabel.text = "Notes: \(doneAssignments.notes?.prefix(upTo: index!) ?? "Unknown")"
+                        //"Notes: \(doneAssignments.notes?.substring(to: index!) ?? "Unknown")"
+                        cell.notesLabel.text = cell.notesLabel.text?.appending("...")
+                    }
+                    else {
+                        cell.notesLabel.text = "Notes: \(doneAssignments.notes ?? "Unknown")"
+                    }
                 }
-                cell.categoryLabel.text = "Category: Exam"
-            }
-            if assignments.category == 1  {
-                if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
-                cell.backgroundColor = UIColor.systemTeal
+                else if indexPath.section == 1 {
+                    let assignments = pastDue[indexPath.row]
+                    
+                    cell.nameLabel.text = "Name: \(assignments.name ?? "Unknown")"
+                    cell.classLabel.text = "Class: \(assignments.assignmentClass ?? "Unknown")"
+                    cell.dueDateLabel.text = "Due Date: \(assignments.dueDate ?? "Unknown")"
+                    
+                    if assignments.category == 0 {
+                        if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
+                            cell.backgroundColor = UIColor.orange
+                        }
+                        else {
+                            cell.backgroundColor = .secondarySystemGroupedBackground
+                        }
+                        cell.categoryLabel.text = "Category: Exam"
+                    }
+                    else if assignments.category == 1  {
+                        if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
+                            cell.backgroundColor = UIColor.systemTeal
+                        }
+                        else {
+                            cell.backgroundColor = .secondarySystemGroupedBackground
+                        }
+                        cell.categoryLabel.text = "Category: Homework"
+                    }
+                    else if assignments.category == 2 || assignments.category == 3  {
+                        cell.backgroundColor = .secondarySystemGroupedBackground
+                        cell.categoryLabel.text = "Category: Other"
+                    }
+                    
+                    if (assignments.notes?.count)! >= 35 {
+                        
+                        let index = assignments.notes?.index((assignments.notes?.startIndex)!, offsetBy: 25)
+                        cell.notesLabel.text = "Notes: \(assignments.notes?.prefix(upTo: index!) ?? "Unknown")"
+                        //"Notes: \(doneAssignments.notes?.substring(to: index!) ?? "Unknown")"
+                        cell.notesLabel.text = cell.notesLabel.text?.appending("...")
+                    }
+                    else {
+                        cell.notesLabel.text = "Notes: \(assignments.notes ?? "Unknown")"
+                    }
                 }
-                else {
-                    cell.backgroundColor = .secondarySystemGroupedBackground
-                }
-                cell.categoryLabel.text = "Category: Homework"
-            }
-            if assignments.category == 2 || assignments.category == 3  {
-                cell.backgroundColor = .secondarySystemGroupedBackground
-                cell.categoryLabel.text = "Category: Other"
-            }
-            
-            if (assignments.notes?.count)! >= 35 {
-                
-                let index = assignments.notes?.index((assignments.notes?.startIndex)!, offsetBy: 25)
-                cell.notesLabel.text = "Notes: \(assignments.notes?.prefix(upTo: index!) ?? "Unknown")"
-                //"Notes: \(doneAssignments.notes?.substring(to: index!) ?? "Unknown")"
-                cell.notesLabel.text = cell.notesLabel.text?.appending("...")
-            }
-            else {
-                cell.notesLabel.text = "Notes: \(assignments.notes ?? "Unknown")"
-            }
-        }
-        else if indexPath.section == 2 {
-            let doneAssignments = doneAssignments[indexPath.row]
-            cell.nameLabel.text = "Name: \(doneAssignments.name ?? "Unknown")"
-            cell.classLabel.text = "Class: \(doneAssignments.assignmentClass ?? "Unknown")"
-            cell.dueDateLabel.text = "Due Date: \(doneAssignments.dueDate ?? "Unknown")"
-            
-            if doneAssignments.category == 0 {
-                if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
-                cell.backgroundColor = UIColor.orange
-                }
-                else {
-                    cell.backgroundColor = .secondarySystemGroupedBackground
-                }
-                cell.categoryLabel.text = "Category: Exam"
-            }
-            else if doneAssignments.category == 1  {
-                if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
-                cell.backgroundColor = UIColor.systemTeal
-                }
-                else {
-                    cell.backgroundColor = .secondarySystemGroupedBackground
-                }
-                cell.categoryLabel.text = "Category: Homework"
-            }
-            else if doneAssignments.category == 2 || doneAssignments.category == 3  {
-                cell.backgroundColor = .secondarySystemGroupedBackground
-                cell.categoryLabel.text = "Category: Other"
-            }
-            
-            if (doneAssignments.notes?.count)! >= 35 {
-                
-                let index = doneAssignments.notes?.index((doneAssignments.notes?.startIndex)!, offsetBy: 25)
-                cell.notesLabel.text = "Notes: \(doneAssignments.notes?.prefix(upTo: index!) ?? "Unknown")"
-                //"Notes: \(doneAssignments.notes?.substring(to: index!) ?? "Unknown")"
-                cell.notesLabel.text = cell.notesLabel.text?.appending("...")
-            }
-            else {
-                cell.notesLabel.text = "Notes: \(doneAssignments.notes ?? "Unknown")"
-            }
-        }
-        else if indexPath.section == 1 {
-            let assignments = pastDue[indexPath.row]
-            
-            cell.nameLabel.text = "Name: \(assignments.name ?? "Unknown")"
-            cell.classLabel.text = "Class: \(assignments.assignmentClass ?? "Unknown")"
-            cell.dueDateLabel.text = "Due Date: \(assignments.dueDate ?? "Unknown")"
-            
-            if assignments.category == 0 {
-                if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
-                    cell.backgroundColor = UIColor.orange
-                }
-                else {
-                    cell.backgroundColor = .secondarySystemGroupedBackground
-                }
-                cell.categoryLabel.text = "Category: Exam"
-            }
-            else if assignments.category == 1  {
-                if UserDefaults.standard.integer(forKey: "categoryBackground") == 0 {
-                cell.backgroundColor = UIColor.systemTeal
-                }
-                else {
-                    cell.backgroundColor = .secondarySystemGroupedBackground
-                }
-                cell.categoryLabel.text = "Category: Homework"
-            }
-            else if assignments.category == 2 || assignments.category == 3  {
-                cell.backgroundColor = .secondarySystemGroupedBackground
-                cell.categoryLabel.text = "Category: Other"
-            }
-            
-            if (assignments.notes?.count)! >= 35 {
-                
-                let index = assignments.notes?.index((assignments.notes?.startIndex)!, offsetBy: 25)
-                cell.notesLabel.text = "Notes: \(assignments.notes?.prefix(upTo: index!) ?? "Unknown")"
-                //"Notes: \(doneAssignments.notes?.substring(to: index!) ?? "Unknown")"
-                cell.notesLabel.text = cell.notesLabel.text?.appending("...")
-            }
-            else {
-                cell.notesLabel.text = "Notes: \(assignments.notes ?? "Unknown")"
-            }
-        }
         return cell
     }
     func noAssignmentStoredBackground() {

@@ -41,7 +41,7 @@ class HowToTableViewController: UITableViewController {
                 
                 if indexPath.row == 1 {
                     tableView.cellForRow(at: [0, 1])?.backgroundColor = UIColor.clear
-                    return 1
+                    return 0
                 }
                 
             }
@@ -57,11 +57,11 @@ class HowToTableViewController: UITableViewController {
                 
                 if indexPath.row == 1 {
                     tableView.cellForRow(at: [1, 1])?.backgroundColor = UIColor.clear
-                    return 1
+                    return 0
                 }
                 if indexPath.row == 2 {
                     tableView.cellForRow(at: [1, 2])?.backgroundColor = UIColor.clear
-                    return 1
+                    return 0
                 }
             }
             else {
@@ -80,7 +80,7 @@ class HowToTableViewController: UITableViewController {
                 
                 if indexPath.row == 1 {
                     tableView.cellForRow(at: [2, 1])?.backgroundColor = UIColor.clear
-                    return 1
+                    return 0
                 }
              
             }
@@ -96,7 +96,7 @@ class HowToTableViewController: UITableViewController {
                 
                 if indexPath.row == 1 {
                     tableView.cellForRow(at: [3, 1])?.backgroundColor = UIColor.clear
-                    return 1
+                    return 0
                 }
             }
             else {
@@ -111,11 +111,11 @@ class HowToTableViewController: UITableViewController {
                 
                 if indexPath.row == 1 {
                     tableView.cellForRow(at: [4, 1])?.backgroundColor = UIColor.clear
-                    return 1
+                    return 0
                 }
                 if indexPath.row == 2 {
                     tableView.cellForRow(at: [4, 2])?.backgroundColor = UIColor.clear
-                    return 1
+                    return 0
                 }
             }
             else {

@@ -16,9 +16,9 @@ class PatchNotesViewController: UITableViewController {
     var newFeaturesBool = false
     var enhancementsBool = false
     
-    var bugFixesArray : [String] = []
-    var newFeaturesArray : [String] = ["Some new features and much needed improvements will be coming soon"]
-    var enhancementsArray : [String] = ["Rewrote how ads are displayed in the app. This will show ads on every view and result in better performance and not having to recreate the ad every time a view is changed", "Added support for iOS 15.5", "Added margins to the left and right of the \"There are no assignments stored\" text in the Assignments view so it is no longer going to the edges of the display", "Redesigned the Patch Notes view"]
+    var bugFixesArray : [String] = ["Fixed some UI issues in the How To view"]
+    var newFeaturesArray : [String] = []
+    var enhancementsArray : [String] = ["Added support for iOS 16.4"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
