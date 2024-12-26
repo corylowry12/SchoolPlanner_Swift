@@ -1,8 +1,8 @@
 PODS:
-  - MultiSelectSegmentedControl (2.3.6):
+  - MultiSelectSegmentedControl (2.3.8):
     - SweeterSwift
-  - Siren (5.8.1)
-  - SweeterSwift (1.2.1)
+  - Siren (6.1.2)
+  - SweeterSwift (1.2.3)
 
 DEPENDENCIES:
   - MultiSelectSegmentedControl
@@ -15,9 +15,9 @@ SPEC REPOS:
     - SweeterSwift
 
 SPEC CHECKSUMS:
-  MultiSelectSegmentedControl: 37fcb70250c2e6ec0aff942c15c294161dc7c11b
-  Siren: de768099aff1f1c9acda4247064788a4940b4bf3
-  SweeterSwift: 61baeda1c0c27d1dc57c8112c3d6a82e5aff3139
+  MultiSelectSegmentedControl: 61ef948f79dfa16776a5c838417d945825b85eaa
+  Siren: c951ae243b57160629fb2e4d2f630cbfc5d5452b
+  SweeterSwift: 3910bab8ba35b6964d5169a3c52b2c87d930b61c
 
 PODFILE CHECKSUM: 62e46d23db6f04e00a6b3dce8aa992aa2b11aa24
 

@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B7BA377FAB9EB45ECFE0239 /* Pods_SchoolPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B1F2294BBACE339797AA4A /* Pods_SchoolPlanner.framework */; };
 		320F702E26FABB38001E0F34 /* ViewAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320F702D26FABB38001E0F34 /* ViewAssignmentViewController.swift */; };
 		320F703026FAD2B2001E0F34 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320F702F26FAD2B2001E0F34 /* AppearanceViewController.swift */; };
 		3226DD7A271B48EB00B27180 /* AddGradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226DD79271B48EB00B27180 /* AddGradeViewController.swift */; };
@@ -45,9 +44,11 @@
 		32FF9921283B8683003BEFED /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FF9920283B8683003BEFED /* AdViewController.swift */; };
 		32FF9924283B8B60003BEFED /* PatchNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FF9922283B8B60003BEFED /* PatchNotesTableViewCell.swift */; };
 		32FF9925283B8B60003BEFED /* PatchNotesTableViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FF9923283B8B60003BEFED /* PatchNotesTableViewHeaderCell.swift */; };
+		7D0D3BFF1C19F09956E6D3ED /* Pods_SchoolPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E687288C52189E23501DCE6 /* Pods_SchoolPlanner.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		053F2AAA425DD7071ABF15D7 /* Pods-SchoolPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolPlanner.debug.xcconfig"; path = "Target Support Files/Pods-SchoolPlanner/Pods-SchoolPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 		320F702D26FABB38001E0F34 /* ViewAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAssignmentViewController.swift; sourceTree = "<group>"; };
 		320F702F26FAD2B2001E0F34 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 		3226DD79271B48EB00B27180 /* AddGradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGradeViewController.swift; sourceTree = "<group>"; };
@@ -95,9 +96,8 @@
 		32FF9920283B8683003BEFED /* AdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
 		32FF9922283B8B60003BEFED /* PatchNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatchNotesTableViewCell.swift; sourceTree = "<group>"; };
 		32FF9923283B8B60003BEFED /* PatchNotesTableViewHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatchNotesTableViewHeaderCell.swift; sourceTree = "<group>"; };
-		6043E6D864B9F3422A753064 /* Pods-SchoolPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolPlanner.release.xcconfig"; path = "Target Support Files/Pods-SchoolPlanner/Pods-SchoolPlanner.release.xcconfig"; sourceTree = "<group>"; };
-		A3B1F2294BBACE339797AA4A /* Pods_SchoolPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchoolPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF7D096763BD93E7270C34F0 /* Pods-SchoolPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolPlanner.debug.xcconfig"; path = "Target Support Files/Pods-SchoolPlanner/Pods-SchoolPlanner.debug.xcconfig"; sourceTree = "<group>"; };
+		3E687288C52189E23501DCE6 /* Pods_SchoolPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchoolPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B4E7ECF0CEBD124619976AB /* Pods-SchoolPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolPlanner.release.xcconfig"; path = "Target Support Files/Pods-SchoolPlanner/Pods-SchoolPlanner.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,7 @@
 				32F93D35285C4C190070887E /* GoogleAppMeasurement.xcframework in Frameworks */,
 				32F93D3B285C4C190070887E /* UserMessagingPlatform.xcframework in Frameworks */,
 				32F93D39285C4C190070887E /* PromisesObjC.xcframework in Frameworks */,
-				0B7BA377FAB9EB45ECFE0239 /* Pods_SchoolPlanner.framework in Frameworks */,
+				7D0D3BFF1C19F09956E6D3ED /* Pods_SchoolPlanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,16 +121,15 @@
 		3245957C271DD60B002E1F15 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				32FF9922283B8B60003BEFED /* PatchNotesTableViewCell.swift */,
-				32FF9923283B8B60003BEFED /* PatchNotesTableViewHeaderCell.swift */,
-				32FF9920283B8683003BEFED /* AdViewController.swift */,
 				32B7FFAB26F9664000858101 /* AddAssignmentTableViewCell.swift */,
 				32B7FFA926F965D400858101 /* AddAssignmentViewController.swift */,
 				3297611226F82BDB002E897E /* AddClassViewController.swift */,
 				3226DD79271B48EB00B27180 /* AddGradeViewController.swift */,
+				32FF9920283B8683003BEFED /* AdViewController.swift */,
 				32B3B23526FEDDCB009A0F66 /* AllGradesTableViewCell.swift */,
 				32B3B23326FEDCE3009A0F66 /* AllGradesViewController.swift */,
 				320F702F26FAD2B2001E0F34 /* AppearanceViewController.swift */,
+				323D99872732321B00A26D03 /* AssignmentSettingsViewController.swift */,
 				32B7FFA526F9616700858101 /* AssignmentTableViewCell.swift */,
 				32B7FFA726F9618500858101 /* AssignmentViewController.swift */,
 				32B7FFA326F952DC00858101 /* AverageCell.swift */,
@@ -139,12 +138,13 @@
 				326C391926F8ECAA00EF01C3 /* GradesViewController.swift */,
 				32B3B21B26FBE2A8009A0F66 /* HowToTableViewController.swift */,
 				323B0DFA2704F10C008F1C7B /* NotificationSettingsViewController.swift */,
+				32FF9922283B8B60003BEFED /* PatchNotesTableViewCell.swift */,
+				32FF9923283B8B60003BEFED /* PatchNotesTableViewHeaderCell.swift */,
 				32B3B21926FAF376009A0F66 /* PatchNotesViewController.swift */,
 				32B3B23026FD6F31009A0F66 /* SettingsTableViewController.swift */,
 				3226DD7B271B57E100B27180 /* TabBarController.swift */,
 				320F702D26FABB38001E0F34 /* ViewAssignmentViewController.swift */,
 				3249145326F81F3700A90C6D /* ViewController.swift */,
-				323D99872732321B00A26D03 /* AssignmentSettingsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -199,7 +199,7 @@
 				32F93D30285C4C190070887E /* nanopb.xcframework */,
 				32F93D31285C4C190070887E /* PromisesObjC.xcframework */,
 				32F93D32285C4C190070887E /* UserMessagingPlatform.xcframework */,
-				A3B1F2294BBACE339797AA4A /* Pods_SchoolPlanner.framework */,
+				3E687288C52189E23501DCE6 /* Pods_SchoolPlanner.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -207,8 +207,8 @@
 		A521A16365D03DC6ACBF14BB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EF7D096763BD93E7270C34F0 /* Pods-SchoolPlanner.debug.xcconfig */,
-				6043E6D864B9F3422A753064 /* Pods-SchoolPlanner.release.xcconfig */,
+				053F2AAA425DD7071ABF15D7 /* Pods-SchoolPlanner.debug.xcconfig */,
+				5B4E7ECF0CEBD124619976AB /* Pods-SchoolPlanner.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -220,11 +220,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3249146326F81F3A00A90C6D /* Build configuration list for PBXNativeTarget "SchoolPlanner" */;
 			buildPhases = (
-				91EBE8C0EE278068C25F6843 /* [CP] Check Pods Manifest.lock */,
+				19789D64C2D3DDF628EA0FC3 /* [CP] Check Pods Manifest.lock */,
 				3249144826F81F3700A90C6D /* Sources */,
 				3249144926F81F3700A90C6D /* Frameworks */,
 				3249144A26F81F3700A90C6D /* Resources */,
-				A9C0AE551D1F5BC572E6F1B3 /* [CP] Embed Pods Frameworks */,
+				8FBD71E2EAB92E897D661FE3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -243,7 +243,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					3249144B26F81F3700A90C6D = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -282,7 +282,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		91EBE8C0EE278068C25F6843 /* [CP] Check Pods Manifest.lock */ = {
+		19789D64C2D3DDF628EA0FC3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -304,7 +304,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A9C0AE551D1F5BC572E6F1B3 /* [CP] Embed Pods Frameworks */ = {
+		8FBD71E2EAB92E897D661FE3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -418,6 +418,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -480,6 +481,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -501,15 +503,16 @@
 		};
 		3249146426F81F3A00A90C6D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EF7D096763BD93E7270C34F0 /* Pods-SchoolPlanner.debug.xcconfig */;
+			baseConfigurationReference = 053F2AAA425DD7071ABF15D7 /* Pods-SchoolPlanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = SchoolPlanner/SchoolPlanner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = DP6RQZGX67;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = SchoolPlanner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "School Planner";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
@@ -517,7 +520,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.6;
+				MARKETING_VERSION = 1.2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cory.SchoolPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -527,15 +530,16 @@
 		};
 		3249146526F81F3A00A90C6D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6043E6D864B9F3422A753064 /* Pods-SchoolPlanner.release.xcconfig */;
+			baseConfigurationReference = 5B4E7ECF0CEBD124619976AB /* Pods-SchoolPlanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = SchoolPlanner/SchoolPlanner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = DP6RQZGX67;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = SchoolPlanner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "School Planner";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
@@ -543,7 +547,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.6;
+				MARKETING_VERSION = 1.2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cory.SchoolPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

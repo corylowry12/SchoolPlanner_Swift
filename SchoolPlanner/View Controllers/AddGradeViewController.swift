@@ -13,6 +13,10 @@ var gradeNameTextField1 : UITextField!
 var gradeTextField1 : UITextField!
 var gradeWeightTextField1 : UITextField!
 
+extension String  {
+    var isnumberordouble: Bool { return Int(self) != nil || Double(self) != nil }
+}
+
 extension UITextField {
     func addDoneCancelToolbar(onDone: (target: Any, action: Selector)? = nil, onCancel: (target: Any, action: Selector)? = nil) {
         let onDone = onDone ?? (target: self, action: #selector(doneButtonTapped))
@@ -54,6 +58,10 @@ extension UITextField {
 }
 
 class AddGradeViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    var isEditingGrade = 0
+    var index: Int!
     
     @IBOutlet weak var gradeNameTextField: UITextField! {
         didSet { gradeNameTextField?.addDoneCancelToolbar() }
@@ -114,6 +122,10 @@ class AddGradeViewController: UIViewController, UITextFieldDelegate {
         //}
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        saveButton.title = "Save"
+    }
+    
     override func viewDidLoad() {
         
         gradeNameTextField.delegate = self
@@ -121,6 +133,14 @@ class AddGradeViewController: UIViewController, UITextFieldDelegate {
         gradeNameTextField1 = gradeNameTextField
         gradeTextField1 = gradeTextField
         gradeWeightTextField1 = weightTextField
+        
+        if isEditingGrade == 1 {
+            navigationItem.title = "Edit Grade"
+            saveButton.title = "Update"
+            gradeNameTextField.text = "\(grades[index - 1].name ?? "")"
+            gradeTextField.text = "\(grades[index-1].grade)"
+            weightTextField.text = "\(grades[index-1].weight)"
+        }
         
     }
     
@@ -142,7 +162,7 @@ class AddGradeViewController: UIViewController, UITextFieldDelegate {
         let gradeText = "\(gradeTextField.text ?? "")"
         let weightText = "\(weightTextField.text ?? "")"
         
-        if gradeNameTextField.text == "" {
+        if gradeNameTextField.text == "" || gradeNameTextField.text == nil {
             let alert = UIAlertController(title: "Grade Name Can Not Be Left Blank", message: nil, preferredStyle: .alert)
             self.present(alert, animated: true, completion: nil)
             let when = DispatchTime.now() + 1
@@ -151,7 +171,7 @@ class AddGradeViewController: UIViewController, UITextFieldDelegate {
                 
             }
         }
-        else if gradeTextField.text == "" {
+        else if gradeTextField.text == "" || gradeTextField.text == nil {
             let alert = UIAlertController(title: "Grade Can Not Be Left Blank", message: nil, preferredStyle: .alert)
             self.present(alert, animated: true, completion: nil)
             let when = DispatchTime.now() + 1
@@ -160,7 +180,8 @@ class AddGradeViewController: UIViewController, UITextFieldDelegate {
                 
             }
         }
-        else if !gradeText.isNumeric {
+        else if !gradeText.isnumberordouble {
+            print(gradeText.isnumberordouble)
             let alert = UIAlertController(title: "Grade Must Be A Number", message: nil, preferredStyle: .alert)
             self.present(alert, animated: true, completion: nil)
             let when = DispatchTime.now() + 1
@@ -178,7 +199,7 @@ class AddGradeViewController: UIViewController, UITextFieldDelegate {
                 
             }
         }
-        else if !weightText.isNumeric {
+        else if !weightText.isnumberordouble {
             let alert = UIAlertController(title: "Weight Must Be A Number", message: nil, preferredStyle: .alert)
             self.present(alert, animated: true, completion: nil)
             let when = DispatchTime.now() + 1
@@ -205,24 +226,40 @@ class AddGradeViewController: UIViewController, UITextFieldDelegate {
                 
             }
         }
-        else if gradeNameTextField.text != "" && weightTextField.text != "" && gradeText.isNumeric && weightText.isNumeric {
-            let gradeToStore = Grades(context: context)
-            gradeToStore.id = Int32(userDefaults.integer(forKey: "id"))
-            gradeToStore.name = gradeNameTextField.text
-            gradeToStore.grade = Double("\(gradeTextField.text ?? "")")!
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM/dd/yyyy"
-            let date = dateFormatter.string(from: Date())
-            gradeToStore.date = date
-            if weightTextField.text == "" {
-                gradeToStore.weight = 100.0
+        else if gradeNameTextField.text != "" && weightTextField.text != "" && gradeText.isnumberordouble && weightText.isnumberordouble {
+            if isEditingGrade == 1 {
+                let gradeToEdit = grades[index-1]
+                gradeToEdit.name = gradeNameTextField.text
+                gradeToEdit.grade = Double("\(gradeTextField.text ?? "")")!
+                if weightTextField.text == "" {
+                    gradeToEdit.weight = 100.0
+                }
+                else {
+                    gradeToEdit.weight = Double("\(weightTextField.text ?? "")")!
+                }
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                isSaved = true
+                self.navigationController?.popViewController(animated: true)
             }
             else {
-                gradeToStore.weight = Double("\(weightTextField.text ?? "")")!
+                let gradeToStore = Grades(context: context)
+                gradeToStore.id = Int32(userDefaults.integer(forKey: "id"))
+                gradeToStore.name = gradeNameTextField.text
+                gradeToStore.grade = Double("\(gradeTextField.text ?? "")")!
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yyyy"
+                let date = dateFormatter.string(from: Date())
+                gradeToStore.date = date
+                if weightTextField.text == "" {
+                    gradeToStore.weight = 100.0
+                }
+                else {
+                    gradeToStore.weight = Double("\(weightTextField.text ?? "")")!
+                }
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                isSaved = true
+                self.navigationController?.popViewController(animated: true)
             }
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            isSaved = true
-            self.navigationController?.popViewController(animated: true)
         }
         else {
             let alert = UIAlertController(title: "There was an issue, Check your input", message: nil, preferredStyle: .alert)

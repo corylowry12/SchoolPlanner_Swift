@@ -3,184 +3,180 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05ACDD50DF034F069AFE1D5EB1CFF63B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		07151B54E989427E1F7749A4E653643E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36F904DBB287C5D179416C5BC17C4D /* Model.swift */; };
-		0CBDC5897A5D4B5B7D3C14EFE4B9B701 /* NSAttributedString+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741079BDFF76D1C65E9054FD7F216073 /* NSAttributedString+Sweeter.swift */; };
+		07151B54E989427E1F7749A4E653643E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632578C93822B557D751B5A42A1A91AD /* Model.swift */; };
+		0CB939C67B05C16C54913B628CC5AC7A /* UIStackView+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D055283189D3905AA03A6623BBE0E835 /* UIStackView+Sweeter.swift */; };
 		10E68EF8AD02FA619ACA3CA3C2EB28AE /* Pods-SchoolPlanner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E9661A86905A4A47477CB80862C47E /* Pods-SchoolPlanner-dummy.m */; };
-		240B8A9D9AE51E7CEA07328AB6087959 /* SweeterSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 95E45C2DD3245F966355F8EC0C5A0328 /* SweeterSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		283094C4698ED454ED5C6334DB90B165 /* Bundle+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAABFD044239985ECDF61646CA118C5 /* Bundle+Sweeter.swift */; };
-		2A3ACED4654D96CCB61ED3A19FDE5882 /* MultiSelectSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85CC913325B93B7E2B0ED6107B82A2F /* MultiSelectSegmentedControl.swift */; };
-		2C6A016F894F69644091749E1EC89644 /* UIViewController+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0126D711DE7B66857CC1E5687E07009F /* UIViewController+Sweeter.swift */; };
-		2CCB80B4EA09CB396D78C9B0913F0574 /* Siren-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB739DC593B3A975D7ED00C3542521 /* Siren-dummy.m */; };
-		3E8D15212206ECFAD824A287BF273FE6 /* SweeterSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8859E9FB4F225981BB6F5D5BDCF46A41 /* SweeterSwift-dummy.m */; };
-		40C8B36014EF0B9AD621C688EB0FCECF /* MultiSelectSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC90E04C0CB13D5AD6F90D7D4A603F8 /* MultiSelectSegment.swift */; };
-		429431A49ED952B63BD98E845CF4B5B0 /* UpdateResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0161AD5641A65155D9001C1C141ABC91 /* UpdateResults.swift */; };
-		442134A1D37A55D19C34DAF965FAFCD4 /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7792E14A9E186EED602B915CA07C74FE /* BundleExtension.swift */; };
-		58E8B057D8C25F5D911FD9A25953441A /* DateFormatter+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C50ABDE90C2E31DD4639728F1B725E /* DateFormatter+Sweeter.swift */; };
-		58FC2CB0A3DD60FE5D4235E8B9993F57 /* SirenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36BE1B822557029B128A5C4882FACA /* SirenViewController.swift */; };
+		1866814771DF8B92FF1721AA5F329376 /* MultiSegmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D83FD6570D9832835B9C020E08780AD /* MultiSegmentPicker.swift */; };
+		1B61AD6C290A78D1AEFB58E0D5B9B2B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		1B8088D563F41C5355ACB349BA393050 /* NSObject+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226FEEC85CB56D2923E246E7C6962E9 /* NSObject+Sweeter.swift */; };
+		1E49B6F843FE7E2728E3D9F72A4271A4 /* MultiSelectSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA909149756F483DC2C1B9B78EA851 /* MultiSelectSegmentedControl.swift */; };
+		1F90E41C1F24AD847C0F29571D7BC687 /* NSAttributedString+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5101FD57991A227BF66E6301EB02215E /* NSAttributedString+Sweeter.swift */; };
+		27AC720A2D06B05412F8C4946E465412 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 71267F771296B5216EA304AF378230EE /* PrivacyInfo.xcprivacy */; };
+		2CCB80B4EA09CB396D78C9B0913F0574 /* Siren-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 481D913944EC8865A6CBAEC5A5766A16 /* Siren-dummy.m */; };
+		429431A49ED952B63BD98E845CF4B5B0 /* UpdateResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C845C5057A648F9210DB0AE5C303FB /* UpdateResults.swift */; };
+		442134A1D37A55D19C34DAF965FAFCD4 /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25203FAFB1B559EAA6241C7935950DE5 /* BundleExtension.swift */; };
+		4AA349B63CC38EBA36BA7491DD4C4FBC /* MultiSelectSegmentedControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1BBC9BF85796E4C2771D8BC5DD6B95 /* MultiSelectSegmentedControl-dummy.m */; };
+		4C64EC88A0294321B1F15E981C92C9DD /* DateFormatter+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEA057B33515B4A86B920B76E8ABF3 /* DateFormatter+Sweeter.swift */; };
+		517959FE0BA5589BAE6951E34C5ED79D /* Swift+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996427AB2C25A7D80737A60D28266973 /* Swift+Sweeter.swift */; };
+		525F3D2560693E46DE545ADA2110EA53 /* UIViewController+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C77D6CE0CB1146E54DE6F73533F15C /* UIViewController+Sweeter.swift */; };
+		58428B953FD6DECF13DD5E795E996634 /* String+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CA112A7DC8B335559DD35F5543F3F5 /* String+Sweeter.swift */; };
+		58FC2CB0A3DD60FE5D4235E8B9993F57 /* SirenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA98EA752612576B429C87F083FB100 /* SirenViewController.swift */; };
 		5B9E7420A0284E837C04012B528EAE4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		5CC2437A1AB7853B2AE8989919E6C3C7 /* MultiSelectSegmentedControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE12A418826F8839BFCE8CCB7D657D3 /* MultiSelectSegmentedControl-dummy.m */; };
-		5F814EDC3C1FC41DE8DBBBBC9DDF2EE8 /* UIView+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4686BD6D2B3DCD24BE8009A21A5A72 /* UIView+Sweeter.swift */; };
-		63667A9E3F21D3EA7D4C2729F9D350AD /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B79A07FA08727A838043F571DB693 /* UIAlertControllerExtension.swift */; };
-		649F8DA5719969E6D50C2A2B2863802C /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1481868519CF4D4BB99C9E08347CF /* APIModel.swift */; };
-		666B89F2AB5925C925BC545EE3ACDA3B /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0001356D0CD551CC93B7EABC823EE258 /* Localization.swift */; };
-		70415B1BA63CCE53ADC07BE3723D300F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		7208A44E2643C680D4B1BFA88F856E7F /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0210FB3955651DE671FDBCBDD4BB2EAB /* UserDefaultsExtension.swift */; };
-		728578E5BC938649B5271EB687BC4905 /* UIStackView+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDB92BE63D36613ECA25DF5C0E87F81 /* UIStackView+Sweeter.swift */; };
-		7C751F65470E081C6BB715539D9204A4 /* RulesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FB533459635BE8DA4C15739FD8592 /* RulesManager.swift */; };
-		7E1B570FE6391453543B0D0BB670FD5B /* AppStoreCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25499B7151245F8737A9E730770FEE7 /* AppStoreCountry.swift */; };
-		82EC186FDB3BE2A73D380A39356D4A9C /* PerformCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130002491CEB3167B98439EEF0410D2C /* PerformCheck.swift */; };
-		8435A3C66AF1EE87A49745B33B40A8B5 /* MultiSelectSegmentedControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 26858AE5AFE5EDF6D8C33B8AC0CFC535 /* MultiSelectSegmentedControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		848CA5A0150EAB9FFC60595EE0CE284A /* AlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D9D52B75ECD25BD7D8E5B8D11F278E /* AlertAction.swift */; };
-		88A485DF94F194DD966EA06DCCF58C3E /* UIApplication+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A15F0E91E1B45241BA47645728E03C /* UIApplication+Sweeter.swift */; };
-		8C15657535725D3BE092FACB76B91A1C /* NSObject+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9387C48D9DE6454F348F9792F838DEE /* NSObject+Sweeter.swift */; };
-		9FDCF3D1452814AB07F41A9BC27EA527 /* Swift+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE498F8280A87985551CFC58ED8D9B74 /* Swift+Sweeter.swift */; };
-		A1EA2053268A5D5D9AC11C3D74D5BD4F /* Siren-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 71808BF35DE85CA446469F1005BBE35F /* Siren-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A556E3186780E6598F41D16D63A8D6FA /* KnownError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB0024C5C839DF30F9ED743FC6C26B /* KnownError.swift */; };
-		A64A2FB6AF4013C44078F376B4ADAC94 /* String+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683268952AC45E0DDA2144136CAC000 /* String+Sweeter.swift */; };
-		A817B69933763751617983654C825A5B /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3338E0B177418455C6A76D82A7EF7B44 /* Rules.swift */; };
-		AB3E06EB378810A0177C7C6874233C0E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C5FF0873DED7091C0335CD0A1699AC /* APIManager.swift */; };
-		B80A02CDC3EA0CE89151E4B7092C08EF /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA131A7F9383217525ABCED323546C /* DateExtension.swift */; };
-		C287B0F4752CD22248C110B0E55954AD /* Codable+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83A86125413B5B46692265571D6099 /* Codable+Sweeter.swift */; };
-		C42518820A65B063154576160CE40202 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D2C247EE9E61130022B294C7AA360 /* DataParser.swift */; };
-		CB2A5256BB80852B0A40103121A52250 /* PresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39015BF317EE3011AB68890C05143176 /* PresentationManager.swift */; };
-		CCDB1C7D71BCD4BD78EE1A8E0848B935 /* TimeInterval+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB4511815D0FDEA3A956B72566C861 /* TimeInterval+Sweeter.swift */; };
-		DD876E6EC2AC99B82DD37D0B9D4E12EA /* UITextView+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E416AE20E23466A4D5B7E29F9E93E0 /* UITextView+Sweeter.swift */; };
-		DFA56F24B7BC1B50B5CA895BE142F0C4 /* AlertConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11346F1016E0ABD76EFF840B8AE1C9A /* AlertConstants.swift */; };
-		E38DD1AAE9BF15F896F823FF049E6D66 /* NSManagedObjectContext+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC9090F6B3FAEC1DF6A3D139DFC1F63 /* NSManagedObjectContext+Sweeter.swift */; };
-		E3B5EBE553EF842DC0EEABF7F7E05D46 /* MultiSegmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB29D607327EBD8CD24B80AF580A0BC /* MultiSegmentPicker.swift */; };
-		E818FC04D00EFA3FD6DA3DBC814C34BE /* Siren.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7B1A624E2A5A636AD7D3457A33979A /* Siren.swift */; };
+		610B9159EE1DD9ABC30FC1B3A374A30B /* Codable+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A8D848E8D1FEE10BF5757F80879682 /* Codable+Sweeter.swift */; };
+		63667A9E3F21D3EA7D4C2729F9D350AD /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBAF22C2DEF8356361176BC13D161E3 /* UIAlertControllerExtension.swift */; };
+		649F8DA5719969E6D50C2A2B2863802C /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3904D02E2150ED42EC9E1290FBA8D64E /* APIModel.swift */; };
+		666B89F2AB5925C925BC545EE3ACDA3B /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB7B5C66044575C18E6D430E055318B /* Localization.swift */; };
+		7208A44E2643C680D4B1BFA88F856E7F /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B33CDE59D8F17A4CBA7F52FC0DF849 /* UserDefaultsExtension.swift */; };
+		76A11D0952D905DF70F6C332836BA0BF /* MultiSelectSegmentedControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E6309DACCED0D9C560087EACF273CD08 /* MultiSelectSegmentedControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77BCEE261E128BC960EF4A8F2A3BD8D6 /* NSManagedObjectContext+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08EAF633CC8D51DEB873F717BE42AAF /* NSManagedObjectContext+Sweeter.swift */; };
+		7C751F65470E081C6BB715539D9204A4 /* RulesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ED91BB8AC9C7A7C18E28077F1520AE /* RulesManager.swift */; };
+		7E1B570FE6391453543B0D0BB670FD5B /* AppStoreCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135626A58AC8BE0478642850D083B515 /* AppStoreCountry.swift */; };
+		82EC186FDB3BE2A73D380A39356D4A9C /* PerformCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2EE27AB2AE77890D9D3B4F0570ED4 /* PerformCheck.swift */; };
+		848CA5A0150EAB9FFC60595EE0CE284A /* AlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C484ED70B41FFDA4B11AF414A5599C /* AlertAction.swift */; };
+		8ADF1B29CB11583339AE65C7BB45AA87 /* SweeterSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DE049DC8A7945DC02544E2CA18229C01 /* SweeterSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C986D9EC5CB46B28482FFBEBFF61174 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		984BAAE1EB128FA180F7FF686A318FF6 /* TimeInterval+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D4390144F2F520BD94FC80B9FF19FD /* TimeInterval+Sweeter.swift */; };
+		9A8BE6A4C1999BCB178E93114E70505E /* UIApplication+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC450C339028AC70BC0DE0533FA36E /* UIApplication+Sweeter.swift */; };
+		9DEFE37E562954FFCA25B316B9331C66 /* MultiSelectSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFAFEDE690E254DFDA5B51735B64E28 /* MultiSelectSegment.swift */; };
+		A1EA2053268A5D5D9AC11C3D74D5BD4F /* Siren-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9D7FD6D97B512ACE23323E996FC48D /* Siren-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A556E3186780E6598F41D16D63A8D6FA /* KnownError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F6B02A6FE53AC4CB2668A094544D87 /* KnownError.swift */; };
+		A817B69933763751617983654C825A5B /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3D70353EA9850056CA97B31F9D7E6 /* Rules.swift */; };
+		AB3E06EB378810A0177C7C6874233C0E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C114E6D5489328872A1E1D1AE19BDE93 /* APIManager.swift */; };
+		ADFC29E66D697E6AD02F1D3AF58349A3 /* UIView+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7952C6209E3249B37FE36A9F65B165 /* UIView+Sweeter.swift */; };
+		B80A02CDC3EA0CE89151E4B7092C08EF /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3B34B10EF2D1EA01B71892CA651A9E /* DateExtension.swift */; };
+		C35855A4871DCCAA68576163F5581853 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4D4A4C9A4242DE200001F8AB5A9BC665 /* PrivacyInfo.xcprivacy */; };
+		C42518820A65B063154576160CE40202 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894AA93D9D169D87D7486DC87E21B4A8 /* DataParser.swift */; };
+		CB2A5256BB80852B0A40103121A52250 /* PresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A039A1FAEAFB532C4C8239738283057 /* PresentationManager.swift */; };
+		D812DEF8EDDE1CE5D39BCF689E141E20 /* SweeterSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6914FC5E1440806BAD6A58E46764C2A8 /* SweeterSwift-dummy.m */; };
+		DFA56F24B7BC1B50B5CA895BE142F0C4 /* AlertConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C591D194C258916243BB10C8902A6 /* AlertConstants.swift */; };
+		E10AA3CB66372C4F3D1DB5F2A05F7B6B /* Bundle+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D34D723676B6DBE17E49F4CD48240D /* Bundle+Sweeter.swift */; };
+		E818FC04D00EFA3FD6DA3DBC814C34BE /* Siren.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55554B73574AAB756EB3E3B84F92863 /* Siren.swift */; };
 		F3347B91D32865C8C9A1817920F08E2A /* Pods-SchoolPlanner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 40322BAF709DFB0CE06F67187AFCA4ED /* Pods-SchoolPlanner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F83C95FF813B4F0BA841B04A3F9DEAB0 /* UITextView+Sweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97911A8D4C30518F4522B6FCEDE4837 /* UITextView+Sweeter.swift */; };
 		F850D3C5DCD7E0F90C4B7114373748A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		FF40E81B2B174F3584493809B90C6668 /* Siren.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D2F1729789F7038794A91E19DE1C905B /* Siren.bundle */; };
+		FF40E81B2B174F3584493809B90C6668 /* Siren.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A81501451E491416ADDD2D08BA3AC0C6 /* Siren.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1A7FBC2CFF5E53AB74E8BFA232647AEC /* PBXContainerItemProxy */ = {
+		2460D9334ED40E2E37B863423F545661 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6819F499159C87193DDD7D51504DD6C1;
 			remoteInfo = SweeterSwift;
 		};
-		232B886267DB2383A025C5321ECADEFA /* PBXContainerItemProxy */ = {
+		285968957EEF646BA0DB1749B9B8C37B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6819F499159C87193DDD7D51504DD6C1;
+			remoteInfo = SweeterSwift;
+		};
+		B4217E0698CC4007F92DE22B75190731 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C07B7AE734D89C24DB2D55FFF6D96DA3;
 			remoteInfo = MultiSelectSegmentedControl;
 		};
-		9E01158E6421AB13B248EB0A77117A30 /* PBXContainerItemProxy */ = {
+		CCA08193D7D3CA876C9763B10A9768F0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A0E2640B83527AE54205D7FDE9C5D930;
 			remoteInfo = Siren;
 		};
-		E26F53942B73617CC94E2DF8956DFFEA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6819F499159C87193DDD7D51504DD6C1;
-			remoteInfo = SweeterSwift;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0001356D0CD551CC93B7EABC823EE258 /* Localization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Localization.swift; path = Sources/Models/Localization.swift; sourceTree = "<group>"; };
-		0126D711DE7B66857CC1E5687E07009F /* UIViewController+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Sweeter.swift"; path = "Source/UIViewController+Sweeter.swift"; sourceTree = "<group>"; };
-		0161AD5641A65155D9001C1C141ABC91 /* UpdateResults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateResults.swift; path = Sources/Models/UpdateResults.swift; sourceTree = "<group>"; };
-		01DB4511815D0FDEA3A956B72566C861 /* TimeInterval+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TimeInterval+Sweeter.swift"; path = "Source/TimeInterval+Sweeter.swift"; sourceTree = "<group>"; };
-		0210FB3955651DE671FDBCBDD4BB2EAB /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaultsExtension.swift; path = Sources/Extensions/UserDefaultsExtension.swift; sourceTree = "<group>"; };
-		04060BE29DA13883DBB9A1773C24A050 /* Siren.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Siren.release.xcconfig; sourceTree = "<group>"; };
-		06A15F0E91E1B45241BA47645728E03C /* UIApplication+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIApplication+Sweeter.swift"; path = "Source/UIApplication+Sweeter.swift"; sourceTree = "<group>"; };
-		0B3B79A07FA08727A838043F571DB693 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIAlertControllerExtension.swift; path = Sources/Extensions/UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		05ED91BB8AC9C7A7C18E28077F1520AE /* RulesManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RulesManager.swift; path = Sources/Managers/RulesManager.swift; sourceTree = "<group>"; };
+		07FC450C339028AC70BC0DE0533FA36E /* UIApplication+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIApplication+Sweeter.swift"; path = "Source/UIApplication+Sweeter.swift"; sourceTree = "<group>"; };
+		0888EF975A720F467C56F07927A81106 /* SweeterSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SweeterSwift-prefix.pch"; sourceTree = "<group>"; };
+		091E40953343F710D8B30BE70DB2F0E9 /* MultiSelectSegmentedControl-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MultiSelectSegmentedControl-Info.plist"; sourceTree = "<group>"; };
 		0CD4925DD1CCDD7D147B16CEFD472BBE /* Pods-SchoolPlanner-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SchoolPlanner-acknowledgements.plist"; sourceTree = "<group>"; };
-		130002491CEB3167B98439EEF0410D2C /* PerformCheck.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PerformCheck.swift; path = Sources/Models/PerformCheck.swift; sourceTree = "<group>"; };
+		0F4A0CB679B376CBE5D2D9199A20DD3D /* SweeterSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SweeterSwift.modulemap; sourceTree = "<group>"; };
+		114E62B2261BA4ADE0A071D8B9D850D6 /* MultiSelectSegmentedControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MultiSelectSegmentedControl.modulemap; sourceTree = "<group>"; };
+		135626A58AC8BE0478642850D083B515 /* AppStoreCountry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppStoreCountry.swift; path = Sources/Models/AppStoreCountry.swift; sourceTree = "<group>"; };
 		13E9661A86905A4A47477CB80862C47E /* Pods-SchoolPlanner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SchoolPlanner-dummy.m"; sourceTree = "<group>"; };
 		17E70395B3CDD0B7EDA622612E2C3144 /* Siren */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Siren; path = Siren.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C1232D9DFF030F1D51F4E2D0417E6CF /* SweeterSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SweeterSwift.debug.xcconfig; sourceTree = "<group>"; };
-		1E83A86125413B5B46692265571D6099 /* Codable+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Codable+Sweeter.swift"; path = "Source/Codable+Sweeter.swift"; sourceTree = "<group>"; };
+		1A039A1FAEAFB532C4C8239738283057 /* PresentationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PresentationManager.swift; path = Sources/Managers/PresentationManager.swift; sourceTree = "<group>"; };
 		2053CAB6528453907957BD29F869F9C4 /* Pods-SchoolPlanner-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SchoolPlanner-frameworks.sh"; sourceTree = "<group>"; };
-		26858AE5AFE5EDF6D8C33B8AC0CFC535 /* MultiSelectSegmentedControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiSelectSegmentedControl-umbrella.h"; sourceTree = "<group>"; };
-		2884FBCB21C392B23223EAD9C57DA60A /* MultiSelectSegmentedControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiSelectSegmentedControl-prefix.pch"; sourceTree = "<group>"; };
-		3203248268B84A12519F3DF69050F497 /* Siren.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Siren.modulemap; sourceTree = "<group>"; };
-		3338E0B177418455C6A76D82A7EF7B44 /* Rules.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Rules.swift; path = Sources/Models/Rules.swift; sourceTree = "<group>"; };
-		38D1481868519CF4D4BB99C9E08347CF /* APIModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIModel.swift; path = Sources/Models/APIModel.swift; sourceTree = "<group>"; };
-		39015BF317EE3011AB68890C05143176 /* PresentationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PresentationManager.swift; path = Sources/Managers/PresentationManager.swift; sourceTree = "<group>"; };
+		24F2EE27AB2AE77890D9D3B4F0570ED4 /* PerformCheck.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PerformCheck.swift; path = Sources/Models/PerformCheck.swift; sourceTree = "<group>"; };
+		25203FAFB1B559EAA6241C7935950DE5 /* BundleExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BundleExtension.swift; path = Sources/Extensions/BundleExtension.swift; sourceTree = "<group>"; };
+		25F3D70353EA9850056CA97B31F9D7E6 /* Rules.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Rules.swift; path = Sources/Models/Rules.swift; sourceTree = "<group>"; };
+		303531ED44DE6A003B6135B009CA488E /* MultiSelectSegmentedControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MultiSelectSegmentedControl.debug.xcconfig; sourceTree = "<group>"; };
+		31CA909149756F483DC2C1B9B78EA851 /* MultiSelectSegmentedControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiSelectSegmentedControl.swift; path = Sources/MultiSelectSegmentedControl.swift; sourceTree = "<group>"; };
+		3904D02E2150ED42EC9E1290FBA8D64E /* APIModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIModel.swift; path = Sources/Models/APIModel.swift; sourceTree = "<group>"; };
 		40322BAF709DFB0CE06F67187AFCA4ED /* Pods-SchoolPlanner-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SchoolPlanner-umbrella.h"; sourceTree = "<group>"; };
-		46C50ABDE90C2E31DD4639728F1B725E /* DateFormatter+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateFormatter+Sweeter.swift"; path = "Source/DateFormatter+Sweeter.swift"; sourceTree = "<group>"; };
-		49E416AE20E23466A4D5B7E29F9E93E0 /* UITextView+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextView+Sweeter.swift"; path = "Source/UITextView+Sweeter.swift"; sourceTree = "<group>"; };
-		4CBB0024C5C839DF30F9ED743FC6C26B /* KnownError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KnownError.swift; path = Sources/Utilities/KnownError.swift; sourceTree = "<group>"; };
-		4D60B03077FA7E94ED0376FEA4CFAE06 /* SweeterSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SweeterSwift.modulemap; sourceTree = "<group>"; };
-		5330AD0CA891C694CB68362E22CD9AAB /* SweeterSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SweeterSwift-Info.plist"; sourceTree = "<group>"; };
-		54BA131A7F9383217525ABCED323546C /* DateExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateExtension.swift; path = Sources/Extensions/DateExtension.swift; sourceTree = "<group>"; };
-		5DDB92BE63D36613ECA25DF5C0E87F81 /* UIStackView+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIStackView+Sweeter.swift"; path = "Source/UIStackView+Sweeter.swift"; sourceTree = "<group>"; };
+		481D913944EC8865A6CBAEC5A5766A16 /* Siren-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Siren-dummy.m"; sourceTree = "<group>"; };
+		4D4A4C9A4242DE200001F8AB5A9BC665 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		4FDEA057B33515B4A86B920B76E8ABF3 /* DateFormatter+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateFormatter+Sweeter.swift"; path = "Source/DateFormatter+Sweeter.swift"; sourceTree = "<group>"; };
+		5101FD57991A227BF66E6301EB02215E /* NSAttributedString+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Sweeter.swift"; path = "Source/NSAttributedString+Sweeter.swift"; sourceTree = "<group>"; };
+		55C484ED70B41FFDA4B11AF414A5599C /* AlertAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertAction.swift; path = Sources/Models/AlertAction.swift; sourceTree = "<group>"; };
+		5A1BBC9BF85796E4C2771D8BC5DD6B95 /* MultiSelectSegmentedControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MultiSelectSegmentedControl-dummy.m"; sourceTree = "<group>"; };
+		5D58E3CD3A29DB713C3FC70F4DCF9643 /* SweeterSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SweeterSwift.debug.xcconfig; sourceTree = "<group>"; };
 		5F869E7BC79F844C42F5B45C6A1E2961 /* Pods-SchoolPlanner-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SchoolPlanner-Info.plist"; sourceTree = "<group>"; };
-		670836E769E6A91FB7B7B561C9764AAD /* SweeterSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SweeterSwift-prefix.pch"; sourceTree = "<group>"; };
-		683431FAEED5114F90345E419661CB63 /* Siren-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Siren-Info.plist"; sourceTree = "<group>"; };
-		6861A2E645B646274DDCEB2E0FD2BC52 /* MultiSelectSegmentedControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MultiSelectSegmentedControl.modulemap; sourceTree = "<group>"; };
+		6226FEEC85CB56D2923E246E7C6962E9 /* NSObject+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject+Sweeter.swift"; path = "Source/NSObject+Sweeter.swift"; sourceTree = "<group>"; };
+		632578C93822B557D751B5A42A1A91AD /* Model.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Model.swift; path = Sources/Models/Model.swift; sourceTree = "<group>"; };
+		63A915EC3BA14E1630F584E8335B7C6E /* Siren.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Siren.modulemap; sourceTree = "<group>"; };
+		6914FC5E1440806BAD6A58E46764C2A8 /* SweeterSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SweeterSwift-dummy.m"; sourceTree = "<group>"; };
 		6ADA0D2C073A49E1CB922358C3954124 /* Pods-SchoolPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SchoolPlanner.release.xcconfig"; sourceTree = "<group>"; };
-		6C36F904DBB287C5D179416C5BC17C4D /* Model.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Model.swift; path = Sources/Models/Model.swift; sourceTree = "<group>"; };
-		6FE12A418826F8839BFCE8CCB7D657D3 /* MultiSelectSegmentedControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MultiSelectSegmentedControl-dummy.m"; sourceTree = "<group>"; };
-		71808BF35DE85CA446469F1005BBE35F /* Siren-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Siren-umbrella.h"; sourceTree = "<group>"; };
-		71D9D52B75ECD25BD7D8E5B8D11F278E /* AlertAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertAction.swift; path = Sources/Models/AlertAction.swift; sourceTree = "<group>"; };
+		6CA98EA752612576B429C87F083FB100 /* SirenViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SirenViewController.swift; path = "Sources/View Controllers/SirenViewController.swift"; sourceTree = "<group>"; };
+		71267F771296B5216EA304AF378230EE /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		741079BDFF76D1C65E9054FD7F216073 /* NSAttributedString+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Sweeter.swift"; path = "Source/NSAttributedString+Sweeter.swift"; sourceTree = "<group>"; };
-		75FB739DC593B3A975D7ED00C3542521 /* Siren-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Siren-dummy.m"; sourceTree = "<group>"; };
-		7792E14A9E186EED602B915CA07C74FE /* BundleExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BundleExtension.swift; path = Sources/Extensions/BundleExtension.swift; sourceTree = "<group>"; };
-		7B4686BD6D2B3DCD24BE8009A21A5A72 /* UIView+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Sweeter.swift"; path = "Source/UIView+Sweeter.swift"; sourceTree = "<group>"; };
-		7F36BE1B822557029B128A5C4882FACA /* SirenViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SirenViewController.swift; path = "Sources/View Controllers/SirenViewController.swift"; sourceTree = "<group>"; };
+		730C591D194C258916243BB10C8902A6 /* AlertConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertConstants.swift; path = Sources/Models/AlertConstants.swift; sourceTree = "<group>"; };
+		82529E9B0904310B434A167943431B15 /* Siren-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Siren-Info.plist"; sourceTree = "<group>"; };
+		82A8D848E8D1FEE10BF5757F80879682 /* Codable+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Codable+Sweeter.swift"; path = "Source/Codable+Sweeter.swift"; sourceTree = "<group>"; };
 		83450E2F7887C7697A49FC0D1852C566 /* Pods-SchoolPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SchoolPlanner.debug.xcconfig"; sourceTree = "<group>"; };
-		8859E9FB4F225981BB6F5D5BDCF46A41 /* SweeterSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SweeterSwift-dummy.m"; sourceTree = "<group>"; };
-		8BC9090F6B3FAEC1DF6A3D139DFC1F63 /* NSManagedObjectContext+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSManagedObjectContext+Sweeter.swift"; path = "Source/NSManagedObjectContext+Sweeter.swift"; sourceTree = "<group>"; };
-		8EAABFD044239985ECDF61646CA118C5 /* Bundle+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Bundle+Sweeter.swift"; path = "Source/Bundle+Sweeter.swift"; sourceTree = "<group>"; };
-		95E45C2DD3245F966355F8EC0C5A0328 /* SweeterSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SweeterSwift-umbrella.h"; sourceTree = "<group>"; };
-		966E160F7B4A9B0961A9D4950D404311 /* MultiSelectSegmentedControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MultiSelectSegmentedControl.debug.xcconfig; sourceTree = "<group>"; };
+		84D34D723676B6DBE17E49F4CD48240D /* Bundle+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Bundle+Sweeter.swift"; path = "Source/Bundle+Sweeter.swift"; sourceTree = "<group>"; };
+		87CA112A7DC8B335559DD35F5543F3F5 /* String+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Sweeter.swift"; path = "Source/String+Sweeter.swift"; sourceTree = "<group>"; };
+		894AA93D9D169D87D7486DC87E21B4A8 /* DataParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataParser.swift; path = Sources/Utilities/DataParser.swift; sourceTree = "<group>"; };
+		8BFAFEDE690E254DFDA5B51735B64E28 /* MultiSelectSegment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiSelectSegment.swift; path = Sources/MultiSelectSegment.swift; sourceTree = "<group>"; };
+		8BFBA52D1D303A2A143793BB960E6869 /* Siren-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Siren-prefix.pch"; sourceTree = "<group>"; };
+		8F3B34B10EF2D1EA01B71892CA651A9E /* DateExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateExtension.swift; path = Sources/Extensions/DateExtension.swift; sourceTree = "<group>"; };
+		9222551627489A504A3F040A81C3B419 /* Siren.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Siren.release.xcconfig; sourceTree = "<group>"; };
+		996427AB2C25A7D80737A60D28266973 /* Swift+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Swift+Sweeter.swift"; path = "Source/Swift+Sweeter.swift"; sourceTree = "<group>"; };
+		9D83FD6570D9832835B9C020E08780AD /* MultiSegmentPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiSegmentPicker.swift; path = Sources/MultiSegmentPicker.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9F6B04D99D89385BCD455DBE155CC407 /* SweeterSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SweeterSwift.release.xcconfig; sourceTree = "<group>"; };
-		A9387C48D9DE6454F348F9792F838DEE /* NSObject+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject+Sweeter.swift"; path = "Source/NSObject+Sweeter.swift"; sourceTree = "<group>"; };
-		B69FB533459635BE8DA4C15739FD8592 /* RulesManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RulesManager.swift; path = Sources/Managers/RulesManager.swift; sourceTree = "<group>"; };
+		A4B33CDE59D8F17A4CBA7F52FC0DF849 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaultsExtension.swift; path = Sources/Extensions/UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		A55554B73574AAB756EB3E3B84F92863 /* Siren.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Siren.swift; path = Sources/Siren.swift; sourceTree = "<group>"; };
+		A81501451E491416ADDD2D08BA3AC0C6 /* Siren.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Siren.bundle; path = Sources/Siren.bundle; sourceTree = "<group>"; };
+		AD7952C6209E3249B37FE36A9F65B165 /* UIView+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Sweeter.swift"; path = "Source/UIView+Sweeter.swift"; sourceTree = "<group>"; };
+		B2C2A1DD2005E72AD87592590D4FEDA8 /* SweeterSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SweeterSwift.release.xcconfig; sourceTree = "<group>"; };
+		B4C77D6CE0CB1146E54DE6F73533F15C /* UIViewController+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Sweeter.swift"; path = "Source/UIViewController+Sweeter.swift"; sourceTree = "<group>"; };
 		B76CD9F952582A6A4387D799501B3950 /* SweeterSwift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SweeterSwift; path = SweeterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B82CF28E1961B771A3F67A6FC788F24E /* Siren.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Siren.debug.xcconfig; sourceTree = "<group>"; };
-		B85CC913325B93B7E2B0ED6107B82A2F /* MultiSelectSegmentedControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiSelectSegmentedControl.swift; path = Sources/MultiSelectSegmentedControl.swift; sourceTree = "<group>"; };
-		BBB29D607327EBD8CD24B80AF580A0BC /* MultiSegmentPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiSegmentPicker.swift; path = Sources/MultiSegmentPicker.swift; sourceTree = "<group>"; };
-		BBD1774D6025506AAFDA5A0F6E6252D2 /* Siren-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Siren-prefix.pch"; sourceTree = "<group>"; };
+		B8F6B02A6FE53AC4CB2668A094544D87 /* KnownError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KnownError.swift; path = Sources/Utilities/KnownError.swift; sourceTree = "<group>"; };
 		BDB8950F1D22AE2426821F2A23F05E16 /* Pods-SchoolPlanner */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SchoolPlanner"; path = Pods_SchoolPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C11346F1016E0ABD76EFF840B8AE1C9A /* AlertConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertConstants.swift; path = Sources/Models/AlertConstants.swift; sourceTree = "<group>"; };
-		C25499B7151245F8737A9E730770FEE7 /* AppStoreCountry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppStoreCountry.swift; path = Sources/Models/AppStoreCountry.swift; sourceTree = "<group>"; };
-		C4C5FF0873DED7091C0335CD0A1699AC /* APIManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = Sources/Managers/APIManager.swift; sourceTree = "<group>"; };
-		D2C235B19C38653AB14D5CCDA74CF503 /* MultiSelectSegmentedControl-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MultiSelectSegmentedControl-Info.plist"; sourceTree = "<group>"; };
-		D2F1729789F7038794A91E19DE1C905B /* Siren.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Siren.bundle; path = Sources/Siren.bundle; sourceTree = "<group>"; };
-		E21D2C247EE9E61130022B294C7AA360 /* DataParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataParser.swift; path = Sources/Utilities/DataParser.swift; sourceTree = "<group>"; };
-		EE7B1A624E2A5A636AD7D3457A33979A /* Siren.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Siren.swift; path = Sources/Siren.swift; sourceTree = "<group>"; };
+		BF5475C9C6E875620A815E081CFD924D /* MultiSelectSegmentedControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MultiSelectSegmentedControl.release.xcconfig; sourceTree = "<group>"; };
+		C114E6D5489328872A1E1D1AE19BDE93 /* APIManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = Sources/Managers/APIManager.swift; sourceTree = "<group>"; };
+		C6C845C5057A648F9210DB0AE5C303FB /* UpdateResults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateResults.swift; path = Sources/Models/UpdateResults.swift; sourceTree = "<group>"; };
+		D055283189D3905AA03A6623BBE0E835 /* UIStackView+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIStackView+Sweeter.swift"; path = "Source/UIStackView+Sweeter.swift"; sourceTree = "<group>"; };
+		D08EAF633CC8D51DEB873F717BE42AAF /* NSManagedObjectContext+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSManagedObjectContext+Sweeter.swift"; path = "Source/NSManagedObjectContext+Sweeter.swift"; sourceTree = "<group>"; };
+		D97911A8D4C30518F4522B6FCEDE4837 /* UITextView+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextView+Sweeter.swift"; path = "Source/UITextView+Sweeter.swift"; sourceTree = "<group>"; };
+		DBB7B5C66044575C18E6D430E055318B /* Localization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Localization.swift; path = Sources/Models/Localization.swift; sourceTree = "<group>"; };
+		DD17E638846ECE70D8AB5946928FC6D3 /* SweeterSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SweeterSwift-Info.plist"; sourceTree = "<group>"; };
+		DE049DC8A7945DC02544E2CA18229C01 /* SweeterSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SweeterSwift-umbrella.h"; sourceTree = "<group>"; };
+		DF0D96BE68729443A6734CF7630A2632 /* Siren.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Siren.debug.xcconfig; sourceTree = "<group>"; };
+		E6309DACCED0D9C560087EACF273CD08 /* MultiSelectSegmentedControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiSelectSegmentedControl-umbrella.h"; sourceTree = "<group>"; };
+		E7E6056966AD35A37240F4BA7278178D /* MultiSelectSegmentedControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiSelectSegmentedControl-prefix.pch"; sourceTree = "<group>"; };
+		EDBAF22C2DEF8356361176BC13D161E3 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIAlertControllerExtension.swift; path = Sources/Extensions/UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		F0C46BE5204224DB17692275FEF00105 /* Pods-SchoolPlanner-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SchoolPlanner-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F26167A0AC9EB9E7C68FEE96E452015E /* Pods-SchoolPlanner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SchoolPlanner.modulemap"; sourceTree = "<group>"; };
-		F683268952AC45E0DDA2144136CAC000 /* String+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Sweeter.swift"; path = "Source/String+Sweeter.swift"; sourceTree = "<group>"; };
 		F75AA00BE79A85F485A628B9C0D5263F /* MultiSelectSegmentedControl */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MultiSelectSegmentedControl; path = MultiSelectSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9F7CA0060477B9E8A4DB38F83679954 /* MultiSelectSegmentedControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MultiSelectSegmentedControl.release.xcconfig; sourceTree = "<group>"; };
-		FCC90E04C0CB13D5AD6F90D7D4A603F8 /* MultiSelectSegment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiSelectSegment.swift; path = Sources/MultiSelectSegment.swift; sourceTree = "<group>"; };
-		FE498F8280A87985551CFC58ED8D9B74 /* Swift+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Swift+Sweeter.swift"; path = "Source/Swift+Sweeter.swift"; sourceTree = "<group>"; };
+		F9D4390144F2F520BD94FC80B9FF19FD /* TimeInterval+Sweeter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TimeInterval+Sweeter.swift"; path = "Source/TimeInterval+Sweeter.swift"; sourceTree = "<group>"; };
+		FF9D7FD6D97B512ACE23323E996FC48D /* Siren-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Siren-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1555916C1675DACDEDE48D98BCA83BE6 /* Frameworks */ = {
+		670B2E947514FD7A99EA0439EE2AE2D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70415B1BA63CCE53ADC07BE3723D300F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5B79B9D30A4870A318CA6ACD1FF483F9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				05ACDD50DF034F069AFE1D5EB1CFF63B /* Foundation.framework in Frameworks */,
+				1B61AD6C290A78D1AEFB58E0D5B9B2B5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,64 +196,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EB0497314DA3D47CE22D71A2AFF44A3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C986D9EC5CB46B28482FFBEBFF61174 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		139CEA8B4069AD9D1B15F00665A14F60 /* Siren */ = {
-			isa = PBXGroup;
-			children = (
-				71D9D52B75ECD25BD7D8E5B8D11F278E /* AlertAction.swift */,
-				C11346F1016E0ABD76EFF840B8AE1C9A /* AlertConstants.swift */,
-				C4C5FF0873DED7091C0335CD0A1699AC /* APIManager.swift */,
-				38D1481868519CF4D4BB99C9E08347CF /* APIModel.swift */,
-				C25499B7151245F8737A9E730770FEE7 /* AppStoreCountry.swift */,
-				7792E14A9E186EED602B915CA07C74FE /* BundleExtension.swift */,
-				E21D2C247EE9E61130022B294C7AA360 /* DataParser.swift */,
-				54BA131A7F9383217525ABCED323546C /* DateExtension.swift */,
-				4CBB0024C5C839DF30F9ED743FC6C26B /* KnownError.swift */,
-				0001356D0CD551CC93B7EABC823EE258 /* Localization.swift */,
-				6C36F904DBB287C5D179416C5BC17C4D /* Model.swift */,
-				130002491CEB3167B98439EEF0410D2C /* PerformCheck.swift */,
-				39015BF317EE3011AB68890C05143176 /* PresentationManager.swift */,
-				3338E0B177418455C6A76D82A7EF7B44 /* Rules.swift */,
-				B69FB533459635BE8DA4C15739FD8592 /* RulesManager.swift */,
-				EE7B1A624E2A5A636AD7D3457A33979A /* Siren.swift */,
-				7F36BE1B822557029B128A5C4882FACA /* SirenViewController.swift */,
-				0B3B79A07FA08727A838043F571DB693 /* UIAlertControllerExtension.swift */,
-				0161AD5641A65155D9001C1C141ABC91 /* UpdateResults.swift */,
-				0210FB3955651DE671FDBCBDD4BB2EAB /* UserDefaultsExtension.swift */,
-				E1CE740469D8D5DD79C137420C89650C /* Resources */,
-				2E04327A4F7C247F82046946A376DD7A /* Support Files */,
-			);
-			name = Siren;
-			path = Siren;
-			sourceTree = "<group>";
-		};
-		2DC8BDC2E7E95846F22EF9D4F377CF44 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				CE3E05B279BB500ABDCE4F57BF464687 /* MultiSelectSegmentedControl */,
-				139CEA8B4069AD9D1B15F00665A14F60 /* Siren */,
-				D76989E337BA3A14616E0676616EEB4A /* SweeterSwift */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		2E04327A4F7C247F82046946A376DD7A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				3203248268B84A12519F3DF69050F497 /* Siren.modulemap */,
-				75FB739DC593B3A975D7ED00C3542521 /* Siren-dummy.m */,
-				683431FAEED5114F90345E419661CB63 /* Siren-Info.plist */,
-				BBD1774D6025506AAFDA5A0F6E6252D2 /* Siren-prefix.pch */,
-				71808BF35DE85CA446469F1005BBE35F /* Siren-umbrella.h */,
-				B82CF28E1961B771A3F67A6FC788F24E /* Siren.debug.xcconfig */,
-				04060BE29DA13883DBB9A1773C24A050 /* Siren.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Siren";
-			sourceTree = "<group>";
-		};
 		327BDEBA2A3628D1C05BF851A7B44743 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,19 +232,44 @@
 			path = "Target Support Files/Pods-SchoolPlanner";
 			sourceTree = "<group>";
 		};
-		4E0F2CCCAF3CD227A22053997343503E /* Support Files */ = {
+		41686ABC6284282E3656B39893B601A3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6861A2E645B646274DDCEB2E0FD2BC52 /* MultiSelectSegmentedControl.modulemap */,
-				6FE12A418826F8839BFCE8CCB7D657D3 /* MultiSelectSegmentedControl-dummy.m */,
-				D2C235B19C38653AB14D5CCDA74CF503 /* MultiSelectSegmentedControl-Info.plist */,
-				2884FBCB21C392B23223EAD9C57DA60A /* MultiSelectSegmentedControl-prefix.pch */,
-				26858AE5AFE5EDF6D8C33B8AC0CFC535 /* MultiSelectSegmentedControl-umbrella.h */,
-				966E160F7B4A9B0961A9D4950D404311 /* MultiSelectSegmentedControl.debug.xcconfig */,
-				F9F7CA0060477B9E8A4DB38F83679954 /* MultiSelectSegmentedControl.release.xcconfig */,
+				4D4A4C9A4242DE200001F8AB5A9BC665 /* PrivacyInfo.xcprivacy */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/MultiSelectSegmentedControl";
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		478DA25ED3DDEE191D5142EA15530230 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				71267F771296B5216EA304AF378230EE /* PrivacyInfo.xcprivacy */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		48AAD158933BBEE691E6FF3619C95DBB /* SweeterSwift */ = {
+			isa = PBXGroup;
+			children = (
+				84D34D723676B6DBE17E49F4CD48240D /* Bundle+Sweeter.swift */,
+				82A8D848E8D1FEE10BF5757F80879682 /* Codable+Sweeter.swift */,
+				4FDEA057B33515B4A86B920B76E8ABF3 /* DateFormatter+Sweeter.swift */,
+				5101FD57991A227BF66E6301EB02215E /* NSAttributedString+Sweeter.swift */,
+				D08EAF633CC8D51DEB873F717BE42AAF /* NSManagedObjectContext+Sweeter.swift */,
+				6226FEEC85CB56D2923E246E7C6962E9 /* NSObject+Sweeter.swift */,
+				87CA112A7DC8B335559DD35F5543F3F5 /* String+Sweeter.swift */,
+				996427AB2C25A7D80737A60D28266973 /* Swift+Sweeter.swift */,
+				F9D4390144F2F520BD94FC80B9FF19FD /* TimeInterval+Sweeter.swift */,
+				07FC450C339028AC70BC0DE0533FA36E /* UIApplication+Sweeter.swift */,
+				D055283189D3905AA03A6623BBE0E835 /* UIStackView+Sweeter.swift */,
+				D97911A8D4C30518F4522B6FCEDE4837 /* UITextView+Sweeter.swift */,
+				AD7952C6209E3249B37FE36A9F65B165 /* UIView+Sweeter.swift */,
+				B4C77D6CE0CB1146E54DE6F73533F15C /* UIViewController+Sweeter.swift */,
+				41686ABC6284282E3656B39893B601A3 /* Resources */,
+				5C623EE73A4AAC0AF72978B09FC2E4EE /* Support Files */,
+			);
+			name = SweeterSwift;
+			path = SweeterSwift;
 			sourceTree = "<group>";
 		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
@@ -306,16 +280,95 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		CE3E05B279BB500ABDCE4F57BF464687 /* MultiSelectSegmentedControl */ = {
+		5C623EE73A4AAC0AF72978B09FC2E4EE /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				BBB29D607327EBD8CD24B80AF580A0BC /* MultiSegmentPicker.swift */,
-				FCC90E04C0CB13D5AD6F90D7D4A603F8 /* MultiSelectSegment.swift */,
-				B85CC913325B93B7E2B0ED6107B82A2F /* MultiSelectSegmentedControl.swift */,
-				4E0F2CCCAF3CD227A22053997343503E /* Support Files */,
+				0F4A0CB679B376CBE5D2D9199A20DD3D /* SweeterSwift.modulemap */,
+				6914FC5E1440806BAD6A58E46764C2A8 /* SweeterSwift-dummy.m */,
+				DD17E638846ECE70D8AB5946928FC6D3 /* SweeterSwift-Info.plist */,
+				0888EF975A720F467C56F07927A81106 /* SweeterSwift-prefix.pch */,
+				DE049DC8A7945DC02544E2CA18229C01 /* SweeterSwift-umbrella.h */,
+				5D58E3CD3A29DB713C3FC70F4DCF9643 /* SweeterSwift.debug.xcconfig */,
+				B2C2A1DD2005E72AD87592590D4FEDA8 /* SweeterSwift.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SweeterSwift";
+			sourceTree = "<group>";
+		};
+		6A20CB2AA4374A8244049089A0536A0F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				114E62B2261BA4ADE0A071D8B9D850D6 /* MultiSelectSegmentedControl.modulemap */,
+				5A1BBC9BF85796E4C2771D8BC5DD6B95 /* MultiSelectSegmentedControl-dummy.m */,
+				091E40953343F710D8B30BE70DB2F0E9 /* MultiSelectSegmentedControl-Info.plist */,
+				E7E6056966AD35A37240F4BA7278178D /* MultiSelectSegmentedControl-prefix.pch */,
+				E6309DACCED0D9C560087EACF273CD08 /* MultiSelectSegmentedControl-umbrella.h */,
+				303531ED44DE6A003B6135B009CA488E /* MultiSelectSegmentedControl.debug.xcconfig */,
+				BF5475C9C6E875620A815E081CFD924D /* MultiSelectSegmentedControl.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MultiSelectSegmentedControl";
+			sourceTree = "<group>";
+		};
+		78AA73047430CB953743808C3CF81BB8 /* MultiSelectSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				9D83FD6570D9832835B9C020E08780AD /* MultiSegmentPicker.swift */,
+				8BFAFEDE690E254DFDA5B51735B64E28 /* MultiSelectSegment.swift */,
+				31CA909149756F483DC2C1B9B78EA851 /* MultiSelectSegmentedControl.swift */,
+				478DA25ED3DDEE191D5142EA15530230 /* Resources */,
+				6A20CB2AA4374A8244049089A0536A0F /* Support Files */,
 			);
 			name = MultiSelectSegmentedControl;
 			path = MultiSelectSegmentedControl;
+			sourceTree = "<group>";
+		};
+		A334FC7BAA1BE1A6F269EFBC1211C4B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				78AA73047430CB953743808C3CF81BB8 /* MultiSelectSegmentedControl */,
+				BAC575D5D3323A68264F455860E4A72D /* Siren */,
+				48AAD158933BBEE691E6FF3619C95DBB /* SweeterSwift */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A515C54A6592DE446884C75A83DCADC3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A81501451E491416ADDD2D08BA3AC0C6 /* Siren.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		BAC575D5D3323A68264F455860E4A72D /* Siren */ = {
+			isa = PBXGroup;
+			children = (
+				55C484ED70B41FFDA4B11AF414A5599C /* AlertAction.swift */,
+				730C591D194C258916243BB10C8902A6 /* AlertConstants.swift */,
+				C114E6D5489328872A1E1D1AE19BDE93 /* APIManager.swift */,
+				3904D02E2150ED42EC9E1290FBA8D64E /* APIModel.swift */,
+				135626A58AC8BE0478642850D083B515 /* AppStoreCountry.swift */,
+				25203FAFB1B559EAA6241C7935950DE5 /* BundleExtension.swift */,
+				894AA93D9D169D87D7486DC87E21B4A8 /* DataParser.swift */,
+				8F3B34B10EF2D1EA01B71892CA651A9E /* DateExtension.swift */,
+				B8F6B02A6FE53AC4CB2668A094544D87 /* KnownError.swift */,
+				DBB7B5C66044575C18E6D430E055318B /* Localization.swift */,
+				632578C93822B557D751B5A42A1A91AD /* Model.swift */,
+				24F2EE27AB2AE77890D9D3B4F0570ED4 /* PerformCheck.swift */,
+				1A039A1FAEAFB532C4C8239738283057 /* PresentationManager.swift */,
+				25F3D70353EA9850056CA97B31F9D7E6 /* Rules.swift */,
+				05ED91BB8AC9C7A7C18E28077F1520AE /* RulesManager.swift */,
+				A55554B73574AAB756EB3E3B84F92863 /* Siren.swift */,
+				6CA98EA752612576B429C87F083FB100 /* SirenViewController.swift */,
+				EDBAF22C2DEF8356361176BC13D161E3 /* UIAlertControllerExtension.swift */,
+				C6C845C5057A648F9210DB0AE5C303FB /* UpdateResults.swift */,
+				A4B33CDE59D8F17A4CBA7F52FC0DF849 /* UserDefaultsExtension.swift */,
+				A515C54A6592DE446884C75A83DCADC3 /* Resources */,
+				DBBEE6BA4E1EFF3AF45103586E6161C2 /* Support Files */,
+			);
+			name = Siren;
+			path = Siren;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -323,25 +376,10 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				2DC8BDC2E7E95846F22EF9D4F377CF44 /* Pods */,
+				A334FC7BAA1BE1A6F269EFBC1211C4B6 /* Pods */,
 				F62C8F02775DA5E514FC949576679A62 /* Products */,
 				327BDEBA2A3628D1C05BF851A7B44743 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		D0DB76BDB8E0AF833B18AF15C0465CAB /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				4D60B03077FA7E94ED0376FEA4CFAE06 /* SweeterSwift.modulemap */,
-				8859E9FB4F225981BB6F5D5BDCF46A41 /* SweeterSwift-dummy.m */,
-				5330AD0CA891C694CB68362E22CD9AAB /* SweeterSwift-Info.plist */,
-				670836E769E6A91FB7B7B561C9764AAD /* SweeterSwift-prefix.pch */,
-				95E45C2DD3245F966355F8EC0C5A0328 /* SweeterSwift-umbrella.h */,
-				1C1232D9DFF030F1D51F4E2D0417E6CF /* SweeterSwift.debug.xcconfig */,
-				9F6B04D99D89385BCD455DBE155CC407 /* SweeterSwift.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SweeterSwift";
 			sourceTree = "<group>";
 		};
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
@@ -352,35 +390,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D76989E337BA3A14616E0676616EEB4A /* SweeterSwift */ = {
+		DBBEE6BA4E1EFF3AF45103586E6161C2 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				8EAABFD044239985ECDF61646CA118C5 /* Bundle+Sweeter.swift */,
-				1E83A86125413B5B46692265571D6099 /* Codable+Sweeter.swift */,
-				46C50ABDE90C2E31DD4639728F1B725E /* DateFormatter+Sweeter.swift */,
-				741079BDFF76D1C65E9054FD7F216073 /* NSAttributedString+Sweeter.swift */,
-				8BC9090F6B3FAEC1DF6A3D139DFC1F63 /* NSManagedObjectContext+Sweeter.swift */,
-				A9387C48D9DE6454F348F9792F838DEE /* NSObject+Sweeter.swift */,
-				F683268952AC45E0DDA2144136CAC000 /* String+Sweeter.swift */,
-				FE498F8280A87985551CFC58ED8D9B74 /* Swift+Sweeter.swift */,
-				01DB4511815D0FDEA3A956B72566C861 /* TimeInterval+Sweeter.swift */,
-				06A15F0E91E1B45241BA47645728E03C /* UIApplication+Sweeter.swift */,
-				5DDB92BE63D36613ECA25DF5C0E87F81 /* UIStackView+Sweeter.swift */,
-				49E416AE20E23466A4D5B7E29F9E93E0 /* UITextView+Sweeter.swift */,
-				7B4686BD6D2B3DCD24BE8009A21A5A72 /* UIView+Sweeter.swift */,
-				0126D711DE7B66857CC1E5687E07009F /* UIViewController+Sweeter.swift */,
-				D0DB76BDB8E0AF833B18AF15C0465CAB /* Support Files */,
+				63A915EC3BA14E1630F584E8335B7C6E /* Siren.modulemap */,
+				481D913944EC8865A6CBAEC5A5766A16 /* Siren-dummy.m */,
+				82529E9B0904310B434A167943431B15 /* Siren-Info.plist */,
+				8BFBA52D1D303A2A143793BB960E6869 /* Siren-prefix.pch */,
+				FF9D7FD6D97B512ACE23323E996FC48D /* Siren-umbrella.h */,
+				DF0D96BE68729443A6734CF7630A2632 /* Siren.debug.xcconfig */,
+				9222551627489A504A3F040A81C3B419 /* Siren.release.xcconfig */,
 			);
-			name = SweeterSwift;
-			path = SweeterSwift;
-			sourceTree = "<group>";
-		};
-		E1CE740469D8D5DD79C137420C89650C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				D2F1729789F7038794A91E19DE1C905B /* Siren.bundle */,
-			);
-			name = Resources;
+			name = "Support Files";
+			path = "../Target Support Files/Siren";
 			sourceTree = "<group>";
 		};
 		F62C8F02775DA5E514FC949576679A62 /* Products */ = {
@@ -397,11 +419,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		929BCA364686FC8683B4ADE377E7F2EE /* Headers */ = {
+		333BE8DCDE10CEE79D48D19686E4E7A0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				240B8A9D9AE51E7CEA07328AB6087959 /* SweeterSwift-umbrella.h in Headers */,
+				76A11D0952D905DF70F6C332836BA0BF /* MultiSelectSegmentedControl-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,11 +435,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA6916899B4A718267AF817D82BB2B42 /* Headers */ = {
+		A02FD2BA9F99A34B807505DAF8248910 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8435A3C66AF1EE87A49745B33B40A8B5 /* MultiSelectSegmentedControl-umbrella.h in Headers */,
+				8ADF1B29CB11583339AE65C7BB45AA87 /* SweeterSwift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,9 +466,9 @@
 			buildRules = (
 			);
 			dependencies = (
-				F20CCA8D8FF1133CF111A6E9D9C0AECF /* PBXTargetDependency */,
-				0A09FC6A028E7D96FBF09CFB4CF04D5D /* PBXTargetDependency */,
-				3259598813361E40A273ABF1C3467AF6 /* PBXTargetDependency */,
+				54ED03C62014D4BB9BBF31AD26B6850D /* PBXTargetDependency */,
+				535FAC0679DACA0160873C7D9CD32D40 /* PBXTargetDependency */,
+				86A68210B597D268B254D8C6FE607759 /* PBXTargetDependency */,
 			);
 			name = "Pods-SchoolPlanner";
 			productName = Pods_SchoolPlanner;
@@ -455,12 +477,12 @@
 		};
 		6819F499159C87193DDD7D51504DD6C1 /* SweeterSwift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8E32CB640681722612C172FEDC1021D9 /* Build configuration list for PBXNativeTarget "SweeterSwift" */;
+			buildConfigurationList = D23732EFBEBABFA2AE661F8A528F9BF2 /* Build configuration list for PBXNativeTarget "SweeterSwift" */;
 			buildPhases = (
-				929BCA364686FC8683B4ADE377E7F2EE /* Headers */,
-				2FC5B6726AF289745381E1C8A21E56B7 /* Sources */,
-				1555916C1675DACDEDE48D98BCA83BE6 /* Frameworks */,
-				49B5EF78EE197EFB304D70598760BEE3 /* Resources */,
+				A02FD2BA9F99A34B807505DAF8248910 /* Headers */,
+				0CD0317CFC87F590BA7678D23B32083E /* Sources */,
+				670B2E947514FD7A99EA0439EE2AE2D8 /* Frameworks */,
+				47149DB78FEDAF874AF656D0B7B36455 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -491,17 +513,17 @@
 		};
 		C07B7AE734D89C24DB2D55FFF6D96DA3 /* MultiSelectSegmentedControl */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93A28F064B0952DB75DC53339E9A1D9E /* Build configuration list for PBXNativeTarget "MultiSelectSegmentedControl" */;
+			buildConfigurationList = 739BED881FAC959411F90FDCD6DDF9B6 /* Build configuration list for PBXNativeTarget "MultiSelectSegmentedControl" */;
 			buildPhases = (
-				AA6916899B4A718267AF817D82BB2B42 /* Headers */,
-				7588C889F89A489AAD4518D04C8DC3BB /* Sources */,
-				5B79B9D30A4870A318CA6ACD1FF483F9 /* Frameworks */,
-				65B266B393F1769355479CD474592CB5 /* Resources */,
+				333BE8DCDE10CEE79D48D19686E4E7A0 /* Headers */,
+				02A11199564756D58FA7DEA7CB2435D6 /* Sources */,
+				EB0497314DA3D47CE22D71A2AFF44A3D /* Frameworks */,
+				AD45C99D43E56695F94AECC1D4FF2819 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6E6CD43E1748C521561649F17C443788 /* PBXTargetDependency */,
+				F868D97115593958F49242B3B86330DF /* PBXTargetDependency */,
 			);
 			name = MultiSelectSegmentedControl;
 			productName = MultiSelectSegmentedControl;
@@ -518,7 +540,7 @@
 				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 11.4";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -547,17 +569,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		49B5EF78EE197EFB304D70598760BEE3 /* Resources */ = {
+		47149DB78FEDAF874AF656D0B7B36455 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		65B266B393F1769355479CD474592CB5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				C35855A4871DCCAA68576163F5581853 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,9 +584,50 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AD45C99D43E56695F94AECC1D4FF2819 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27AC720A2D06B05412F8C4946E465412 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		02A11199564756D58FA7DEA7CB2435D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1866814771DF8B92FF1721AA5F329376 /* MultiSegmentPicker.swift in Sources */,
+				9DEFE37E562954FFCA25B316B9331C66 /* MultiSelectSegment.swift in Sources */,
+				1E49B6F843FE7E2728E3D9F72A4271A4 /* MultiSelectSegmentedControl.swift in Sources */,
+				4AA349B63CC38EBA36BA7491DD4C4FBC /* MultiSelectSegmentedControl-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CD0317CFC87F590BA7678D23B32083E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E10AA3CB66372C4F3D1DB5F2A05F7B6B /* Bundle+Sweeter.swift in Sources */,
+				610B9159EE1DD9ABC30FC1B3A374A30B /* Codable+Sweeter.swift in Sources */,
+				4C64EC88A0294321B1F15E981C92C9DD /* DateFormatter+Sweeter.swift in Sources */,
+				1F90E41C1F24AD847C0F29571D7BC687 /* NSAttributedString+Sweeter.swift in Sources */,
+				77BCEE261E128BC960EF4A8F2A3BD8D6 /* NSManagedObjectContext+Sweeter.swift in Sources */,
+				1B8088D563F41C5355ACB349BA393050 /* NSObject+Sweeter.swift in Sources */,
+				58428B953FD6DECF13DD5E795E996634 /* String+Sweeter.swift in Sources */,
+				D812DEF8EDDE1CE5D39BCF689E141E20 /* SweeterSwift-dummy.m in Sources */,
+				517959FE0BA5589BAE6951E34C5ED79D /* Swift+Sweeter.swift in Sources */,
+				984BAAE1EB128FA180F7FF686A318FF6 /* TimeInterval+Sweeter.swift in Sources */,
+				9A8BE6A4C1999BCB178E93114E70505E /* UIApplication+Sweeter.swift in Sources */,
+				0CB939C67B05C16C54913B628CC5AC7A /* UIStackView+Sweeter.swift in Sources */,
+				F83C95FF813B4F0BA841B04A3F9DEAB0 /* UITextView+Sweeter.swift in Sources */,
+				ADFC29E66D697E6AD02F1D3AF58349A3 /* UIView+Sweeter.swift in Sources */,
+				525F3D2560693E46DE545ADA2110EA53 /* UIViewController+Sweeter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		163E1836FB7579BAEFD469E48402C6BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -599,28 +656,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2FC5B6726AF289745381E1C8A21E56B7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				283094C4698ED454ED5C6334DB90B165 /* Bundle+Sweeter.swift in Sources */,
-				C287B0F4752CD22248C110B0E55954AD /* Codable+Sweeter.swift in Sources */,
-				58E8B057D8C25F5D911FD9A25953441A /* DateFormatter+Sweeter.swift in Sources */,
-				0CBDC5897A5D4B5B7D3C14EFE4B9B701 /* NSAttributedString+Sweeter.swift in Sources */,
-				E38DD1AAE9BF15F896F823FF049E6D66 /* NSManagedObjectContext+Sweeter.swift in Sources */,
-				8C15657535725D3BE092FACB76B91A1C /* NSObject+Sweeter.swift in Sources */,
-				A64A2FB6AF4013C44078F376B4ADAC94 /* String+Sweeter.swift in Sources */,
-				3E8D15212206ECFAD824A287BF273FE6 /* SweeterSwift-dummy.m in Sources */,
-				9FDCF3D1452814AB07F41A9BC27EA527 /* Swift+Sweeter.swift in Sources */,
-				CCDB1C7D71BCD4BD78EE1A8E0848B935 /* TimeInterval+Sweeter.swift in Sources */,
-				88A485DF94F194DD966EA06DCCF58C3E /* UIApplication+Sweeter.swift in Sources */,
-				728578E5BC938649B5271EB687BC4905 /* UIStackView+Sweeter.swift in Sources */,
-				DD876E6EC2AC99B82DD37D0B9D4E12EA /* UITextView+Sweeter.swift in Sources */,
-				5F814EDC3C1FC41DE8DBBBBC9DDF2EE8 /* UIView+Sweeter.swift in Sources */,
-				2C6A016F894F69644091749E1EC89644 /* UIViewController+Sweeter.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2FFB74FCA1793F3777A870FA32EB6040 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -629,47 +664,70 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7588C889F89A489AAD4518D04C8DC3BB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E3B5EBE553EF842DC0EEABF7F7E05D46 /* MultiSegmentPicker.swift in Sources */,
-				40C8B36014EF0B9AD621C688EB0FCECF /* MultiSelectSegment.swift in Sources */,
-				2A3ACED4654D96CCB61ED3A19FDE5882 /* MultiSelectSegmentedControl.swift in Sources */,
-				5CC2437A1AB7853B2AE8989919E6C3C7 /* MultiSelectSegmentedControl-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0A09FC6A028E7D96FBF09CFB4CF04D5D /* PBXTargetDependency */ = {
+		535FAC0679DACA0160873C7D9CD32D40 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Siren;
 			target = A0E2640B83527AE54205D7FDE9C5D930 /* Siren */;
-			targetProxy = 9E01158E6421AB13B248EB0A77117A30 /* PBXContainerItemProxy */;
+			targetProxy = CCA08193D7D3CA876C9763B10A9768F0 /* PBXContainerItemProxy */;
 		};
-		3259598813361E40A273ABF1C3467AF6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SweeterSwift;
-			target = 6819F499159C87193DDD7D51504DD6C1 /* SweeterSwift */;
-			targetProxy = E26F53942B73617CC94E2DF8956DFFEA /* PBXContainerItemProxy */;
-		};
-		6E6CD43E1748C521561649F17C443788 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SweeterSwift;
-			target = 6819F499159C87193DDD7D51504DD6C1 /* SweeterSwift */;
-			targetProxy = 1A7FBC2CFF5E53AB74E8BFA232647AEC /* PBXContainerItemProxy */;
-		};
-		F20CCA8D8FF1133CF111A6E9D9C0AECF /* PBXTargetDependency */ = {
+		54ED03C62014D4BB9BBF31AD26B6850D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MultiSelectSegmentedControl;
 			target = C07B7AE734D89C24DB2D55FFF6D96DA3 /* MultiSelectSegmentedControl */;
-			targetProxy = 232B886267DB2383A025C5321ECADEFA /* PBXContainerItemProxy */;
+			targetProxy = B4217E0698CC4007F92DE22B75190731 /* PBXContainerItemProxy */;
+		};
+		86A68210B597D268B254D8C6FE607759 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SweeterSwift;
+			target = 6819F499159C87193DDD7D51504DD6C1 /* SweeterSwift */;
+			targetProxy = 2460D9334ED40E2E37B863423F545661 /* PBXContainerItemProxy */;
+		};
+		F868D97115593958F49242B3B86330DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SweeterSwift;
+			target = 6819F499159C87193DDD7D51504DD6C1 /* SweeterSwift */;
+			targetProxy = 285968957EEF646BA0DB1749B9B8C37B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		02DA4125949A4EC565E0DE6367E8A5D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D58E3CD3A29DB713C3FC70F4DCF9643 /* SweeterSwift.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SweeterSwift/SweeterSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SweeterSwift/SweeterSwift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SweeterSwift/SweeterSwift.modulemap";
+				PRODUCT_MODULE_NAME = SweeterSwift;
+				PRODUCT_NAME = SweeterSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		077528A49E7AC67712951DB4EB01D844 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6ADA0D2C073A49E1CB922358C3954124 /* Pods-SchoolPlanner.release.xcconfig */;
@@ -708,9 +766,9 @@
 			};
 			name = Release;
 		};
-		39C5C3616BCED21BEE208EFC27014439 /* Release */ = {
+		5C323F25851F16A993F0D73C289F0384 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9F7CA0060477B9E8A4DB38F83679954 /* MultiSelectSegmentedControl.release.xcconfig */;
+			baseConfigurationReference = BF5475C9C6E875620A815E081CFD924D /* MultiSelectSegmentedControl.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -739,9 +797,9 @@
 			};
 			name = Release;
 		};
-		50C14E7A63BC638DAC30633984259533 /* Release */ = {
+		A8A05997EF6A6DB426AC999FBAC0C01B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F6B04D99D89385BCD455DBE155CC407 /* SweeterSwift.release.xcconfig */;
+			baseConfigurationReference = B2C2A1DD2005E72AD87592590D4FEDA8 /* SweeterSwift.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -774,9 +832,9 @@
 			};
 			name = Release;
 		};
-		5FA9930A6FDAAF88B79FC79BB97C97B3 /* Debug */ = {
+		B390A9933AF5DEFD7438BCF6BF23ECB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 966E160F7B4A9B0961A9D4950D404311 /* MultiSelectSegmentedControl.debug.xcconfig */;
+			baseConfigurationReference = 303531ED44DE6A003B6135B009CA488E /* MultiSelectSegmentedControl.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -798,41 +856,6 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A59A81AD4E55702E9929C3641E484D61 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B82CF28E1961B771A3F67A6FC788F24E /* Siren.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Siren/Siren-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Siren/Siren-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Siren/Siren.modulemap";
-				PRODUCT_MODULE_NAME = Siren;
-				PRODUCT_NAME = Siren;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -905,10 +928,11 @@
 			};
 			name = Debug;
 		};
-		C432062230AE7E2D63CA72EDD9342210 /* Debug */ = {
+		BCBFF8EF928B547BB0815FB1D8EDDB3D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C1232D9DFF030F1D51F4E2D0417E6CF /* SweeterSwift.debug.xcconfig */;
+			baseConfigurationReference = DF0D96BE68729443A6734CF7630A2632 /* Siren.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -917,22 +941,22 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SweeterSwift/SweeterSwift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SweeterSwift/SweeterSwift-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Siren/Siren-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Siren/Siren-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/SweeterSwift/SweeterSwift.modulemap";
-				PRODUCT_MODULE_NAME = SweeterSwift;
-				PRODUCT_NAME = SweeterSwift;
+				MODULEMAP_FILE = "Target Support Files/Siren/Siren.modulemap";
+				PRODUCT_MODULE_NAME = Siren;
+				PRODUCT_NAME = Siren;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 5.5;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1038,9 +1062,9 @@
 			};
 			name = Debug;
 		};
-		FCC5AB2117EF0D928A63CF7DC07A445D /* Release */ = {
+		E46B0FE6677FAAA7EBF07EEA8AB028EC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04060BE29DA13883DBB9A1773C24A050 /* Siren.release.xcconfig */;
+			baseConfigurationReference = 9222551627489A504A3F040A81C3B419 /* Siren.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1066,7 +1090,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.3;
+				SWIFT_VERSION = 5.5;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1086,20 +1110,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8E32CB640681722612C172FEDC1021D9 /* Build configuration list for PBXNativeTarget "SweeterSwift" */ = {
+		739BED881FAC959411F90FDCD6DDF9B6 /* Build configuration list for PBXNativeTarget "MultiSelectSegmentedControl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C432062230AE7E2D63CA72EDD9342210 /* Debug */,
-				50C14E7A63BC638DAC30633984259533 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		93A28F064B0952DB75DC53339E9A1D9E /* Build configuration list for PBXNativeTarget "MultiSelectSegmentedControl" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5FA9930A6FDAAF88B79FC79BB97C97B3 /* Debug */,
-				39C5C3616BCED21BEE208EFC27014439 /* Release */,
+				B390A9933AF5DEFD7438BCF6BF23ECB1 /* Debug */,
+				5C323F25851F16A993F0D73C289F0384 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1113,11 +1128,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		D23732EFBEBABFA2AE661F8A528F9BF2 /* Build configuration list for PBXNativeTarget "SweeterSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02DA4125949A4EC565E0DE6367E8A5D5 /* Debug */,
+				A8A05997EF6A6DB426AC999FBAC0C01B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D32ED6FCE8895E74A4FB89FACB79DC86 /* Build configuration list for PBXNativeTarget "Siren" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A59A81AD4E55702E9929C3641E484D61 /* Debug */,
-				FCC5AB2117EF0D928A63CF7DC07A445D /* Release */,
+				BCBFF8EF928B547BB0815FB1D8EDDB3D /* Debug */,
+				E46B0FE6677FAAA7EBF07EEA8AB028EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

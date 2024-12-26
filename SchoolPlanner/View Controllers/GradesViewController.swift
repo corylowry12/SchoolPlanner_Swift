@@ -19,6 +19,8 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet var gradeTableView: UITableView!
     
+    var index: Int!
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let userDefaults = UserDefaults.standard
     var grades: [Grades] {
@@ -92,6 +94,30 @@ class GradesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal,
+                                        title: "Edit") { [self] (action, view, completionHandler) in
+            
+            let userDefaults = UserDefaults.standard
+            userDefaults.setValue(indexPath.row, forKey: "editGrade")
+            index = indexPath.row
+            self.performSegue(withIdentifier: "editGrade", sender: self)
+        }
+            
+            let swipeActionConfig = UISwipeActionsConfiguration(actions: [action])
+            action.backgroundColor = .systemOrange
+            return swipeActionConfig
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editGrade" {
+            let vc = segue.destination as! AddGradeViewController
+            vc.index = index
+            vc.isEditingGrade = 1
+        }
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

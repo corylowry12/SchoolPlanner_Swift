@@ -16,9 +16,9 @@ class PatchNotesViewController: UITableViewController {
     var newFeaturesBool = false
     var enhancementsBool = false
     
-    var bugFixesArray : [String] = ["Fixed some UI issues in the How To view"]
-    var newFeaturesArray : [String] = []
-    var enhancementsArray : [String] = ["Added support for iOS 16.4"]
+    var bugFixesArray : [String] = ["Fixed some crashing when adding grades", "Fixed issue when editing assignments where the date on the date picker would be wrong", "Fixed issue when editing assignment it might show the wrong assignment", "Fixed issue when editing an assignment with a date before the current date it would change the value when saving", "Fixed issue where you couldn't save grades if they contained a decimal"]
+    var newFeaturesArray : [String] = ["Added the ability to edit grades by swiping to the right on an entry (Same way you edit assignments)"]
+    var enhancementsArray : [String] = ["Added support for iOS 17", "Updated some dependencies", "The save button when editing an assignment now says \"Update\""]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -2,7 +2,7 @@
 
 ### Notify users when a new version of your app is available and prompt them to upgrade.
 
-[![Travis CI Status](https://travis-ci.org/ArtSabintsev/Siren.svg?branch=master)](https://travis-ci.org/ArtSabintsev/Siren) ![Swift Support](https://img.shields.io/badge/Swift-5.3-orange.svg) [![CocoaPods](https://img.shields.io/cocoapods/v/Siren.svg)](https://cocoapods.org/pods/Siren) [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/) [![Accio supported](https://img.shields.io/badge/Accio-supported-0A7CF5.svg?style=flat)](https://github.com/JamitLabs/Accio) 
+[![Travis CI Status](https://travis-ci.org/ArtSabintsev/Siren.svg?branch=master)](https://travis-ci.org/ArtSabintsev/Siren) ![Swift Support](https://img.shields.io/badge/Swift-5.5-orange.svg) [![CocoaPods](https://img.shields.io/cocoapods/v/Siren.svg)](https://cocoapods.org/pods/Siren) [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/) [![Accio supported](https://img.shields.io/badge/Accio-supported-0A7CF5.svg?style=flat)](https://github.com/JamitLabs/Accio) 
 
 ---
 
@@ -81,7 +81,8 @@ Siren is built to work with the [**Semantic Versioning**](https://semver.org/) s
 
 | Swift Version |  Branch Name  | Will Continue to Receive Updates?
 | ------------- | ------------- |  -------------
-| 5.1+ | master | **Yes**
+| 5.5+ | master | **Yes**
+| 5.1-5.4 | swift5.4 | No
 | 5.0 | swift5.0 | No
 | 4.2 | swift4.2 | No
 | 4.1 | swift4.1 | No
@@ -91,7 +92,8 @@ Siren is built to work with the [**Semantic Versioning**](https://semver.org/) s
 
 ### CocoaPods
 ```ruby
-pod 'Siren' # Swift 5.1+
+pod 'Siren' # Swift 5.5+
+pod 'Siren', :git => 'https://github.com/ArtSabintsev/Siren.git', :branch => 'swift5.4' # Swift 5.1-5.4
 pod 'Siren', :git => 'https://github.com/ArtSabintsev/Siren.git', :branch => 'swift5.0' # Swift 5.0
 pod 'Siren', :git => 'https://github.com/ArtSabintsev/Siren.git', :branch => 'swift4.2' # Swift 4.2
 pod 'Siren', :git => 'https://github.com/ArtSabintsev/Siren.git', :branch => 'swift4.1' # Swift 4.1
@@ -102,7 +104,7 @@ pod 'Siren', :git => 'https://github.com/ArtSabintsev/Siren.git', :branch => 'sw
 
 ### Swift Package Manager
 ```swift
-.Package(url: "https://github.com/ArtSabintsev/Siren.git", majorVersion: 5)
+.Package(url: "https://github.com/ArtSabintsev/Siren.git", majorVersion: 6)
 ```
 
 ## Implementation Examples

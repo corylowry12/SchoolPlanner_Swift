@@ -15,6 +15,7 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var categorySegmentedControl: UISegmentedControl!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dueDate: UIDatePicker!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var notes: UITextView!
     
     var index: Int!
@@ -148,6 +149,10 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
         notes.becomeFirstResponder()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        saveButton.title = "Save"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -168,6 +173,7 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
         if isEditingAssignment == 1 {
             navigationItem.title = "Edit Assignment"
             print("hello world")
+            saveButton.title = "Update"
             
             if section == 0 {
                 let assignmentName = assignments[index].name
@@ -178,6 +184,7 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "MM/dd/yyyy"
                 let date = dateFormatter.date(from: assignments[index].dueDate!)
+                dueDate.minimumDate = date
                 dueDate.date = date!
                 
                 categorySegmentedControl.selectedSegmentIndex = Int(assignments[index].category)
@@ -208,6 +215,7 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "MM/dd/yyyy"
                 let date = dateFormatter.date(from: pastDue[index].dueDate!)
+                dueDate.minimumDate = date
                 dueDate.date = date!
                 
                 categorySegmentedControl.selectedSegmentIndex = Int(pastDue[index].category)
@@ -238,6 +246,7 @@ class AddAssignmentViewController: UIViewController, UITableViewDelegate, UITabl
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "MM/dd/yyyy"
                 let date = dateFormatter.date(from: doneAssignments[index].dueDate!)
+                dueDate.minimumDate = date
                 dueDate.date = date!
                 
                 categorySegmentedControl.selectedSegmentIndex = Int(doneAssignments[index].category)
